@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+/* font-family: 'Raleway', sans-serif; */
+#wrap{}
+/* header */
+header{
+    padding: 45px 36px 0;
+}
+header .logo{
+    float: left;
+}
+header nav{
+    float: right;
+}
+header nav ul li{
+    text-align: right;
+}
+/* tablet */
+@media all and (min-width:768px){}
+/* pc */
+@media all and (min-width:1132px){}
