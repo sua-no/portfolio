@@ -1,20 +1,224 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 /* font-family: 'Raleway', sans-serif; */
-#wrap{}
+#wrap{
+    width: 100%;
+}
 /* header */
 header{
-    padding: 45px 36px 0;
+    width: 100%;
+    padding: 5% 4%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+.headerBack{
+    background: rgba(0,0,0,.8);
 }
 header .logo{
     float: left;
 }
-header nav{
-    float: right;
+header #gnb{
+    padding-top: 15%;
+    display: none;
 }
-header nav ul li{
+header #gnb ul li{
+    padding: 1%;
+}
+header #gnb ul li a{
+    padding: 2% 0;
     text-align: right;
+    color: #fff;
+    font-size: 18px;
+    font-weight: lighter;
+}
+header .menuToggleBtn{
+    width: 39px;
+    height: 23px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 15px;
+    cursor: pointer;
+}
+header .menuToggleBtn span{
+    width: 39px;
+    height: 3px;
+    border-radius: 5px;
+    background: #fff;
+}
+header .menuToggleBtn span:nth-child(3){
+    width: 26px;
+}
+/* main */
+#main{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('../img/back_01_mobile.jpg') no-repeat;
+    background-size: cover;
+    background-position: center 40%;
+    z-index: 4;
+}
+#main video{
+    display: none;
+}
+#main .mainCopy{
+    margin-top: 40%;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+#main .mainCopy span{
+    display: inline-block;
+}
+#main .mainCopy span:nth-child(1),
+#main .mainCopy span:nth-child(2),
+#main .mainCopy span:nth-child(3){
+    font-size: 30px;
+    margin-right: 10px;
+}
+/* leftnav */
+.leftNav{
+    position: fixed;
+    left: 4%;
+    bottom: 15%;
+    z-index: 100;
+}
+.leftNav ul li{
+    margin-bottom: 45px;
+}
+.leftNav ul li:last-child{
+    margin-bottom: 0;
+}
+.leftNav ul li a{
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background: url('../img/icon/left_nav_icon.png') no-repeat left center/cover;
+}
+.leftNav ul li a:hover{
+    background-image: url('../img/icon/left_nav_hover.png');
+}
+.leftNav ul li:nth-child(2) a{
+    background-position: center center;
+}
+.leftNav ul li:nth-child(3) a{
+    background-position: right center;
+}
+/* footer */
+footer{
+    position: fixed;
+    left: 4%;
+    bottom: 5%;
+    z-index: 100;
+}
+footer p{
+    color: #676767;
+    font-weight: 100;
+    font-size: 14px;
 }
 /* tablet */
-@media all and (min-width:768px){}
+@media all and (min-width:720px){
+    /* header */
+    header{
+        padding: 30px 70px 0;
+        padding: 4.1666% 9.7222% 0;
+    }
+    header .menuToggleBtn{
+        display: none;
+    }
+    header #gnb{
+        width: 65%;
+        display: block;
+        float: right;
+        padding-top: 0;
+    }
+    header #gnb ul{
+        text-align: right;
+    }
+    header #gnb ul li{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    header #gnb ul li a{
+        padding: 2% 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: #a5a5a5;
+        transition: .5s;
+    }
+    header #gnb ul li:hover a{
+        color: #fff;
+    }
+    /* main */
+    #main{
+        background: none;
+        overflow: hidden;
+    }
+    #main:after{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+    }
+    #main video{
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        transform: scale(1.4);
+        display: block;
+    }
+    #main .mainCopy{
+        margin-top: 20%;
+    }
+    /* leftnav */
+    .leftNav{
+        left: 9.7222%;
+        bottom: 30%;
+    }
+    .leftNav ul li a{
+        width: 16px;
+        height: 16px;
+    }
+    /* right nav */
+    .rightNav{
+        position: fixed;
+        right: 9.7222%;
+        bottom: 20%;
+        z-index: 100;
+    }
+    .rightNav span{
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #fff;
+        margin-bottom: 39px;
+        cursor: pointer;
+    }
+    .rightNav span:hover{
+        background: #c00000;
+    }
+    /* footer */
+    footer{
+        left: 9.7222%;
+        bottom: 10%;
+    }
+}
+    
 /* pc */
-@media all and (min-width:1132px){}
+@media all and (min-width:1132px){
+    /* main */
+
+}
