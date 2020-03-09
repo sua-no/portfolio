@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 /* font-family: 'Raleway', sans-serif; */
-#wrap{
+#wrap {
     width: 100%;
 }
 /* header */
-header{
+header {
     width: 100%;
     padding: 5% 4%;
     box-sizing: border-box;
@@ -13,27 +13,27 @@ header{
     top: 0;
     z-index: 100;
 }
-.headerBack{
-    background: rgba(0,0,0,.8);
+.headerBack {
+    background: rgba(0, 0, 0, 0.8);
 }
-header .logo{
+header .logo {
     float: left;
 }
-header #gnb{
+header #gnb {
     padding-top: 15%;
     display: none;
 }
-header #gnb ul li{
+header #gnb ul li {
     padding: 1%;
 }
-header #gnb ul li a{
+header #gnb ul li a {
     padding: 2% 0;
     text-align: right;
     color: #fff;
     font-size: 18px;
     font-weight: lighter;
 }
-header .menuToggleBtn{
+header .menuToggleBtn {
     width: 39px;
     height: 23px;
     float: right;
@@ -44,17 +44,17 @@ header .menuToggleBtn{
     margin-top: 15px;
     cursor: pointer;
 }
-header .menuToggleBtn span{
+header .menuToggleBtn span {
     width: 39px;
     height: 3px;
     border-radius: 5px;
     background: #fff;
 }
-header .menuToggleBtn span:nth-child(3){
+header .menuToggleBtn span:nth-child(3) {
     width: 26px;
 }
 /* section */
-#wrap section{
+#wrap section {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -64,173 +64,233 @@ header .menuToggleBtn span:nth-child(3){
     background-repeat: no-repeat;
 }
 /* main */
-#main{
-    background: url('../img/back_01_mobile.jpg');
+#main {
+    background: url("../img/back_01_mobile.jpg");
     background-position: center 40%;
     z-index: 4;
 }
-#main video{
+#main:before {
+    display: block;
+    content: "";
+    width: 22px;
+    height: 65px;
+    background: url("../img/icon/scroll_down.png") no-repeat center center/contain;
+    position: absolute;
+    left: calc(50% - 11px);
+    bottom: 2%;
+    z-index: 5;
+    animation: scroll 0.5s 0.2s alternate infinite ease-in-out;
+}
+@keyframes scroll {
+    0% {
+    }
+    100% {
+        margin-bottom: 1%;
+    }
+}
+#main video {
     display: none;
 }
-#main .mainCopy{
-    margin-top: 40%;
+#main .mainCopy {
+    margin-top: 50%;
     text-align: center;
     color: #fff;
     text-transform: uppercase;
 }
-#main .mainCopy span{
-    display: inline-block;
+#main .mainCopy p {
+    overflow: hidden;
 }
-#main .mainCopy span:nth-child(1),
-#main .mainCopy span:nth-child(2),
-#main .mainCopy span:nth-child(3){
+#main .mainCopy p:nth-child(1) {
+    opacity: 0.6;
+}
+#main .mainCopy p:nth-child(2) {
+    line-height: 1.4;
+}
+#main .mainCopy span {
+    display: inline-block;
+    animation: textup 0.7s forwards;
+}
+@keyframes textup {
+    0% {
+        padding-top: 100%;
+    }
+    100% {
+        padding-top: 0%;
+    }
+}
+#main .mainCopy p:nth-child(1) span {
     font-size: 30px;
-    margin-right: 10px;
+    font-weight: 100;
+}
+#main .mainCopy p:nth-child(1) span:nth-child(2) {
+    margin: 0 5px;
+}
+#main .mainCopy p:nth-child(2) span {
+    font-size: 70px;
+    font-weight: bold;
 }
 /* trailers */
-#trailers{
-    background: url('../img/back_02.jpg');
+#trailers {
+    background: url("../img/back_02.jpg");
     background-position: center center;
     z-index: 3;
 }
 /* characters */
-#characters{
-    background: url('../img/back_03.jpg');
+#characters {
+    background: url("../img/back_03.jpg");
     background-position: center center;
     z-index: 2;
 }
 /* gallery */
-#gallery{
-    background: url('../img/back_04.jpg');
+#gallery {
+    background: url("../img/back_04.jpg");
     background-position: center center;
     z-index: 1;
 }
 /* leftnav */
-.leftNav{
+.leftNav {
     position: fixed;
     left: 4%;
     bottom: 15%;
     z-index: 100;
 }
-.leftNav ul li{
+.leftNav ul li {
     margin-bottom: 45px;
 }
-.leftNav ul li:last-child{
+.leftNav ul li:last-child {
     margin-bottom: 0;
 }
-.leftNav ul li a{
+.leftNav ul li a {
     text-indent: -9999px;
-    width: 20px;
-    height: 20px;
-    opacity: 0.3;
-    background: url('../img/icon/left_nav_icon.png') no-repeat left center/cover;
+    width: 22px;
+    height: 22px;
+    opacity: 0.4;
+    background: url("../img/icon/left_nav_icon.png") no-repeat left center/cover;
 }
-.leftNav ul li a:hover{
-    background-image: url('../img/icon/left_nav_hover.png');
+.leftNav ul li a:hover {
+    opacity: 1;
+    background-image: url("../img/icon/left_nav_hover.png");
 }
-.leftNav ul li:nth-child(2) a{
+.leftNav ul li:nth-child(2) a {
     background-position: center center;
 }
-.leftNav ul li:nth-child(3) a{
+.leftNav ul li:nth-child(3) a {
     background-position: right center;
 }
 /* footer */
-footer{
+footer {
     position: fixed;
     left: 4%;
     bottom: 5%;
     z-index: 100;
 }
-footer p{
+footer p {
     color: #676767;
     font-weight: 100;
     font-size: 14px;
 }
 /* js */
-.slide{
+.slide {
     transform: translateY(0);
-    transition: .8s ease-out;
+    transition: 0.8s ease-out;
 }
+
 /* tablet */
-@media all and (min-width:720px){
+@media all and (min-width: 720px) {
     /* header */
-    header{
+    header {
         padding: 30px 70px 0;
         padding: 4.1666% 9.7222% 0;
     }
-    header .menuToggleBtn{
+    header .menuToggleBtn {
         display: none;
     }
-    header #gnb{
+    header #gnb {
         width: 65%;
         display: block;
         float: right;
         padding-top: 0;
     }
-    header #gnb ul{
+    header #gnb ul {
         text-align: right;
     }
-    header #gnb ul li{
+    header #gnb ul li {
         display: inline-block;
         margin-left: 20px;
     }
-    header #gnb ul li a{
+    header #gnb ul li a {
         padding: 2% 0;
         font-size: 16px;
         font-weight: bold;
         color: #a5a5a5;
-        transition: .5s;
+        transition: 0.5s;
     }
-    header #gnb ul li:hover a{
+    header #gnb ul li:hover a {
         color: #fff;
     }
     /* main */
-    #main{
+    #main {
         background: none;
         overflow: hidden;
         position: relative;
     }
-    #main:after{
+    #main:after {
         display: block;
         position: absolute;
         left: 0;
         top: 0;
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
     }
-    #main video{
+    #main video {
         width: 100%;
         max-width: 100%;
         height: 100%;
         max-height: 100%;
-        transform: scale(1.4);
+        transform: scale(1.5);
         display: block;
     }
-    #main .mainCopy{
+    #main .mainCopy {
+        margin: 0 auto;
+        width: 60%;
         position: absolute;
-        left: 10%;
-        top: 20%;
+        left: calc(50% - 30%);
+        top: 30%;
         z-index: 5;
     }
+    #main .mainCopy p:nth-child(1) {
+        margin-bottom: 30px;
+    }
+    #main .mainCopy p:nth-child(1) span {
+        font-size: 50px;
+    }
+    #main .mainCopy p:nth-child(1) span:nth-child(2) {
+        margin: 0 20px;
+    }
+    #main .mainCopy p:nth-child(2) span {
+        font-size: 80px;
+    }
+
     /* leftnav */
-    .leftNav{
+    .leftNav {
         left: 9.7222%;
         bottom: 30%;
     }
-    .leftNav ul li a{
+    .leftNav ul li a {
         width: 16px;
         height: 16px;
+        opacity: 1;
     }
     /* right nav */
-    .rightNav{
+    .rightNav {
         position: fixed;
         right: 9.7222%;
         bottom: 20%;
         z-index: 100;
     }
-    .rightNav span{
+    .rightNav span {
         display: block;
         width: 5px;
         height: 5px;
@@ -239,18 +299,30 @@ footer p{
         margin-bottom: 39px;
         cursor: pointer;
     }
-    .rightNav span:hover{
+    .rightNav span:hover {
+        background: #c00000;
+    }
+    /* js */
+    .rightNav span.backRed {
         background: #c00000;
     }
     /* footer */
-    footer{
+    footer {
         left: 9.7222%;
         bottom: 10%;
     }
 }
-    
-/* pc */
-@media all and (min-width:1132px){
-    /* main */
 
+/* pc */
+@media all and (min-width: 1132px) {
+    /* main */
+    #main .mainCopy p:nth-child(1) span {
+        font-size: 60px;
+    }
+    #main .mainCopy p:nth-child(2) span {
+        font-size: 100px;
+    }
+    #main .mainCopy p:nth-child(2) span:nth-child(1) {
+        margin-right: 40px;
+    }
 }
