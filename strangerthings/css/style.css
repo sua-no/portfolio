@@ -128,8 +128,6 @@ header .menuToggleBtn span.trans:nth-child(3) {
     color: #fff;
     text-transform: uppercase;
 }
-#main .mainCopy p {
-}
 #main .mainCopy p:nth-child(1) {
     opacity: 0.6;
 }
@@ -161,17 +159,57 @@ header .menuToggleBtn span.trans:nth-child(3) {
     font-size: 70px;
     font-weight: bold;
 }
+/* contents */
+h2.secTit {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+}
 /* trailers */
 #trailers {
     background: url("../img/back_02.jpg");
     background-position: center center;
     z-index: 3;
 }
+.inner {
+    width: 91%;
+    margin: 0 auto;
+}
+.inner .trailersCopy {
+    margin: 40% 0 8%;
+}
+#trailers .inner .trailersCopy p {
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 10px;
+}
+#trailers .inner .trailersMedia video {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.inner .viewBtn {
+    margin-top: 50px;
+}
+.inner .viewBtn a {
+    margin: 0 auto;
+    text-align: center;
+    padding: 3px 6px;
+    color: #fbb74d;
+    position: relative;
+    transition: all 0.3s linear;
+}
+.inner .viewBtn a:hover {
+    transform: translateY(5px);
+}
 /* characters */
 #characters {
     background: url("../img/back_03.jpg");
     background-position: center center;
-    z-index: 2;
+    z-index: 5;
 }
 /* gallery */
 #gallery {
@@ -226,7 +264,6 @@ footer p {
     transform: translateY(0);
     transition: 0.8s ease-out;
 }
-
 /* tablet */
 @media all and (min-width: 720px) {
     /* header */
@@ -311,7 +348,14 @@ footer p {
     #main .mainCopy p:nth-child(2) span {
         font-size: 80px;
     }
-
+    /* trailers */
+    #trailers .inner .trailersCopy {
+        margin: 20% 0 8%;
+    }
+    #trailers .inner .trailersMedia {
+        width: 78%;
+        margin: 0 auto;
+    }
     /* leftnav */
     .leftNav {
         left: 9.7222%;
@@ -353,7 +397,7 @@ footer p {
 }
 
 /* pc */
-@media all and (min-width: 1132px) {
+@media all and (min-width: 1025px) {
     /* main */
     #main .mainCopy p:nth-child(1) span {
         font-size: 60px;
@@ -363,5 +407,45 @@ footer p {
     }
     #main .mainCopy p:nth-child(2) span:nth-child(1) {
         margin-right: 40px;
+    }
+    /* contents */
+    h2.secTit {
+        font-size: 50px;
+        text-align: left;
+        margin-top: 32%;
+    }
+    /* trailers */
+    #trailers .inner {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8% 15% 0;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #trailers .inner .trailersCopy {
+        margin: 0;
+        float: left;
+    }
+    #trailers .inner .trailersCopy p {
+        color: #fff;
+        font-size: 30px;
+        text-align: left;
+        margin-top: 20px;
+    }
+    #trailers .inner .trailersMedia {
+        float: right;
+        width: 50%;
+        margin: 150px 50px 0 0;
+    }
+    #trailers .inner .trailersMedia video {
+        width: 100%;
+        margin: 0;
+    }
+    #trailers .inner .viewBtn {
+        clear: both;
+    }
+    #trailers .inner .viewBtn a {
+        text-align: left;
+        font-size: 14px;
     }
 }

@@ -1,22 +1,43 @@
 const mainCopy = document.querySelector(".mainCopy");
 let mainSpan = mainCopy.querySelectorAll(".mainCopy span");
 function index(target) {
-    let hole = 0;
-    while ((target = target.nextsibling) != null) {
-        //error
-        hole = 1;
+    var hole = 0;
+
+    console.log(target.nextSibling);
+    while ((target = target.nextSibling) != null) {
+        if (target.nodeType != 3) {
+            console.log("if");
+            console.log(target.nextSibling);
+            hole = 1;
+            return hole;
+        } else {
+            console.log("else");
+            console.log(target.nextSibling);
+        }
     }
+    console.log("333333333");
+    console.log(hole);
     return hole;
 }
+function copyStop() {
+    clearInterval(copyUp);
+}
 function copyUp() {
-    let span = index(mainCopy.target); //error
-    for (var i = 0; i > span[i].length; i++) {
-        if (span == 0) {
-            clearInterval(copyUp);
+    for (var i = 0; i < mainSpan.length; i++) {
+        console.log("11111111");
+        console.log(i);
+        console.log(mainSpan[i]);
+        var a = index(mainSpan[i]);
+        if (a == 0) {
+            copyStop();
+            console.log("clearInterval");
         } else {
-            span[i].style.paddingTop = "100%";
-            span[i].style.opacity = "1";
+            console.log("setInterval");
+            //mainSpan[i].style.transitionDelay = mainSPan[i] + "s";
+            mainSpan[i].style.opacity = "0.5";
         }
     }
 }
-setInterval(copyUp, 500);
+//let repeat = setInterval(function(){console.log("repeat")}, 1000);
+
+let repeat = setInterval(copyUp, 3000);
