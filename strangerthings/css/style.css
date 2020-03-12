@@ -177,10 +177,10 @@ h2.secTit {
     width: 91%;
     margin: 0 auto;
 }
-.inner .trailersCopy {
-    margin: 40% 0 8%;
+.inner .subCopy {
+    margin: 180px 0 8%;
 }
-#trailers .inner .trailersCopy p {
+#trailers .inner .subCopy p {
     color: #fff;
     font-size: 26px;
     text-align: center;
@@ -209,13 +209,104 @@ h2.secTit {
 #characters {
     background: url("../img/back_03.jpg");
     background-position: center center;
-    z-index: 5;
+    z-index: 2;
 }
+#characters .characterInfo {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+#characters .characterInfo ul {
+    width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+#characters .characterInfo ul li span {
+    display: block;
+    margin: 20px auto 0;
+    text-align: center;
+    color: #fbb74d;
+}
+#characters .characterInfo #prev,
+#characters .characterInfo #next {
+    position: absolute;
+    top: 40%;
+    z-index: 100;
+    height: 48px;
+    width: 30px;
+    opacity: 0.6;
+    background-position: left center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in;
+    background: url("../img/icon/characters_arrow.png");
+}
+#characters .characterInfo #prev:hover,
+#characters .characterInfo #next:hover {
+    opacity: 1;
+}
+#characters .characterInfo #next:hover {
+    background-position: right center;
+}
+#characters .characterInfo #prev {
+    left: calc(50% - 215px);
+}
+#characters .characterInfo #next {
+    right: calc(50% - 215px);
+    background-position: right center;
+}
+#characters .characterInfo #prev.disable,
+#characters .characterInfo #prev.disable {
+    display: block;
+}
+
 /* gallery */
 #gallery {
     background: url("../img/back_04.jpg");
     background-position: center center;
-    z-index: 1;
+    z-index: 5;
+}
+#gallery .galleryInner {
+    position: relative;
+}
+#gallery .galleryInner ul {
+    height: 500px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+#gallery .galleryInner ul li {
+    transform: scale(0.8);
+    transition: all 1s ease-in;
+}
+
+#gallery .galleryInner ul li.selectImg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#gallery .galleryInner #galleryPrev,
+#gallery .galleryInner #galleryNext {
+    position: absolute;
+    top: 52%;
+    right: 2%;
+    z-index: 100;
+    height: 28px;
+    width: 17px;
+    opacity: 0.6;
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in;
+    background: url("../img/icon/characters_arrow.png") no-repeat left center/cover;
+}
+#gallery .galleryInner #galleryNext {
+    top: 62%;
+    background-position: right center;
+}
+#gallery .galleryInner #galleryPrev:hover,
+#gallery .galleryInner #galleryNext:hover {
+    opacity: 1;
 }
 /* leftnav */
 .leftNav {
@@ -348,13 +439,26 @@ footer p {
     #main .mainCopy p:nth-child(2) span {
         font-size: 80px;
     }
-    /* trailers */
-    #trailers .inner .trailersCopy {
-        margin: 20% 0 8%;
+    .inner .subCopy {
+        margin: 180px 0 8%;
     }
+    /* trailers */
+
     #trailers .inner .trailersMedia {
         width: 78%;
         margin: 0 auto;
+    }
+    /* character */
+    #characters .inner .characterInfo {
+        width: 78%;
+        margin: 0 auto;
+    }
+    #characters .characterInfo #prev {
+        left: calc(50% - 250px);
+    }
+    #characters .characterInfo #next {
+        right: calc(50% - 250px);
+        background-position: right center;
     }
     /* leftnav */
     .leftNav {
@@ -422,11 +526,11 @@ footer p {
         margin: 0 auto;
         overflow: hidden;
     }
-    #trailers .inner .trailersCopy {
+    #trailers .inner .subCopy {
         margin: 0;
         float: left;
     }
-    #trailers .inner .trailersCopy p {
+    #trailers .inner .subCopy p {
         color: #fff;
         font-size: 30px;
         text-align: left;
@@ -448,4 +552,44 @@ footer p {
         text-align: left;
         font-size: 14px;
     }
+    /* character */
+    #characters .inner {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8% 15% 0;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #characters .inner .subCopy {
+        margin: 0 0 1.9%;
+        float: left;
+    }
+    #characters .inner .characterInfo {
+        width: 100%;
+    }
+    #characters .inner .characterInfo ul {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #characters .inner .characterInfo ul li {
+        width: 23%;
+        transition: all 0.5s ease-in;
+    }
+    #characters .inner .characterInfo ul li img {
+        width: 100%;
+    }
+    #characters .inner .characterInfo ul li:nth-child(2),
+    #characters .inner .characterInfo ul li:nth-child(4) {
+        margin-top: 60px;
+    }
+    #characters .inner .characterInfo ul li:hover {
+        transform: translateY(-20px);
+    }
+
+    #characters .inner .characterInfo #prev,
+    #characters .inner .characterInfo #next {
+        display: none;
+    }
+    /* gallery */
 }
