@@ -239,13 +239,14 @@ h2.secTit {
     position: relative;
 }
 #characters .characterInfo ul {
-    width: 320px;
+    width: 80%;
     margin: 0 auto;
     overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
 }
+
 #characters .characterInfo ul li span {
     display: block;
     margin: 20px auto 0;
