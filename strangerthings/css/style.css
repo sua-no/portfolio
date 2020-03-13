@@ -73,6 +73,8 @@ header .menuToggleBtn span {
     transition: all 0.35s linear;
     transform-origin: 13% 13%;
 }
+header .menuToggleBtn span.trans {
+}
 header .menuToggleBtn span.trans:nth-child(1) {
     transform: rotate(45deg);
 }
@@ -121,13 +123,10 @@ header .menuToggleBtn span.trans:nth-child(3) {
     display: none;
 }
 #main .mainCopy {
-    margin-top: 52%;
+    margin-top: 50%;
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-}
-#main .mainCopy p {
-    overflow: hidden;
 }
 #main .mainCopy p:nth-child(1) {
     opacity: 0.6;
@@ -135,18 +134,19 @@ header .menuToggleBtn span.trans:nth-child(3) {
 #main .mainCopy p:nth-child(2) {
     line-height: 1.4;
 }
-@keyframes contentstup {
-    0% {
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
 #main .mainCopy span {
     display: inline-block;
-    transform: translateY(100px);
-    box-sizing: border-box;
-    animation: contentstup 0.3s 0.3s forwards;
+    overflow: hidden;
+    animation: textup 0.7s forwards;
+    transition: all 0.5s;
+}
+@keyframes textup {
+    0% {
+        padding-top: 100%;
+    }
+    100% {
+        padding-top: 0%;
+    }
 }
 #main .mainCopy p:nth-child(1) span {
     font-size: 30px;
@@ -154,25 +154,11 @@ header .menuToggleBtn span.trans:nth-child(3) {
 }
 #main .mainCopy p:nth-child(1) span:nth-child(2) {
     margin: 0 5px;
-    animation-delay: 0.8s;
 }
-#main .mainCopy p:nth-child(1) span:nth-child(3) {
-    animation-delay: 1.3s;
-}
-
 #main .mainCopy p:nth-child(2) span {
     font-size: 70px;
     font-weight: bold;
 }
-#main .mainCopy p:nth-child(2) span:nth-child(1) {
-    transform: translateY(190px);
-    animation-delay: 2s;
-}
-#main .mainCopy p:nth-child(2) span:nth-child(2) {
-    transform: translateY(190px);
-    animation-delay: 2.5s;
-}
-
 /* contents */
 h2.secTit {
     text-transform: uppercase;
@@ -206,26 +192,18 @@ h2.secTit {
     margin: 0 auto;
 }
 .inner .viewBtn {
-    margin: 0 auto;
     margin-top: 50px;
-    width: 120px;
-    padding: 6px 8px;
-    border: 1px solid #fff;
-    border-radius: 5px;
 }
 .inner .viewBtn a {
-    display: block;
+    margin: 0 auto;
     text-align: center;
-    color: #fff;
+    padding: 3px 6px;
+    color: #fbb74d;
+    position: relative;
     transition: all 0.3s linear;
-    font-size: 13px;
 }
-.inner .viewBtn:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-.inner .viewBtn:hover a {
-    transform: translateX(-12px);
-    background: url("../img/icon/button_arrow.png") no-repeat right center/contain;
+.inner .viewBtn a:hover {
+    transform: translateY(5px);
 }
 /* characters */
 #characters {
@@ -289,35 +267,47 @@ h2.secTit {
 #gallery {
     background: url("../img/back_04.jpg");
     background-position: center center;
-    z-index: 1;
+    z-index: 5;
 }
 #gallery .galleryInner {
-    width: 80%;
-    margin: 0 auto;
-}
-#gallery .galleryInner .selectImg {
-    text-align: center;
-    margin-bottom: 2.5%;
+    position: relative;
 }
 #gallery .galleryInner ul {
+    height: 500px;
+    overflow: hidden;
     text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    position: relative;
 }
 #gallery .galleryInner ul li {
-    width: 25%;
-    cursor: pointer;
+    transform: scale(0.8);
+    transition: all 1s ease-in;
 }
-#gallery .galleryInner ul li img {
-    width: 100%;
-    display: block;
-    position: relative;
-    filter: grayscale(100%);
-    transition: all 0.3s;
+
+#gallery .galleryInner ul li.selectImg {
+    opacity: 1;
+    transform: scale(1);
 }
-#gallery .galleryInner ul li:hover img {
-    filter: grayscale(0%);
+
+#gallery .galleryInner #galleryPrev,
+#gallery .galleryInner #galleryNext {
+    position: absolute;
+    top: 52%;
+    right: 2%;
+    z-index: 100;
+    height: 28px;
+    width: 17px;
+    opacity: 0.6;
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in;
+    background: url("../img/icon/characters_arrow.png") no-repeat left center/cover;
+}
+#gallery .galleryInner #galleryNext {
+    top: 62%;
+    background-position: right center;
+}
+#gallery .galleryInner #galleryPrev:hover,
+#gallery .galleryInner #galleryNext:hover {
+    opacity: 1;
 }
 /* leftnav */
 .leftNav {
@@ -527,7 +517,7 @@ footer p {
     h2.secTit {
         font-size: 50px;
         text-align: left;
-        margin-top: 70px;
+        margin-top: 32%;
     }
     /* trailers */
     #trailers .inner {
@@ -556,10 +546,12 @@ footer p {
         width: 100%;
         margin: 0;
     }
-    .inner .viewBtn {
-        margin: 0;
+    #trailers .inner .viewBtn {
         clear: both;
+    }
+    #trailers .inner .viewBtn a {
         text-align: left;
+        font-size: 14px;
     }
     /* character */
     #characters .inner {
@@ -600,46 +592,5 @@ footer p {
     #characters .inner .characterInfo #next {
         display: none;
     }
-    #characters .inner .viewBtn {
-        margin: 0 auto;
-        margin-top: 30px;
-    }
     /* gallery */
-    #gallery .inner {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 8% 15% 0;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    #gallery .inner .subCopy {
-        margin: 0 0 1.9%;
-        float: left;
-    }
-    #gallery .inner .characterInfo {
-        width: 100%;
-    }
-    #gallery .galleryInner {
-        clear: both;
-        margin-top: 200px;
-    }
-    #gallery .galleryInner .selectImg {
-        display: none;
-    }
-    #gallery .galleryInner ul li {
-        overflow: hidden;
-    }
-    #gallery .galleryInner ul li:after {
-        display: none;
-    }
-    #gallery .galleryInner ul li img {
-        filter: grayscale(0%);
-    }
-    #gallery .galleryInner ul li:hover img {
-        transform: scale(1.2);
-    }
-    #gallery .inner .viewBtn {
-        margin: 0 auto;
-        margin-top: 40px;
-    }
 }
