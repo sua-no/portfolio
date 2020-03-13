@@ -15,7 +15,6 @@ function index(target) {
     return hole;
 }
 function spanColor() {
-    let backRed = rightNav[0].getElementsByClassName("backRed");
     for (var i = 0; i < span.length; i++) {
         if (span[i].classList.contains("backRed") == true) {
             span[i].classList.remove("backRed");
