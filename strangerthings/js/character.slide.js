@@ -7,18 +7,22 @@ window.addEventListener("DOMContentLoaded", function () {
     let liHeight;
     let idx = 0;
 
-
     inIt();
-    //브라우저 사이즈 변화 시 ul 사이즈 변경
+
+    //반응형 스크립트
     window.addEventListener("resize", function () {
         ulSize();
+        inIt();
     });
     nextBtn.addEventListener("click", slideLeft);
     prevBtn.addEventListener("click", slideRight);
-    //즉시실행함수
+    //즉시실행 - 미디어쿼리
     function inIt() {
-        const mediaQuery = window.matchMedia("screen and (min-width: 720px)");
-        if (mediaQuery.matches) {
+        const mediaQuery = window.matchMedia("screen and (min-width: 320px)");
+        const mediaQueryPc = window.matchMedia("screen and (min-width: 1024px)");
+        if (mediaQueryPc.matches) {
+            ulSizePc();
+        } else if (mediaQuery.matches) {
             liSort();
             ulSize();
         }
@@ -28,6 +32,12 @@ window.addEventListener("DOMContentLoaded", function () {
         liHeight = characterli[0].getBoundingClientRect().height;
         characterInfo.style.height = liHeight + "px";
         characterUl.style.height = liHeight + "px";
+    }
+    //pc ver
+    function ulSizePc() {
+        liHeight = characterli[0].getBoundingClientRect().height;
+        characterInfo.style.height = liHeight + 100 + "px";
+        characterUl.style.height = liHeight + 100 + "px";
     }
     //li 가로 정렬
     function liSort() {
@@ -50,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function () {
         characterUl.style.left = idx * -100 + "%";
         btnHide();
     }
-
+    //버튼 숨김
     function btnHide() {
         if (idx == 0) {
             prevBtn.style.display = "none";

@@ -405,6 +405,10 @@ section .inner .subCopy {
     transition: all 0.3s;
 }
 
+#gallery .galleryInner ul li:nth-child(1) img {
+    filter: grayscale(0%);
+}
+
 #gallery .galleryInner ul li:hover img {
     filter: grayscale(0%);
 }
@@ -580,7 +584,7 @@ footer p {
 
     /* character */
     #characters .inner .characterInfo {
-        width: 78%;
+        width: 50%;
         margin: 0 auto;
     }
 
@@ -750,8 +754,7 @@ footer p {
         transform: translateY(-20px);
     }
 
-    #characters .inner .characterInfo #prev,
-    #characters .inner .characterInfo #next {
+    #characters .inner .characterBtn {
         display: none;
     }
 
