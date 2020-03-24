@@ -121,7 +121,7 @@ header .menuToggleBtn span.trans:nth-child(3) {
     content: "";
     width: 22px;
     height: 65px;
-    background: url("../img/icon/scroll_down.png") no-repeat center center/contain;
+    background: url("../img/icon/scroll_down_mobile.png") no-repeat center center/contain;
     position: absolute;
     left: calc(50% - 11px);
     bottom: 2%;
@@ -659,6 +659,10 @@ footer p {
         margin-right: 40px;
     }
 
+    #main:before {
+        background-image: url('../img/icon/scroll_down.png');
+    }
+
     /* contents */
     h2.secTit {
         font-size: 50px;
@@ -792,6 +796,7 @@ footer p {
 
     #gallery .galleryInner ul li {
         overflow: hidden;
+        transition: .7s ease-in-out;
     }
 
     #gallery .galleryInner ul li:after {
@@ -803,7 +808,7 @@ footer p {
     }
 
     #gallery .galleryInner ul li:hover img {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     #gallery .inner .viewBtn {
