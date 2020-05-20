@@ -1,0 +1,91 @@
+@import "reset";
+@import "mixin";
+
+.wrap{
+    width: 100%;
+    position: relative;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .headerInner{
+        width: 100%;
+        height: 100%;
+        padding: 23px 18px;
+        box-sizing: border-box;
+        position: relative;
+        h1{
+            margin-left: 30px;
+        }
+        .btnBox{
+            width: 55px;
+            height: calc(100vh - 55px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 55px;
+            background: #fff;
+            .menuBtn{
+                width: 24px;
+                height: 18px;
+                @include background("menu.png");
+                @include btnTransition();
+                &.active{
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+        .menuBox{
+            width: 80vw;
+            height: 100vh;
+            position: absolute;
+            left: 55px;
+            top: 0;
+            background: #fff;
+            ul{
+                height: 100%;
+                padding: 220px 180px;
+                box-sizing: border-box;
+                .menuList{
+                    display: block;
+                    padding: 15px;
+                    cursor: pointer;
+                    span{
+                        position: relative;
+                        font-family: 'Archivo Black', sans-serif;
+                        font-weight: bold;
+                        font-size: 2rem;
+                        &:after{
+                            @include after(calc(100% + 20px),15px,#ddd);
+                            left: -10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+main{
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    .page{
+        width: 100%;
+        height: 100%;
+        padding:55px;
+        box-sizing: border-box;
+        .pageInner{
+            width: 100%;
+            height: 100%;
+            background: #f8f8f8;
+        }
+    }
+}
