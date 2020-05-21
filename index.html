@@ -14,55 +14,51 @@
     <div class="wrap">
         <header>
             <div class="headerInner">
-                <h1><a href="index.thml">SUA PORTFOLIO</a></h1>
-                <div class="btnBox">
-                    <button class="menuBtn"></button>
-                </div>
+                <h1><a href="index.thml">SUA PORTFOLIO.</a></h1>
                 <div class="menuBox">
-                    <ul>
-                        <li class="menuList"><span>Home</span></li>
-                        <li class="menuList"><span>About</span></li>
-                        <li class="menuList"><span>Work</span></li>
-                        <li class="menuList"><span>Contact</span></li>
-                    </ul>
+                    <button class="menuBtn"><span></span><span></span></button>
+                    <div class="menu">
+                        <ul>
+                            <li class="menuList"><span>Home</span></li>
+                            <li class="menuList" data-page="about"><span>About</span></li>
+                            <li class="menuList" data-page="work"><span>Work</span></li>
+                            <li class="menuList" data-page="contact"><span>Contact</span></li>
+                        </ul>
+                        <div class="info">
+                            <p>+82 10-9407-7723</p>
+                            <p>sua953@naver.com</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="rightMenu"><a href="">github</a></div>
+                <div class="rightMenu"><a href="https://github.com/sua-no" target="_blank"
+                        title="노수아 깃허브 새창열기">github</a></div>
             </div>
         </header>
         <main>
-            <div class="pageColor"></div>
-            <section class="page home">
-                <div class="pageInner">
-                    <h1>SUAFOLIO.</h1>
-                </div>
-                <div class="homeMenu">
-                    <ul>
-                        <li class="menuList">ABOUT</li>
-                        <li class="menuList">WORK</li>
-                        <li class="menuList">CONTACT</li>
-                    </ul>
-                </div>
-                <div class="scrolldown">
-                    <span>scroll</span>
-                </div>
-            </section>
-            <section class="page about">
-                <div class="pageInner">
+            <div class="pageInner">
+                <div class="pageColor"></div>
+                <section class="main">
+                    <h1>SUA
+                        FOLIO.</h1>
+                    <div class="mainMenu">
+                        <ul>
+                            <li class="menuList" data-page="about">ABOUT</li>
+                            <li class="menuList" data-page="work">WORK</li>
+                            <li class="menuList" data-page="contact">CONTACT</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="page about" data-contents="about">
                     <h2>ABOUT</h2>
-                </div>
-            </section>
-            <section class="page work">
-                <div class="pageInner">
+                </section>
+                <section class="page work" data-contents="work">
                     <h2>WORK</h2>
-
-                </div>
-            </section>
-            <section class="page contact">
-                <div class="pageInner">
+                </section>
+                <section class="page contact" data-contents="contact">
                     <h2>CONTACT</h2>
-
-                </div>
-            </section>
+                </section>
+            </div>
+            <div class="scrollDown"><span>scroll</span></div>
         </main>
     </div>
 

@@ -11,8 +11,11 @@ $gnbBorder : 1px solid #ddd;
 @mixin background($url){
     background: url("../img/"+$url)no-repeat center center;
 }
-@mixin btnTransition(){
+@mixin transition7s(){
     transition: all .7s;
+}
+@mixin transition1s(){
+    transition: all 1s;
 }
 @mixin up(){
     &.up{

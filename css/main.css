@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,7 +20,7 @@ time, mark, audio, video {
   font: inherit;
   font-family: 'Noto Sans KR', sans-serif;
   vertical-align: baseline;
-  color: #000;
+  color: #1c1b20;
   font-size: 16px; }
 
 a {
@@ -79,68 +79,242 @@ header {
     padding: 23px 18px;
     box-sizing: border-box;
     position: relative; }
+    header .headerInner.active h1 {
+      margin-left: 0;
+      left: calc(15.625vw + 33px);
+      top: 120px; }
+    header .headerInner.active .menuBox {
+      width: 80vw; }
+      header .headerInner.active .menuBox .menu {
+        width: 100%;
+        visibility: visible; }
+        header .headerInner.active .menuBox .menu .menuList:nth-of-type(1) span {
+          transition-delay: calc(1 * 0.2s); }
+        header .headerInner.active .menuBox .menu .menuList:nth-of-type(2) span {
+          transition-delay: calc(2 * 0.2s); }
+        header .headerInner.active .menuBox .menu .menuList:nth-of-type(3) span {
+          transition-delay: calc(3 * 0.2s); }
+        header .headerInner.active .menuBox .menu .menuList:nth-of-type(4) span {
+          transition-delay: calc(4 * 0.2s); }
+        header .headerInner.active .menuBox .menu .menuList span {
+          transform: translateY(0); }
+        header .headerInner.active .menuBox .menu .info {
+          transition: 1s 1s;
+          opacity: 1; }
+      header .headerInner.active .menuBox .menuBtn {
+        transform: rotate(-90deg);
+        left: 5vw; }
+        header .headerInner.active .menuBox .menuBtn span:nth-of-type(1) {
+          transform: rotate(45deg); }
+        header .headerInner.active .menuBox .menuBtn span:nth-of-type(2) {
+          transform: rotate(-45deg); }
     header .headerInner h1 {
-      margin-left: 30px; }
-    header .headerInner .btnBox {
+      margin-left: 55px;
+      position: absolute;
+      left: 0;
+      top: 23px;
+      font-weight: bold;
+      transition: all .7s;
+      z-index: 1000; }
+    header .headerInner .menuBox {
       width: 55px;
-      height: calc(100vh - 55px);
+      height: 100vh;
+      padding: 15px;
+      box-sizing: border-box;
       display: flex;
-      justify-content: center;
       align-items: center;
       position: absolute;
       left: 0;
-      top: 55px;
-      background: #fff; }
-      header .headerInner .btnBox .menuBtn {
-        width: 24px;
-        height: 18px;
-        background: url("../img/menu.png") no-repeat center center;
-        transition: all .7s; }
-        header .headerInner .btnBox .menuBtn.active {
-          transform: rotate(-90deg); }
-    header .headerInner .menuBox {
-      width: 80vw;
-      height: 100vh;
-      position: absolute;
-      left: 55px;
       top: 0;
-      background: #fff; }
-      header .headerInner .menuBox ul {
-        height: 100%;
-        padding: 220px 180px;
-        box-sizing: border-box; }
-        header .headerInner .menuBox ul .menuList {
+      background: #fff;
+      transition: all .7s;
+      z-index: 200; }
+      header .headerInner .menuBox .menuBtn {
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        left: 18px;
+        z-index: 10;
+        cursor: pointer;
+        transition: all .7s; }
+        header .headerInner .menuBox .menuBtn span {
+          width: 24px;
+          height: 2px;
+          border-radius: 2px;
+          background: #333;
+          transform-origin: 21%; }
+      header .headerInner .menuBox .menu {
+        margin-left: 15.625vw;
+        visibility: hidden; }
+        header .headerInner .menuBox .menu .menuList {
           display: block;
           padding: 15px;
-          cursor: pointer; }
-          header .headerInner .menuBox ul .menuList span {
+          cursor: pointer;
+          overflow: hidden; }
+          header .headerInner .menuBox .menu .menuList:hover span:after {
+            width: calc(100% + 20px); }
+          header .headerInner .menuBox .menu .menuList:nth-of-type(2) span:after {
+            background: #febf00; }
+          header .headerInner .menuBox .menu .menuList:nth-of-type(3) span:after {
+            background: #999; }
+          header .headerInner .menuBox .menu .menuList:nth-of-type(4) span:after {
+            background: #f00; }
+          header .headerInner .menuBox .menu .menuList span {
             position: relative;
-            font-family: 'Archivo Black', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            font-size: 2rem; }
-            header .headerInner .menuBox ul .menuList span:after {
+            font-size: 2rem;
+            z-index: 2;
+            transform: translateY(200%);
+            transition: .3s; }
+            header .headerInner .menuBox .menu .menuList span:after {
               display: block;
               content: '';
-              width: calc(100% + 20px);
+              width: 0;
               height: 15px;
               position: absolute;
-              background: #ddd;
+              background: #3f4bb4;
               left: -10px;
               top: 50%;
-              transform: translateY(-50%); }
+              transform: translateY(-50%);
+              transition: all .7s;
+              z-index: -1;
+              opacity: .5; }
+        header .headerInner .menuBox .menu .info {
+          padding: 80px 0 0 10px;
+          opacity: 0; }
+          header .headerInner .menuBox .menu .info p {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 2em; }
+    header .headerInner .rightMenu {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 500; }
+      header .headerInner .rightMenu a {
+        width: 28px;
+        height: 28px;
+        text-indent: -9999px;
+        background: url("../img/github.png") no-repeat center center; }
 
 main {
   width: 100%;
   height: 100vh;
-  background: #fff; }
-  main .page {
-    width: 100%;
-    height: 100%;
-    padding: 55px;
-    box-sizing: border-box; }
-    main .page .pageInner {
+  background: #fff;
+  position: absolute;
+  overflow: hidden; }
+  main .pageInner {
+    width: calc(100% - 110px);
+    height: calc(100vh - 110px);
+    margin: 55px;
+    position: relative;
+    overflow: hidden; }
+    main .pageInner section {
       width: 100%;
       height: 100%;
-      background: #f8f8f8; }
+      background: #f8f8f8;
+      position: absolute;
+      left: 0%;
+      top: calc(100% + 55px); }
+  main .scrollDown {
+    position: absolute;
+    left: calc(50% - 45px);
+    bottom: 100px;
+    transform: translateX(50%) rotate(-90deg);
+    z-index: 500;
+    transition: all .7s; }
+    main .scrollDown.active {
+      transform: translateY(100px) translateX(50%) rotate(-90deg); }
+    main .scrollDown:after {
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      background: none;
+      left: -20px;
+      bottom: -1px;
+      border: 5px solid transparent;
+      border-top: 5px solid #fff;
+      transform: rotate(90deg);
+      animation: scroll .7s infinite alternate-reverse ease-in-out; }
+@keyframes scroll {
+  100% {
+    left: -24px; } }
+    main .scrollDown span {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 100; }
+
+.pageInner.active .pageColor {
+  right: 0; }
+.pageInner.active .main h1 {
+  transform: translateX(146%); }
+.pageInner.active .main .mainMenu ul {
+  transform: translateY(0%);
+  transition-delay: .7s; }
+.pageInner .pageColor {
+  width: 100%;
+  height: 100%;
+  background: #080233;
+  position: absolute;
+  right: 50%;
+  top: 0;
+  transform: translateX(0);
+  transition: all 1s;
+  z-index: 10; }
+.pageInner .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  left: 0;
+  top: 0; }
+  .pageInner .main h1 {
+    position: relative;
+    font-size: 160px;
+    font-weight: bold;
+    color: #fff;
+    mix-blend-mode: difference;
+    white-space: pre-line;
+    transform: translateX(0);
+    transition: 1.2s .1s;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -6px; }
+  .pageInner .main .mainMenu {
+    width: 60%;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 20; }
+    .pageInner .main .mainMenu ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(200%);
+      transition: all .7s; }
+      .pageInner .main .mainMenu ul li {
+        font-weight: bold;
+        font-size: 4.5rem;
+        color: #fff;
+        cursor: pointer;
+        transition: all .35s; }
+        .pageInner .main .mainMenu ul li:hover {
+          letter-spacing: 3px;
+          color: transparent;
+          -webkit-text-stroke: 2px #fff; }
+.pageInner .about {
+  z-index: 3; }
+.pageInner .work {
+  z-index: 2; }
+.pageInner .contact {
+  z-index: 1; }
 
 /*# sourceMappingURL=main.css.map */
