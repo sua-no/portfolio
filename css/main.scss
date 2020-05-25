@@ -185,6 +185,10 @@ main{
             position: absolute;
             left: 0%;
             top: calc(100% + 55px);
+            &.contents{
+                top: 0;
+                z-index: 100;
+            }
         }
     }
     .scrollDown{
@@ -224,8 +228,10 @@ main{
             right: 0;
         }
         .main{
-            h1{
-                transform: translateX(146%);
+            // justify-content: flex-end;
+            .mainCopy{
+                transform: translateX(141%);
+                // transform: translateX(141%);
             }
             .mainMenu ul{
                 transform: translateY(0%);
@@ -243,6 +249,7 @@ main{
         top: 0;
         transform: translateX(0);
         @include transition1s();
+        transition-timing-function: ease-out;
         z-index: 10;
     }
     .main{
@@ -252,18 +259,40 @@ main{
         overflow: hidden;
         left: 0;
         top: 0;
-        h1{
+        @include transition1s();
+
+        .mainCopy{
             position: relative;
-            font-size: 160px;
-            font-weight: bold;
-            color: #fff;
+            z-index: 100;
             mix-blend-mode: difference;
-            white-space: pre-line;
-            transform: translateX(0);
-            transition: 1.2s .1s;
-            z-index: 10;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: -6px;
+            transform: translateX(-9px);
+            @include transition1s();
+            transition-delay: 0.2s;
+            svg{
+                .suafolio{
+                    g .copyLine{
+                        fill:none;
+                        stroke-width: 24.5;
+                        stroke-dashoffset: 700;
+                        stroke-dasharray: 700;
+                        animation: lineAni 3s 0.1s forwards;
+                    }
+                    .s .copyLine,.f .copyLine,.o .copyLine{stroke-width: 33;}
+                    .a .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(2){@include aniDelay(0.2);}
+                    .s .copyLine, .o .copyLine{@include aniDelay(0.6);}
+                    .l .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(3),.a .copyLine:nth-of-type(3){@include aniDelay(0.8);}
+                    .u .copyLine, .i .copyLine{@include aniDelay(1);}
+                    .o_2 .copyLine{@include aniDelay(1.2);}
+                    .dot path{fill: #fff; opacity: 0; animation: dot 1s 1.3s forwards}
+                    @keyframes lineAni{
+                        100%{stroke-dashoffset: 0;}
+                    }
+                    @keyframes dot{
+                        80%{opacity: 0;}
+                        100%{opacity: 1;}
+                    }
+                }
+            }
         }
         .mainMenu{
             width: 60%;
@@ -295,13 +324,12 @@ main{
         }
     }
     .about{
-        z-index: 3;
+        background: #3f4bb4;
     }
     .work{
-        z-index: 2;
-
+        background: #999;
     }
     .contact{
-        z-index: 1;
+        background: #444;
     }
 }

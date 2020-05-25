@@ -220,6 +220,9 @@ main {
       position: absolute;
       left: 0%;
       top: calc(100% + 55px); }
+      main .pageInner section.contents {
+        top: 0;
+        z-index: 100; }
   main .scrollDown {
     position: absolute;
     left: calc(50% - 45px);
@@ -252,8 +255,8 @@ main {
 
 .pageInner.active .pageColor {
   right: 0; }
-.pageInner.active .main h1 {
-  transform: translateX(146%); }
+.pageInner.active .main .mainCopy {
+  transform: translateX(141%); }
 .pageInner.active .main .mainMenu ul {
   transform: translateY(0%);
   transition-delay: .7s; }
@@ -266,6 +269,7 @@ main {
   top: 0;
   transform: translateX(0);
   transition: all 1s;
+  transition-timing-function: ease-out;
   z-index: 10; }
 .pageInner .main {
   display: flex;
@@ -273,19 +277,45 @@ main {
   align-items: center;
   overflow: hidden;
   left: 0;
-  top: 0; }
-  .pageInner .main h1 {
+  top: 0;
+  transition: all 1s; }
+  .pageInner .main .mainCopy {
     position: relative;
-    font-size: 160px;
-    font-weight: bold;
-    color: #fff;
+    z-index: 100;
     mix-blend-mode: difference;
-    white-space: pre-line;
-    transform: translateX(0);
-    transition: 1.2s .1s;
-    z-index: 10;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: -6px; }
+    transform: translateX(-9px);
+    transition: all 1s;
+    transition-delay: 0.2s; }
+    .pageInner .main .mainCopy svg .suafolio g .copyLine {
+      fill: none;
+      stroke-width: 24.5;
+      stroke-dashoffset: 700;
+      stroke-dasharray: 700;
+      animation: lineAni 3s 0.1s forwards; }
+    .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .f .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
+      stroke-width: 33; }
+    .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(2) {
+      animation-delay: 0.2s; }
+    .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
+      animation-delay: 0.6s; }
+    .pageInner .main .mainCopy svg .suafolio .l .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(3), .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(3) {
+      animation-delay: 0.8s; }
+    .pageInner .main .mainCopy svg .suafolio .u .copyLine, .pageInner .main .mainCopy svg .suafolio .i .copyLine {
+      animation-delay: 1s; }
+    .pageInner .main .mainCopy svg .suafolio .o_2 .copyLine {
+      animation-delay: 1.2s; }
+    .pageInner .main .mainCopy svg .suafolio .dot path {
+      fill: #fff;
+      opacity: 0;
+      animation: dot 1s 1.3s forwards; }
+@keyframes lineAni {
+  100% {
+    stroke-dashoffset: 0; } }
+@keyframes dot {
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
   .pageInner .main .mainMenu {
     width: 60%;
     position: absolute;
@@ -311,10 +341,10 @@ main {
           color: transparent;
           -webkit-text-stroke: 2px #fff; }
 .pageInner .about {
-  z-index: 3; }
+  background: #3f4bb4; }
 .pageInner .work {
-  z-index: 2; }
+  background: #999; }
 .pageInner .contact {
-  z-index: 1; }
+  background: #444; }
 
 /*# sourceMappingURL=main.css.map */

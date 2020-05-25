@@ -17,6 +17,9 @@ $gnbBorder : 1px solid #ddd;
 @mixin transition1s(){
     transition: all 1s;
 }
+@mixin aniDelay($s){
+    animation-delay: $s+s;
+}
 @mixin up(){
     &.up{
         transform: translateY(80px);
