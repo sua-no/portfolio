@@ -1,5 +1,3 @@
-$color : #00b17e;
-$gnbBorder : 1px solid #ddd;
 @mixin after($width,$height,$back){
         display: block;
         content: '';
@@ -20,24 +18,20 @@ $gnbBorder : 1px solid #ddd;
 @mixin aniDelay($s){
     animation-delay: $s+s;
 }
-@mixin up(){
-    &.up{
-        transform: translateY(80px);
-        opacity: 0;
-        transition: .5s ease-in;
-    }
-}
-@mixin rightIn(){
-    &.rightIn{
-        transform: translateX(300px);
-        opacity: 0;
-        transition: 1s ease-in-out;
-    } 
-}
-@mixin leftIn(){
-    &.leftIn{
-    transform: translateX(-300px);
-    opacity: 0;
-    transition: 1s ease-in-out;
-    }
-}
+// @mixin colorBox($w,$h){
+//     animation: color 3s ease-in-out forwards;
+//     @keyframes color{
+//         0%{
+//             width: 0;
+//             height: 0;
+//         }
+//         30%{
+//             width: 0;
+//             height: 0;
+//         }
+//         100%{
+//             width: $w;
+//             height: $h;
+//         }
+//     }
+// }

@@ -128,7 +128,7 @@ header {
       top: 0;
       background: #fff;
       transition: all .7s;
-      z-index: 200; }
+      z-index: 500; }
       header .headerInner .menuBox .menuBtn {
         height: 18px;
         display: flex;
@@ -138,6 +138,7 @@ header {
         left: 18px;
         z-index: 10;
         cursor: pointer;
+        outline: none;
         transition: all .7s; }
         header .headerInner .menuBox .menuBtn span {
           width: 24px;
@@ -222,7 +223,8 @@ main {
       top: calc(100% + 55px); }
       main .pageInner section.contents {
         top: 0;
-        z-index: 100; }
+        z-index: 300;
+        display: block; }
   main .scrollDown {
     position: absolute;
     left: calc(50% - 45px);
@@ -256,36 +258,48 @@ main {
 .pageInner.active .pageColor {
   right: 0; }
 .pageInner.active .main .mainCopy {
-  transform: translateX(141%); }
+  transform: translateX(100%) translateY(-50%); }
 .pageInner.active .main .mainMenu ul {
   transform: translateY(0%);
   transition-delay: .7s; }
+.pageInner.overflowY {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */ }
+  .pageInner.overflowY::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/ }
 .pageInner .pageColor {
   width: 100%;
   height: 100%;
   background: #080233;
   position: absolute;
   right: 50%;
-  top: 0;
+  bottom: 0;
   transform: translateX(0);
   transition: all 1s;
   transition-timing-function: ease-out;
-  z-index: 10; }
+  z-index: 200; }
+  .pageInner .pageColor.colorZindex {
+    z-index: 350; }
 .pageInner .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   overflow: hidden;
   left: 0;
   top: 0;
   transition: all 1s; }
   .pageInner .main .mainCopy {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     z-index: 100;
     mix-blend-mode: difference;
-    transform: translateX(-9px);
+    transform: translateX(calc(-50% - 9px)) translateY(-50%);
     transition: all 1s;
-    transition-delay: 0.2s; }
+    transition-delay: 0.2s;
+    z-index: 201; }
     .pageInner .main .mainCopy svg .suafolio g .copyLine {
       fill: none;
       stroke-width: 24.5;
@@ -323,7 +337,7 @@ main {
     top: 50%;
     transform: translateY(-50%);
     overflow: hidden;
-    z-index: 20; }
+    z-index: 201; }
     .pageInner .main .mainMenu ul {
       width: 100%;
       display: flex;
@@ -340,11 +354,15 @@ main {
           letter-spacing: 3px;
           color: transparent;
           -webkit-text-stroke: 2px #fff; }
+.pageInner .sub {
+  display: none; }
+  .pageInner .sub h2 {
+    text-align: right;
+    color: #fff;
+    font-size: 100px; }
 .pageInner .about {
-  background: #3f4bb4; }
+  height: 2000px; }
 .pageInner .work {
-  background: #999; }
-.pageInner .contact {
-  background: #444; }
+  height: 2000px; }
 
 /*# sourceMappingURL=main.css.map */
