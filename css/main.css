@@ -223,7 +223,6 @@ main {
       top: calc(100% + 55px); }
       main .pageInner section.contents {
         top: 0;
-        z-index: 300;
         display: block; }
   main .scrollDown {
     position: absolute;
@@ -256,7 +255,7 @@ main {
       font-weight: 100; }
 
 .pageInner.active .pageColor {
-  right: 0; }
+  right: 0 !important; }
 .pageInner.active .main .mainCopy {
   transform: translateX(100%) translateY(-50%); }
 .pageInner.active .main .mainMenu ul {
@@ -282,8 +281,6 @@ main {
   transition: all 1s;
   transition-timing-function: ease-out;
   z-index: 200; }
-  .pageInner .pageColor.colorZindex {
-    z-index: 350; }
 .pageInner .main {
   position: relative;
   overflow: hidden;
@@ -294,7 +291,6 @@ main {
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 100;
     mix-blend-mode: difference;
     transform: translateX(calc(-50% - 9px)) translateY(-50%);
     transition: all 1s;
@@ -356,13 +352,125 @@ main {
           -webkit-text-stroke: 2px #fff; }
 .pageInner .sub {
   display: none; }
-  .pageInner .sub h2 {
-    text-align: right;
-    color: #fff;
-    font-size: 100px; }
-.pageInner .about {
-  height: 2000px; }
+  .pageInner .sub .subTit {
+    position: absolute;
+    left: 14%;
+    top: 50vh;
+    transform: translateY(-78%);
+    z-index: 400;
+    overflow: hidden;
+    mix-blend-mode: difference; }
+    .pageInner .sub .subTit h2 {
+      text-align: left;
+      color: #fff;
+      font-size: 100px;
+      font-weight: bold;
+      transform: translateY(100%);
+      transition: all 1s; }
+  .pageInner .sub .subCopy {
+    position: relative;
+    z-index: 400;
+    opacity: 0;
+    transition: all 2s; }
+.pageInner .about .subCopy {
+  padding: 300px 300px 0 0;
+  text-align: right; }
+.pageInner .main {
+  display: none; }
 .pageInner .work {
-  height: 2000px; }
+  top: 0;
+  display: block; }
+  .pageInner .work .workBox {
+    margin-right: 20%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 351;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: all 1s; }
+    .pageInner .work .workBox .workTit {
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 1.2em;
+      color: #333;
+      color: transparent;
+      -webkit-text-stroke: 2px #fff;
+      mix-blend-mode: difference;
+      position: absolute;
+      right: -220px;
+      top: 130px; }
+    .pageInner .work .workBox .workImg {
+      width: 720px;
+      height: 405px; }
+      .pageInner .work .workBox .workImg img {
+        width: 100%;
+        height: 100%; }
+    .pageInner .work .workBox .workText {
+      margin: 35px 0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 100;
+      white-space: pre-line;
+      text-align: center;
+      line-height: 1.5em; }
+    .pageInner .work .workBox .viewBtn {
+      padding: 12px 50px;
+      color: #fff;
+      border: 1px solid #fff;
+      line-height: 24px; }
+  .pageInner .work .control {
+    height: calc(50vh - 110px);
+    padding: 24px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 351;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transition: all 1s; }
+    .pageInner .work .control .controlBtn button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #565656;
+      box-sizing: border-box;
+      display: block; }
+    .pageInner .work .control .controlBtn .prev {
+      background: url("../img/control_prev.png") no-repeat center center; }
+    .pageInner .work .control .controlBtn .next {
+      background: url("../img/control_next.png") no-repeat center center; }
+    .pageInner .work .control .workNum span {
+      display: block;
+      font-size: 14px;
+      font-weight: bold; }
+    .pageInner .work .control .workNum .listNum {
+      margin-bottom: 20px;
+      color: #fff;
+      position: relative; }
+      .pageInner .work .control .workNum .listNum:after {
+        display: block;
+        content: '';
+        width: 24px;
+        height: 1px;
+        position: absolute;
+        background: #585858;
+        bottom: -10px;
+        right: -5px; }
+    .pageInner .work .control .workNum .total {
+      color: #585858; }
+    .pageInner .work .control .controlList {
+      width: 28px;
+      height: 28px;
+      padding: 1px;
+      background: url("../img/control_list.png") no-repeat center center;
+      outline: none; }
 
 /*# sourceMappingURL=main.css.map */
