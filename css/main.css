@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -128,7 +129,7 @@ header {
       top: 0;
       background: #fff;
       transition: all .7s;
-      z-index: 500; }
+      z-index: 800; }
       header .headerInner .menuBox .menuBtn {
         height: 18px;
         display: flex;
@@ -195,7 +196,7 @@ header {
       right: 15px;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 500; }
+      z-index: 1000; }
       header .headerInner .rightMenu a {
         width: 28px;
         height: 28px;
@@ -229,7 +230,7 @@ main {
     left: calc(50% - 45px);
     bottom: 100px;
     transform: translateX(50%) rotate(-90deg);
-    z-index: 500;
+    z-index: 700;
     transition: all .7s; }
     main .scrollDown.active {
       transform: translateY(100px) translateX(50%) rotate(-90deg); }
@@ -380,30 +381,32 @@ main {
 .pageInner .work {
   top: 0;
   display: block; }
+  .pageInner .work .subTit {
+    top: 44vh; }
   .pageInner .work .workBox {
-    margin-right: 20%;
+    margin-right: 22%;
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     z-index: 351;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(10%);
     opacity: 0;
-    transition: all 1s; }
+    transition: all .7s; }
+    .pageInner .work .workBox.active {
+      opacity: 1;
+      transform: translateY(-50%); }
     .pageInner .work .workBox .workTit {
       font-size: 50px;
       font-weight: bold;
       line-height: 1.2em;
       color: #333;
-      color: transparent;
-      -webkit-text-stroke: 2px #fff;
-      mix-blend-mode: difference;
+      text-align: right;
       position: absolute;
-      right: -220px;
+      right: -240px;
       top: 130px; }
     .pageInner .work .workBox .workImg {
       width: 720px;
@@ -411,66 +414,348 @@ main {
       .pageInner .work .workBox .workImg img {
         width: 100%;
         height: 100%; }
-    .pageInner .work .workBox .workText {
-      margin: 35px 0;
+    .pageInner .work .workBox .workSkill {
+      margin-top: 35px;
       color: #fff;
       font-size: 14px;
+      font-weight: bold;
+      text-align: center; }
+    .pageInner .work .workBox .workText {
+      margin: 20px 0 30px;
+      color: #bbb;
+      font-size: 14px;
       font-weight: 100;
-      white-space: pre-line;
       text-align: center;
       line-height: 1.5em; }
     .pageInner .work .workBox .viewBtn {
-      padding: 12px 50px;
-      color: #fff;
-      border: 1px solid #fff;
-      line-height: 24px; }
+      padding: 7px 40px;
+      color: #bbb;
+      border: 1px solid #bbb;
+      line-height: 24px;
+      transition: all .7s; }
+      .pageInner .work .workBox .viewBtn:hover {
+        background: #bbb;
+        color: #000;
+        font-weight: 700; }
   .pageInner .work .control {
     height: calc(50vh - 110px);
     padding: 24px;
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 351;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     opacity: 0;
     transition: all 1s; }
-    .pageInner .work .control .controlBtn button {
-      width: 32px;
-      height: 32px;
-      border: 1px solid #565656;
-      box-sizing: border-box;
-      display: block; }
-    .pageInner .work .control .controlBtn .prev {
-      background: url("../img/control_prev.png") no-repeat center center; }
-    .pageInner .work .control .controlBtn .next {
-      background: url("../img/control_next.png") no-repeat center center; }
-    .pageInner .work .control .workNum span {
-      display: block;
-      font-size: 14px;
-      font-weight: bold; }
-    .pageInner .work .control .workNum .listNum {
-      margin-bottom: 20px;
-      color: #fff;
-      position: relative; }
-      .pageInner .work .control .workNum .listNum:after {
+    .pageInner .work .control .controlBtn {
+      position: relative;
+      z-index: 351; }
+      .pageInner .work .control .controlBtn button {
+        width: 32px;
+        height: 32px;
+        border: 1px solid #565656;
+        box-sizing: border-box;
+        display: block; }
+      .pageInner .work .control .controlBtn .prev {
+        background: url("../img/control_prev.png") no-repeat center center; }
+      .pageInner .work .control .controlBtn .next {
+        background: url("../img/control_next.png") no-repeat center center; }
+    .pageInner .work .control .workNum {
+      position: relative;
+      z-index: 351; }
+      .pageInner .work .control .workNum span {
         display: block;
-        content: '';
-        width: 24px;
-        height: 1px;
-        position: absolute;
-        background: #585858;
-        bottom: -10px;
-        right: -5px; }
-    .pageInner .work .control .workNum .total {
-      color: #585858; }
+        font-size: 14px;
+        font-weight: bold; }
+      .pageInner .work .control .workNum .listNum {
+        margin-bottom: 20px;
+        color: #fff;
+        position: relative; }
+        .pageInner .work .control .workNum .listNum:after {
+          display: block;
+          content: '';
+          width: 24px;
+          height: 1px;
+          position: absolute;
+          background: #585858;
+          bottom: -10px;
+          right: -5px; }
+      .pageInner .work .control .workNum .total {
+        color: #585858; }
     .pageInner .work .control .controlList {
       width: 28px;
       height: 28px;
       padding: 1px;
       background: url("../img/control_list.png") no-repeat center center;
-      outline: none; }
+      outline: none;
+      position: relative;
+      z-index: 1000; }
+  .pageInner .work .workList {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 600;
+    display: none;
+    opacity: 0;
+    transition: 3s; }
+    .pageInner .work .workList.listBlock {
+      display: block;
+      animation: block 1.2s forwards; }
+@keyframes block {
+  10% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+    .pageInner .work .workList h3 {
+      padding: 100px 0 90px;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 50px; }
+    .pageInner .work .workList ul {
+      margin: 0 auto;
+      box-sizing: border-box;
+      border: 1ps solid #f00;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow: hidden; }
+      .pageInner .work .workList ul li {
+        position: relative;
+        min-width: 350px;
+        height: 350px;
+        margin-right: 40px;
+        margin: 0 40px 40px 0;
+        overflow: hidden; }
+        .pageInner .work .workList ul li figure {
+          width: 100%;
+          height: 100%;
+          position: relative; }
+          .pageInner .work .workList ul li figure p {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0; }
+            .pageInner .work .workList ul li figure p img {
+              width: 100%;
+              height: 100%; }
+          .pageInner .work .workList ul li figure figcaption {
+            width: 100%;
+            height: 100%;
+            padding-left: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translateY(0%);
+            transition: all .7s; }
+            .pageInner .work .workList ul li figure figcaption span {
+              font-size: 32px;
+              color: #fff;
+              font-weight: bold;
+              line-height: 1.2em; }
+            .pageInner .work .workList ul li figure figcaption .hashtag {
+              display: block;
+              margin-top: 50px;
+              font-size: 16px; }
+        .pageInner .work .workList ul li:nth-of-type(1) figure figcaption {
+          background: #9c33ff; }
+        .pageInner .work .workList ul li:nth-of-type(2) figure figcaption {
+          background: #206cc2; }
+        .pageInner .work .workList ul li:nth-of-type(3) figure figcaption {
+          background: #666666; }
+        .pageInner .work .workList ul li:last-of-type .listBtn {
+          display: none; }
+        .pageInner .work .workList ul li:hover figure figcaption {
+          transform: translateY(100%); }
+        .pageInner .work .workList ul li:hover:last-of-type figure figcaption {
+          transform: translateY(0%); }
+        .pageInner .work .workList ul li:hover .listBtn {
+          opacity: 1;
+          transition-delay: .2s; }
+        .pageInner .work .workList ul li .listBtn {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          padding: 7px 40px;
+          color: #fff;
+          border: 1px solid #fff;
+          line-height: 24px;
+          opacity: 0;
+          transition: all .7s;
+          outline: none; }
+          .pageInner .work .workList ul li .listBtn:hover {
+            background: rgba(255, 255, 255, 0.1); }
+
+.popup {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: #fff;
+  overflow-y: scroll; }
+  .popup .popMain {
+    width: 100%;
+    height: 100vh;
+    padding: 270px;
+    box-sizing: border-box; }
+    .popup .popMain .copyBox .mainCopy .italic {
+      font-family: 'Noto Serif', serif;
+      color: #fff;
+      font-weight: bold;
+      font-size: 26px;
+      color: #b0b0b0;
+      font-style: italic;
+      font-weight: lighter; }
+    .popup .popMain .copyBox .mainCopy h4 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 55px;
+      margin: 37px 0 30px;
+      line-height: 1.3em; }
+    .popup .popMain .copyBox .mainCopy > p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 26px;
+      color: #c24141; }
+    .popup .popMain .copyBox ul {
+      margin-top: 130px;
+      display: flex;
+      justify-content: space-between; }
+      .popup .popMain .copyBox ul li p {
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+        color: #b8b8b8;
+        margin-bottom: 25px; }
+      .popup .popMain .copyBox ul li span {
+        white-space: pre-line;
+        color: #fff;
+        line-height: 1.5em; }
+  .popup .popContents .flexBox {
+    display: flex;
+    align-items: center; }
+    .popup .popContents .flexBox .contentText {
+      margin-left: 80px; }
+  .popup .popContents .visualBox {
+    width: 100%;
+    height: 530px; }
+  .popup .popContents .videoBox {
+    width: 1580px;
+    height: 700px;
+    margin: 120px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .popup .popContents .videoBox .video {
+      width: 940px;
+      height: 480px;
+      background: #666; }
+  .popup .popContents .inlineB {
+    display: inline-block; }
+  .popup .popContents .codepen {
+    width: 880px;
+    height: 510px; }
+  .popup .popContents .contentText {
+    display: inline-block; }
+    .popup .popContents .contentText figcaption {
+      color: #fff;
+      font-weight: bold;
+      font-size: 26px;
+      color: #333;
+      margin-bottom: 35px; }
+    .popup .popContents .contentText p {
+      color: #565656;
+      white-space: pre-line;
+      line-height: 1.5em; }
+  .popup .viewSite {
+    width: 70px;
+    height: 200px;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    background: #2a1b3d;
+    transition: all .7s; }
+    .popup .viewSite:hover {
+      background: #9164cb; }
+    .popup .viewSite a {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .popup .viewSite a:after {
+        display: block;
+        position: absolute;
+        text-align: left;
+        content: 'VISIT';
+        transform: rotate(90deg);
+        right: 50%;
+        top: 50%;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px; }
+  .popup .closer {
+    position: absolute;
+    right: 52px;
+    top: 52px; }
+    .popup .closer .close {
+      width: 40px;
+      height: 40px;
+      background: url("../img/closer.png") no-repeat center center; }
+
+.stranger .popMain {
+  background: #2a1b3d; }
+.stranger .popContents .visualBox {
+  background: url("../img/stranger_visual.jpg") no-repeat center center; }
+.stranger .popContents .videoBox {
+  background: #2a1b3d; }
+.stranger .popContents .onepageBox {
+  width: 1580px;
+  margin: 0 auto 100px; }
+  .stranger .popContents .onepageBox .codepen {
+    background: #2a1b3d; }
+.stranger .popContents .responBox {
+  width: 1580px;
+  margin: 0 auto 100px;
+  display: flex;
+  flex-direction: row-reverse; }
+  .stranger .popContents .responBox .videoBox2 {
+    width: 680px;
+    height: 640px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    background: #2a1b3d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .stranger .popContents .responBox .videoBox2 .video:nth-of-type(1) {
+      width: 175px;
+      height: 300px;
+      background: #565656; }
+    .stranger .popContents .responBox .videoBox2 .video:nth-of-type(2) {
+      width: 280px;
+      height: 410px;
+      background: #565656; }
+  .stranger .popContents .responBox .contentText {
+    margin-left: 0;
+    margin-right: 80px; }
+.stranger .popContents .resjsBox {
+  width: 1580px;
+  margin: 0 auto 100px; }
+  .stranger .popContents .resjsBox .codepen {
+    background: #2a1b3d; }
 
 /*# sourceMappingURL=main.css.map */

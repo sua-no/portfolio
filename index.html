@@ -175,12 +175,13 @@
                         <div class="workImg">
                             <img src="img/work_01.jpg" alt="">
                         </div>
+                        <p class="workSkill">HTML/CSS/JS/JSON</p>
                         <p class="workText">
-                            개인 포트폴리오 첫 작업물입니다.
-                            넷플릭스 드라마 기묘한이야기를 주제로한 반응형 페이지입니다.
+                            개인 포트폴리오 첫 작업물입니다.<br>
+                            넷플릭스 드라마 기묘한이야기를 주제로한 반응형 페이지입니다.<br>
                             기능은 모두 바닐라 자바스크립트로 구현하였습니다.
                         </p>
-                        <button class="viewBtn">
+                        <button class="viewBtn" data-work="stranger">
                             자세히보기
                         </button>
                     </article>
@@ -195,31 +196,13 @@
                         </div>
                         <button class="controlList"></button>
                     </div>
-                    <!-- <article class="workList">
-                        <h3>작업 리스트</h3>
+                    <article class="workList">
+                        <h3>WORK LIST</h3>
                         <ul>
-                            <li>
-                                <figure>
-                                    <p><img src="" alt=""></p>
-                                    <figcaption></figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure>
-                                    <p><img src="" alt=""></p>
-                                    <figcaption></figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure>
-                                    <p><img src="" alt=""></p>
-                                    <figcaption></figcaption>
-                                </figure>
-                            </li>
+                            <!-- JSON데이터 개수만큼 li 증가 -->
                         </ul>
-                    </article> -->
-                    <!-- <article class="popup stranger"></article>
-                    <article class="popup gsbio"></article> -->
+                    </article>
+
                 </section>
                 <section class="page sub contact" data-contents="contact">
                     <div class="subTit">
@@ -229,6 +212,78 @@
                 </section>
             </div>
             <div class="scrollDown"><span>scroll</span></div>
+            <article class="popup stranger">
+                <section class="popMain">
+                    <div class="copyBox">
+                        <div class="mainCopy">
+                            <span class="italic">First Project</span>
+                            <h4>넷플릭스<br>기묘한이야기</h4>
+                            <p>넷플릭스 드라마 기묘한이야기를 주제로한 반응형 페이지입니다.</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <p>제작기간</p>
+                                <span>2020 .03.15 - 2020.04.00
+                                    총 4 페이지
+                                    기획 및 디자인, 퍼블리싱 약 1달</span>
+                            </li>
+                            <li>
+                                <p>사용스킬</p>
+                                <span>HTML, CSS, Javascript</span>
+                            </li>
+                            <li>
+                                <p>특징</p>
+                                <span>미디어 쿼리를 이용하여 모든 기기에 대응
+                                    할 수 있도록 반응형 작업 하였고, 사용한 모든 기능은
+                                    바닐라 자바스크립트로 구현하였습니다.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="popContents">
+                    <div class="visualBox"></div>
+                    <div class="videoBox">
+                        <!-- 비디오 태그추가  absolute -->
+                        <div class="video"></div>
+                    </div>
+                    <div class="onepageBox flexBox">
+                        <!-- 코드펜 박스 -->
+                        <div class="codepen inlineB"></div>
+                        <figure class="contentText">
+                            <figcaption>원 페이지 스크롤</figcaption>
+                            <p>미디어 쿼리를 이용하여 모든 기기에 대응할 수 있도록 반응형 작업 하였고,
+                                사용한 모든 기능은 바닐라 자바스크립트로 구현하였습니다.</p>
+                        </figure>
+                    </div>
+                    <div class="responBox flexBox">
+                        <div class="videoBox2 inlineB">
+                            <!-- 비디오 태그 -->
+                            <div class="video"></div>
+                            <div class="video"></div>
+                        </div>
+                        <figure class="contentText">
+                            <figcaption>반응형 페이지</figcaption>
+                            <p>미디어 컨텐츠 특성상 다양한 디바이스로 접속이 가능하도록 반응형 작업하였습니다.
+                                모바일에서는 메인의 동영상을 없애고 이미지로 변경하여 빠르게 로딩하고
+                                의도하지 않은 데이터 사용을 막았습니다.
+                            </p>
+                        </figure>
+                    </div>
+                    <div class="resjsBox flexBox">
+                        <!-- 코드펜 박스 -->
+                        <div class="codepen inlineB"></div>
+                        <figure class="contentText">
+                            <figcaption>반응형 자바스크립트</figcaption>
+                            <p>match.media를 이용하여 뷰포트의 크기가 달라질때 마다 사이즈에 맞는
+                                자바스크립트를 사용하여 컨텐츠 내용을 다양하게 보여줍니다.
+                            </p>
+                        </figure>
+                    </div>
+                </section>
+                <div class="viewSite"><a href="sua-no.github.io/strangerthings" target="_blank"></a></div>
+                <div class="closer"><button class="close"></button></div>
+            </article>
+            <!-- <article class="popup gsbio"></article> -->
         </main>
     </div>
 

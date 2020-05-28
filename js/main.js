@@ -1,14 +1,43 @@
 window.addEventListener('DOMContentLoaded', function () {
-    let wheelCheck = true, mainCheck = '';
+    let wheelCheck = true, mainCheck = '', workWheel = true, workIdx = 0, jsonData, jsonData2;
+
+
+    //work JSON파일 로드
+    $.ajax({
+        url: 'work.json',
+        dataType: 'JSON',
+        type: 'GET',
+        success: function (data) {
+            jsonData = data.works;
+            jsonData2 = data.lists;
+            for (var i = 0; i < data.lists.length; i++) {
+                $('.workList ul').append(
+                    '<li><figure><p><img src=""></p><figcaption><span class="listTit"></span><span class="hashtag"></span></figcaption></figure></li>'
+                );
+                $('.workList ul li').eq(i).append(
+                    '<button class="listBtn" data-work="">자세히보기</button>'
+                );
+                $('.workList ul li').eq(i).find('p img').attr('src', jsonData2[i].img);
+                $('.workList ul li').eq(i).find('figcaption .listTit').html(jsonData2[i].title);
+                $('.workList ul li').eq(i).find('figcaption .hashtag').html(jsonData2[i].hash);
+                $('.workList ul li').eq(i).find('.listBtn').attr('data-work', jsonData2[i].work);
+                console.log($('.workList ul li').eq(i).find('.listBtn').data('work'));
+            }
+
+        }
+    })
 
     //이벤트 등록
-    window.addEventListener('popstate', function () {
+    window.addEventListener('popstate', function () { //뒤로가기시 이전 페이지로 이동
         pageChange(history.state.page);
     });
     $('.menuBtn').on('click', menuIn); //메뉴버튼 클릭시 메뉴 슬라이드
-    $(window).on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
     $('.menuList').on('click', pageChange); //메뉴 클릭시 서브 페이지로 전환
+    $('.main').on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
     $('.about').on('scroll', boxSize);
+    $('.controlBtn button').on('click', workChange); // work페이지에서 버튼 클릭시 다음 컨텐츠 내용으로 변경
+    $('.work').on('wheel', workSlide); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
+    $('.controlList').on('click', listShow); //work 페이지에서 list 버튼 클릭시 리스트 display: block
 
 
     //페이지 전환 함수
@@ -43,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function () {
             $('.pageInner').removeClass('overflowY');
         }
     }
-    workAni();
+    workAni(); //work페이지 작업중!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //컬러박스 변경 함수
     function colorManger(clickPage) {
@@ -120,12 +149,13 @@ window.addEventListener('DOMContentLoaded', function () {
                         height: '50%',
                     }, 1000, function () {
                         transition('.pageColor', '1s');
-                    });
-                    $('.sub.about .subCopy').css({
-                        opacity: 1
+                        $('.control').css({
+                            opacity: 1
+                        });
+                        $('.workBox').addClass('active');
                     });
                 }, 800);
-                
+
             });
         });
     }
@@ -211,4 +241,48 @@ window.addEventListener('DOMContentLoaded', function () {
     function boxSize() {
 
     }
+    //work 페이지 데이터 변경
+    function workChange(e) {
+        if (e.target.className == 'prev') { //prev버튼 눌렀을 때 인덱스 값 변경하여 데이터 변경
+            workIdx--;
+            if (workIdx == -1) { workIdx = 2; }
+        } else { //next버튼 눌렀을 때 인덱스 변경
+            workIdx++;
+            if (workIdx == 3) { workIdx = 0; }
+        }
+        dataChange();
+    }
+    function workSlide(e) { //스크롤시 내용 변경
+        let wheelDeltaY = e.originalEvent.deltaY;
+        if (workWheel) {
+            workWheel = false;
+            if (wheelDeltaY > 0) {
+                workIdx++;
+                if (workIdx == 3) { workIdx = 0; }
+            } else {
+                workIdx--;
+                if (workIdx == -1) { workIdx = 2; }
+            }
+            dataChange();
+            setTimeout(function () {
+                workWheel = true;
+            }, 1000);
+        }
+    }
+    function dataChange() { //데이터 변경함수
+        $('.workBox').removeClass('active');
+        setTimeout(function () {
+            $('.workTit').html(jsonData[workIdx].title);
+            $('.workImg img').attr('src', jsonData[workIdx].img);
+            $('.workSkill').text(jsonData[workIdx].skill);
+            $('.workText').html(jsonData[workIdx].text);
+            $('.listNum').text('0' + (workIdx + 1));
+            $('.viewBtn').attr('data-work', jsonData2[workIdx].work);
+            $('.workBox').addClass('active');
+        }, 350);
+    }
+    function listShow() {
+        $('.workList').toggleClass('listBlock');
+    }
 });
+
