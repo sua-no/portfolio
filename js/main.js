@@ -1,5 +1,10 @@
 window.addEventListener('DOMContentLoaded', function () {
-    let wheelCheck = true, mainCheck = '', workWheel = true, workIdx = 0, jsonData, jsonData2;
+    let jsonData, jsonData2,
+        workIdx = 0,
+        mainCheck = '',
+        wheelCheck = true,
+        workWheel = true,
+        popHeight = $(window).innerHeight();
 
 
     //work JSON파일 로드
@@ -10,26 +15,14 @@ window.addEventListener('DOMContentLoaded', function () {
         success: function (data) {
             jsonData = data.works;
             jsonData2 = data.lists;
-            for (var i = 0; i < data.lists.length; i++) {
-                $('.workList ul').append(
-                    '<li><figure><p><img src=""></p><figcaption><span class="listTit"></span><span class="hashtag"></span></figcaption></figure></li>'
-                );
-                $('.workList ul li').eq(i).append(
-                    '<button class="listBtn" data-work="">자세히보기</button>'
-                );
-                $('.workList ul li').eq(i).find('p img').attr('src', jsonData2[i].img);
-                $('.workList ul li').eq(i).find('figcaption .listTit').html(jsonData2[i].title);
-                $('.workList ul li').eq(i).find('figcaption .hashtag').html(jsonData2[i].hash);
-                $('.workList ul li').eq(i).find('.listBtn').attr('data-work', jsonData2[i].work);
-                console.log($('.workList ul li').eq(i).find('.listBtn').data('work'));
-            }
-
+            workListData(); //workList에 JSON데이터 넣고 data-work값 변경
         }
     })
 
     //이벤트 등록
     window.addEventListener('popstate', function () { //뒤로가기시 이전 페이지로 이동
         pageChange(history.state.page);
+        $('.popup').removeClass('on');
     });
     $('.menuBtn').on('click', menuIn); //메뉴버튼 클릭시 메뉴 슬라이드
     $('.menuList').on('click', pageChange); //메뉴 클릭시 서브 페이지로 전환
@@ -38,6 +31,10 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.controlBtn button').on('click', workChange); // work페이지에서 버튼 클릭시 다음 컨텐츠 내용으로 변경
     $('.work').on('wheel', workSlide); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
     $('.controlList').on('click', listShow); //work 페이지에서 list 버튼 클릭시 리스트 display: block
+    $('.viewBtn').on('click', popupOn); //자세히 보기 클릭시 해당 팝업창 보이기
+    $('.closer').on('click', popupOff);
+    $('.popup').on('scroll', scrollAni);
+    $('.top').on('click', goTop);
 
 
     //페이지 전환 함수
@@ -241,8 +238,9 @@ window.addEventListener('DOMContentLoaded', function () {
     function boxSize() {
 
     }
-    //work 페이지 데이터 변경
-    function workChange(e) {
+
+    // work 페이지 관련 함수
+    function workChange(e) { //work 페이지 데이터 변경
         if (e.target.className == 'prev') { //prev버튼 눌렀을 때 인덱스 값 변경하여 데이터 변경
             workIdx--;
             if (workIdx == -1) { workIdx = 2; }
@@ -283,6 +281,106 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     function listShow() {
         $('.workList').toggleClass('listBlock');
+    }
+    function workListData() {
+        for (var i = 0; i < jsonData2.length; i++) {
+            $('.workList ul').append(
+                '<li><figure><p><img src=""></p><figcaption><span class="listTit"></span><span class="hashtag"></span></figcaption></figure></li>'
+            );
+            $('.workList ul li').eq(i).append(
+                '<button class="listBtn" data-work="">자세히보기</button>'
+            );
+            $('.workList ul li').eq(i).find('p img').attr('src', jsonData2[i].img);
+            $('.workList ul li').eq(i).find('figcaption .listTit').html(jsonData2[i].title);
+            $('.workList ul li').eq(i).find('figcaption .hashtag').html(jsonData2[i].hash);
+            $('.workList ul li').eq(i).find('.listBtn').attr('data-work', jsonData2[i].work);
+            $('.listBtn').on('click', popupOn);
+        }
+    }
+
+    //work popup페이지 관련 함수
+    function popupOn() {
+        resetAni(); //애니메이션 초기화
+        $('.scrollDown').addClass('scrollPop');
+        let workName = $(this).attr('data-work');
+        if (workName == 'new') {
+            alert("페이지 준비중입니다.");
+        } else {
+            $('.popup').each(function () {
+                if ($(this).hasClass(workName)) {
+                    $(this).addClass('on');
+                }
+            });
+        }
+    }
+    function popupOff() {
+        $('.scrollDown').removeClass('scrollPop');
+        $('.popup').each(function () {
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on');
+            }
+        });
+        function resetStlyle() {
+            $('.up').each(function () {
+                $(this).attr('style', '');
+            });
+            $('.leftIn,.rightIn').each(function () {
+                $(this).attr('style', '');
+            });
+        }
+    }
+    function resetAni() {
+        $('.in').each(function () {
+            $(this).removeClass('in');
+        });
+    }
+    function scrollAni(e) { //스크롤 시 컨텐츠 내용 보이는 애니메이션
+        videoBoxAni();
+        contentsAni();
+        visitBtnAni(e);
+
+    }
+    function videoBoxAni() {
+        $('.videoBox').each(function () {
+            if ($(this).offset().top <= popHeight) {
+                $(this).addClass('in');
+            }
+        });
+    }
+    function contentsAni() {
+        $('.inlineB').each(function () {
+            if ($(this).offset().top <= popHeight) {
+                $(this).addClass('in');
+                $(this).parent().find('.contentText').addClass('in');
+            }
+        });
+    }
+    function visitBtnAni(e) {
+        let scrTop = e.target.scrollTop;
+        let scrollH = e.target.scrollHeight - popHeight;
+        if (1300 <= scrTop) {
+            $('.viewSite').show(500);
+            if (scrTop == scrollH) {
+                $('.visit').addClass('active');
+            } else {
+                $('.visit').removeClass('active');
+            }
+        } else {
+            $('.viewSite').hide(300);
+        }
+        $('.viewSite').css({
+            top: scrTop + 200
+        });
+        if (scrTop != 0) {
+            $('.scrollPop').addClass('opacity');
+        } else {
+            $('.scrollPop').removeClass('opacity');
+        }
+    }
+    function goTop() {
+        $('.popup').animate({
+            scrollTop: 0
+        });
     }
 });
 

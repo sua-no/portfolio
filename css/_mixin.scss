@@ -1,4 +1,6 @@
 $strColor : #2a1b3d;
+$gsColor : #cfdae6;
+$gsMainColor : #031a34;
 @mixin after($width,$height,$back){
         display: block;
         content: '';
@@ -27,9 +29,54 @@ $strColor : #2a1b3d;
 @mixin popBox(){
     width: 1580px;
     height: 700px;
-    margin: 120px auto;
+    margin: 180px auto;
 }
 @mixin popSubBox(){
     width: 1580px;
-    margin: 0 auto 100px;
+    margin: 0 auto 180px;
+}
+@mixin popUp(){
+    transform: translateY(50px);
+    opacity: 0;
+    animation: up 1s forwards;
+    @keyframes up{
+        100%{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+@mixin aniDelay($s){
+    animation-delay: $s;
+}
+@mixin inSubBox(){
+    &.in{
+        width: 0;
+        opacity: 0;
+        animation: subIn 0.7s 0.3s forwards;
+        @keyframes subIn{
+            100%{
+                width: 880px;
+                opacity: 1;
+            }
+        }
+    }
+    
+}
+@mixin inTextBox(){
+    &.in{
+        transform: translateX(500px);
+        opacity: 0;
+        animation: textIn 0.7s 1s forwards;
+        @keyframes textIn{
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+}
+@mixin workPhoto(){
+    @include inSubBox();
+    background: $gsColor;
 }

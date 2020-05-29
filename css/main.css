@@ -230,10 +230,14 @@ main {
     left: calc(50% - 45px);
     bottom: 100px;
     transform: translateX(50%) rotate(-90deg);
-    z-index: 700;
+    z-index: 3000;
     transition: all .7s; }
     main .scrollDown.active {
       transform: translateY(100px) translateX(50%) rotate(-90deg); }
+    main .scrollDown.scrollPop {
+      bottom: 50px; }
+      main .scrollDown.scrollPop.opacity {
+        opacity: 0; }
     main .scrollDown:after {
       display: block;
       content: '';
@@ -306,15 +310,15 @@ main {
     .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .f .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
       stroke-width: 33; }
     .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(2) {
-      animation-delay: 0.2s; }
+      animation-delay: 0.2; }
     .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
-      animation-delay: 0.6s; }
+      animation-delay: 0.6; }
     .pageInner .main .mainCopy svg .suafolio .l .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(3), .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(3) {
-      animation-delay: 0.8s; }
+      animation-delay: 0.8; }
     .pageInner .main .mainCopy svg .suafolio .u .copyLine, .pageInner .main .mainCopy svg .suafolio .i .copyLine {
-      animation-delay: 1s; }
+      animation-delay: 1; }
     .pageInner .main .mainCopy svg .suafolio .o_2 .copyLine {
-      animation-delay: 1.2s; }
+      animation-delay: 1.2; }
     .pageInner .main .mainCopy svg .suafolio .dot path {
       fill: #fff;
       opacity: 0;
@@ -607,7 +611,10 @@ main {
   top: 0;
   z-index: 2000;
   background: #fff;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  display: none; }
+  .popup.on {
+    display: block; }
   .popup .popMain {
     width: 100%;
     height: 100vh;
@@ -620,22 +627,50 @@ main {
       font-size: 26px;
       color: #b0b0b0;
       font-style: italic;
-      font-weight: lighter; }
+      font-weight: lighter;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: up 1s forwards;
+      animation-delay: 0.2s; }
+@keyframes up {
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
     .popup .popMain .copyBox .mainCopy h4 {
       color: #fff;
       font-weight: bold;
       font-size: 55px;
       margin: 37px 0 30px;
-      line-height: 1.3em; }
+      line-height: 1.3em;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: up 1s forwards;
+      animation-delay: 0.5s; }
+@keyframes up {
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
     .popup .popMain .copyBox .mainCopy > p {
       color: #fff;
       font-weight: bold;
       font-size: 26px;
-      color: #c24141; }
+      transform: translateY(50px);
+      opacity: 0;
+      animation: up 1s forwards;
+      animation-delay: 0.8s; }
+@keyframes up {
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
     .popup .popMain .copyBox ul {
       margin-top: 130px;
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      opacity: 0;
+      animation: fadeIn 1s 1.3s forwards; }
+@keyframes fadeIn {
+  100% {
+    opacity: 1; } }
       .popup .popMain .copyBox ul li p {
         color: #fff;
         font-weight: bold;
@@ -646,67 +681,90 @@ main {
         white-space: pre-line;
         color: #fff;
         line-height: 1.5em; }
-  .popup .popContents .flexBox {
-    display: flex;
-    align-items: center; }
-    .popup .popContents .flexBox .contentText {
-      margin-left: 80px; }
-  .popup .popContents .visualBox {
-    width: 100%;
-    height: 530px; }
-  .popup .popContents .videoBox {
-    width: 1580px;
-    height: 700px;
-    margin: 120px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .popup .popContents .videoBox .video {
-      width: 940px;
-      height: 480px;
-      background: #666; }
-  .popup .popContents .inlineB {
-    display: inline-block; }
-  .popup .popContents .codepen {
-    width: 880px;
-    height: 510px; }
-  .popup .popContents .contentText {
-    display: inline-block; }
-    .popup .popContents .contentText figcaption {
-      color: #fff;
-      font-weight: bold;
-      font-size: 26px;
-      color: #333;
-      margin-bottom: 35px; }
-    .popup .popContents .contentText p {
-      color: #565656;
-      white-space: pre-line;
-      line-height: 1.5em; }
-  .popup .viewSite {
-    width: 70px;
-    height: 200px;
-    position: fixed;
-    right: 0;
-    top: 30%;
-    background: #2a1b3d;
-    transition: all .7s; }
-    .popup .viewSite:hover {
-      background: #9164cb; }
-    .popup .viewSite a {
+  .popup .popContents {
+    overflow: hidden; }
+    .popup .popContents .flexBox {
+      display: flex;
+      align-items: center; }
+      .popup .popContents .flexBox .contentText {
+        margin-left: 80px; }
+    .popup .popContents .visualBox {
       width: 100%;
-      height: 100%;
+      height: 530px; }
+    .popup .popContents .videoBox {
+      width: 1580px;
+      height: 700px;
+      margin: 180px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .popup .popContents .videoBox.in {
+        width: 0;
+        opacity: 0;
+        animation: in 1s 0.5s forwards; }
+@keyframes in {
+  100% {
+    width: 1580px;
+    opacity: 1; } }
+      .popup .popContents .videoBox .video {
+        width: 940px;
+        height: 480px;
+        background: #666; }
+    .popup .popContents .inlineB {
+      display: inline-block; }
+    .popup .popContents .codepen, .popup .popContents .photo {
+      width: 880px;
+      height: 510px; }
+    .popup .popContents .contentText {
+      display: inline-block; }
+      .popup .popContents .contentText figcaption {
+        color: #fff;
+        font-weight: bold;
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 35px; }
+      .popup .popContents .contentText p {
+        color: #565656;
+        white-space: pre-line;
+        line-height: 1.5em; }
+  .popup .viewSite {
+    width: 60px;
+    height: 250px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all .7s;
+    display: none; }
+    .popup .viewSite .visit {
+      width: 100%;
+      height: 190px;
       position: relative; }
-      .popup .viewSite a:after {
+      .popup .viewSite .visit:after {
         display: block;
         position: absolute;
         text-align: left;
-        content: 'VISIT';
-        transform: rotate(90deg);
-        right: 50%;
+        content: "VISIT SITE";
+        white-space: pre;
+        transform: rotate(90deg) translateY(50%) translateX(-8%);
+        right: -50%;
         top: 50%;
         color: #fff;
         font-weight: bold;
         font-size: 20px; }
+      .popup .viewSite .visit.active {
+        opacity: .5;
+        animation: clickMe 2s infinite; }
+@keyframes clickMe {
+  100% {
+    opacity: 1; } }
+    .popup .viewSite .top {
+      width: 100%;
+      height: 60px;
+      background: #eee url(../img/top.png) no-repeat center center;
+      text-indent: -9999px;
+      transition: .3s; }
+      .popup .viewSite .top:hover {
+        background: #999 url(../img/top.png) no-repeat center center; }
   .popup .closer {
     position: absolute;
     right: 52px;
@@ -718,18 +776,36 @@ main {
 
 .stranger .popMain {
   background: #2a1b3d; }
+  .stranger .popMain .copyBox .mainCopy > p {
+    color: #c24141; }
 .stranger .popContents .visualBox {
   background: url("../img/stranger_visual.jpg") no-repeat center center; }
 .stranger .popContents .videoBox {
   background: #2a1b3d; }
 .stranger .popContents .onepageBox {
   width: 1580px;
-  margin: 0 auto 100px; }
+  margin: 0 auto 180px; }
   .stranger .popContents .onepageBox .codepen {
     background: #2a1b3d; }
+    .stranger .popContents .onepageBox .codepen.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+  .stranger .popContents .onepageBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
 .stranger .popContents .responBox {
   width: 1580px;
-  margin: 0 auto 100px;
+  margin: 0 auto 180px;
   display: flex;
   flex-direction: row-reverse; }
   .stranger .popContents .responBox .videoBox2 {
@@ -741,6 +817,14 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center; }
+    .stranger .popContents .responBox .videoBox2.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
     .stranger .popContents .responBox .videoBox2 .video:nth-of-type(1) {
       width: 175px;
       height: 300px;
@@ -752,10 +836,182 @@ main {
   .stranger .popContents .responBox .contentText {
     margin-left: 0;
     margin-right: 80px; }
+    .stranger .popContents .responBox .contentText.in {
+      transform: translateX(-500px);
+      opacity: 0;
+      animation: textIn 1.5s 1.5s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
 .stranger .popContents .resjsBox {
   width: 1580px;
-  margin: 0 auto 100px; }
+  margin: 0 auto 180px; }
   .stranger .popContents .resjsBox .codepen {
     background: #2a1b3d; }
+    .stranger .popContents .resjsBox .codepen.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+  .stranger .popContents .resjsBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.stranger .viewSite .visit {
+  background: #9164cb; }
+  .stranger .viewSite .visit:hover {
+    background: #2a1b3d; }
+
+.gsbio .popMain {
+  background: #031a34; }
+  .gsbio .popMain .copyBox .mainCopy > p {
+    color: #1d74ba; }
+.gsbio .popContents .visualBox {
+  background: url("../img/gsbio_visual.jpg") no-repeat center center; }
+.gsbio .popContents .problemBox {
+  width: 1580px;
+  margin: 0 auto 180px;
+  margin: 180px auto 180px; }
+  .gsbio .popContents .problemBox .photo {
+    background: #cfdae6;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative; }
+    .gsbio .popContents .problemBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+    .gsbio .popContents .problemBox .photo img {
+      display: inline-block;
+      width: 573px;
+      height: 333px; }
+      .gsbio .popContents .problemBox .photo img:nth-of-type(2) {
+        position: absolute;
+        right: -80px;
+        bottom: 0; }
+  .gsbio .popContents .problemBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+  .gsbio .popContents .problemBox .contentText p {
+    margin-bottom: 20px; }
+  .gsbio .popContents .problemBox .contentText a {
+    border: 1px solid #565656;
+    padding: 10px 25px;
+    transition: all .35s; }
+    .gsbio .popContents .problemBox .contentText a:hover {
+      background: #eee;
+      border: 1px solid #eee; }
+.gsbio .popContents .videoBox {
+  background: #cfdae6; }
+.gsbio .popContents .standardBox {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 1580px;
+  margin: 0 auto 180px; }
+  .gsbio .popContents .standardBox .photo {
+    background: #cfdae6; }
+    .gsbio .popContents .standardBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+  .gsbio .popContents .standardBox .contentText {
+    margin-left: 0;
+    margin-right: 80px; }
+    .gsbio .popContents .standardBox .contentText.in {
+      transform: translateX(-500px);
+      opacity: 0;
+      animation: textIn 1.5s 1.5s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.gsbio .popContents .responsiveBox {
+  width: 1580px;
+  margin: 0 auto 180px; }
+  .gsbio .popContents .responsiveBox .codepen {
+    background: #cfdae6; }
+    .gsbio .popContents .responsiveBox .codepen.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+  .gsbio .popContents .responsiveBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.gsbio .popContents .responBox {
+  width: 1580px;
+  margin: 0 auto 180px;
+  display: flex;
+  flex-direction: row-reverse; }
+  .gsbio .popContents .responBox .videoBox2 {
+    width: 680px;
+    height: 640px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    background: #cfdae6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .gsbio .popContents .responBox .videoBox2.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+    .gsbio .popContents .responBox .videoBox2 .video:nth-of-type(1) {
+      width: 175px;
+      height: 300px;
+      background: #565656; }
+    .gsbio .popContents .responBox .videoBox2 .video:nth-of-type(2) {
+      width: 280px;
+      height: 410px;
+      background: #565656; }
+  .gsbio .popContents .responBox .contentText {
+    margin-left: 0;
+    margin-right: 80px; }
+    .gsbio .popContents .responBox .contentText.in {
+      transform: translateX(-500px);
+      opacity: 0;
+      animation: textIn 1.5s 1.5s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.gsbio .viewSite .visit {
+  background: #031a34; }
+  .gsbio .viewSite .visit:hover {
+    background: #cfdae6; }
 
 /*# sourceMappingURL=main.css.map */

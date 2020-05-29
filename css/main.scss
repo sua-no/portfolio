@@ -190,10 +190,16 @@ main{
         left: calc(50% - 45px);
         bottom: 100px;
         transform: translateX(50%) rotate(-90deg);
-        z-index: 700;
+        z-index: 3000;
         @include transition7s();
         &.active{
             transform: translateY(100px) translateX(50%) rotate(-90deg);
+        }
+        &.scrollPop{
+            bottom: 50px;
+            &.opacity{
+                opacity: 0;
+            }
         }
         &:after{
             @include after(0,0,none);
@@ -650,6 +656,10 @@ main{
     z-index: 2000; 
     background: #fff;
     overflow-y: scroll;
+    display: none;
+    &.on{
+        display: block;
+    }
     .popMain{
         width: 100%;
         height: 100vh;
@@ -663,22 +673,35 @@ main{
                     color: #b0b0b0;
                     font-style: italic;
                     font-weight: lighter;
+                    @include popUp();
+                    @include aniDelay(0.2s)
                 }
                 h4{
                     @include whiteBold(55px);
                     margin: 37px 0 30px;
                     line-height: 1.3em;
+                    @include popUp();
+                    @include aniDelay(0.5s)
+
                 }
                 >p{
                     @include whiteBold(26px);
-                    color: #c24141;
-    
+                    @include popUp();
+                    @include aniDelay(0.8s)
+
                 }
             }
             ul{
                 margin-top: 130px;
                 display: flex;
                 justify-content: space-between;
+                opacity: 0;
+                animation: fadeIn 1s 1.3s forwards;
+                @keyframes fadeIn{
+                    100%{
+                        opacity: 1;
+                    }
+                }
                 li{
                     p{
                         @include whiteBold(20px);
@@ -695,6 +718,7 @@ main{
         }
     }
     .popContents{
+        overflow: hidden;
         .flexBox{
             display: flex;
             align-items: center;
@@ -711,6 +735,17 @@ main{
             display: flex;
             justify-content: center;
             align-items: center;
+            &.in{
+                width: 0;
+                opacity: 0;
+                animation: in 1s 0.5s forwards;
+                @keyframes in{
+                    100%{
+                        width: 1580px;
+                        opacity: 1;
+                    }
+                }
+            }
             .video{
                 width: 940px;
                 height: 480px;
@@ -720,7 +755,7 @@ main{
         .inlineB{
             display: inline-block;
         }
-        .codepen{
+        .codepen,.photo{
             width: 880px;
             height: 510px;
         }
@@ -739,31 +774,46 @@ main{
         }
     }
     .viewSite{
-        width: 70px;
-        height: 200px;
-        position: fixed;
+        width: 60px;
+        height: 250px;
+        position: absolute;
         right: 0;
-        top: 30%;
-        background: $strColor;
+        top: 0;
         @include transition7s();
-        &:hover{
-            background: #9164cb;
-        }
-        a{
+        display: none;
+        .visit{
             width: 100%;
-            height: 100%;
+            height: 190px;
             position: relative;
             &:after{
                 display: block;
                 position: absolute;
                 text-align: left;
-                content: 'VISIT';
-                // content: 'VISIT SITE';
-                transform: rotate(90deg) ;
-                right: 50%;
+                content: "VISIT SITE";
+                white-space: pre;
+                transform: rotate(90deg) translateY(50%) translateX(-8%);
+                right: -50%;
                 top: 50%;
                 @include whiteBold(20px);
             }
+            &.active{
+                opacity: .5;
+                animation: clickMe 2s infinite;
+                @keyframes clickMe{
+                    100%{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .top{
+            width: 100%;
+            height: 60px;
+            background: #eee url(../img/top.png) no-repeat center center;
+            text-indent: -9999px;
+            transition: .3s;
+            &:hover{
+                background: #999 url(../img/top.png) no-repeat center center;            }
         }
     }
     .closer{
@@ -780,6 +830,9 @@ main{
 .stranger{
     .popMain{
         background: $strColor;
+        .copyBox .mainCopy>p{
+            color: #c24141;
+        }
     }
     .popContents{
         .visualBox{
@@ -792,6 +845,10 @@ main{
             @include popSubBox();
             .codepen{
                background: $strColor;
+               @include inSubBox();
+            }
+            .contentText{
+                @include inTextBox();
             }
         }
         .responBox{
@@ -807,6 +864,7 @@ main{
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
+                @include inSubBox();
                 .video:nth-of-type(1){
                     width: 175px;
                     height: 300px;
@@ -821,12 +879,172 @@ main{
             .contentText{
                 margin-left: 0;
                 margin-right: 80px;
+                &.in{
+                    transform: translateX(-500px);
+                            opacity: 0;
+                            animation: textIn 1.5s 1.5s forwards;
+                            @keyframes textIn{
+                                100%{
+                                    transform: translateX(0);
+                                    opacity: 1;
+                                }
+                            }
+                }
             }
         }
         .resjsBox{
             @include popSubBox();
             .codepen{
                 background: $strColor;
+                @include inSubBox();
+            }
+            .contentText{
+                @include inTextBox();
+            }
+        }
+    }
+    .viewSite{
+        .visit{
+            background: #9164cb;
+            &:hover{
+                background: $strColor;
+            }
+        }
+    }
+}
+.gsbio{
+    .popMain{
+        background: $gsMainColor;
+        .copyBox .mainCopy>p{
+            color: #1d74ba;
+        }
+    }
+    .popContents{
+        .visualBox{
+            @include background('gsbio_visual.jpg');
+        }
+        .problemBox{
+            @include popSubBox();
+            margin: 180px auto 180px;
+            .photo{
+                @include workPhoto();
+                padding: 40px;
+                box-sizing: border-box;
+                overflow: hidden;
+                position: relative;
+                img{
+                    display: inline-block;
+                    width: 573px;
+                    height: 333px;
+                    &:nth-of-type(2){
+                        position: absolute;
+                        right: -80px;
+                        bottom: 0;
+                    }
+                }
+            }
+            .contentText{
+                @include inTextBox();
+                p{
+                    margin-bottom: 20px;
+                }
+                a{
+                    border: 1px solid #565656;
+                    padding: 10px 25px;
+                    transition: all .35s;
+                    &:hover{
+                        background: #eee;
+                        border: 1px solid #eee;
+                    }
+                }
+            }
+        }
+        .videoBox{
+            background: $gsColor;
+        }
+        .standardBox{
+            display: flex;
+            flex-direction: row-reverse;
+            @include popSubBox();
+            .photo{
+               @include workPhoto();
+               img{}
+            }
+            .contentText{
+                margin-left: 0;
+                margin-right: 80px;
+                &.in{
+                    transform: translateX(-500px);
+                    opacity: 0;
+                    animation: textIn 1.5s 1.5s forwards;
+                    @keyframes textIn{
+                        100%{
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .responsiveBox{
+            @include popSubBox();
+            .codepen{
+                background: $gsColor;
+                @include inSubBox();
+            }
+            .contentText{
+                @include inTextBox();
+            }
+        }
+        .responBox{
+            @include popSubBox();
+            display: flex;
+            flex-direction: row-reverse;
+            .videoBox2{
+                width: 680px;
+                height: 640px;
+                padding: 0 50px;
+                box-sizing: border-box;
+                background: $gsColor;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                @include inSubBox();
+
+                .video:nth-of-type(1){
+                    width: 175px;
+                    height: 300px;
+                    background: #565656;
+                }
+                .video:nth-of-type(2){
+                    width: 280px;
+                    height: 410px;
+                    background: #565656;
+                }
+            }
+            .contentText{
+                margin-left: 0;
+                margin-right: 80px;
+                &.in{
+                    transform: translateX(-500px);
+                    opacity: 0;
+                    animation: textIn 1.5s 1.5s forwards;
+                    @keyframes textIn{
+                        100%{
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .viewSite{
+        .visit{
+            background: $gsMainColor;
+            &:hover{
+                background: $gsColor;
             }
         }
     }

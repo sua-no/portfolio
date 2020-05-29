@@ -144,7 +144,6 @@
                             </g>
                         </svg>
                     </div>
-
                     <div class="mainMenu">
                         <ul>
                             <li class="menuList" data-page="about">ABOUT</li>
@@ -247,12 +246,24 @@
                         <div class="video"></div>
                     </div>
                     <div class="onepageBox flexBox">
-                        <!-- 코드펜 박스 -->
-                        <div class="codepen inlineB"></div>
+
+                        <div class="codepen inlineB">
+                            <p class="codepen" data-height="257" data-theme-id="dark" data-default-tab="js,result"
+                                data-user="sua-no" data-slug-hash="LYpKJqz"
+                                style="height: 257px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+                                data-pen-title="sssss">
+                                <span>See the Pen <a href="https://codepen.io/sua-no/pen/LYpKJqz">
+                                        sssss</a> by sua (<a href="https://codepen.io/sua-no">@sua-no</a>)
+                                    on <a href="https://codepen.io">CodePen</a>.</span>
+                            </p>
+                            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                        </div>
                         <figure class="contentText">
                             <figcaption>원 페이지 스크롤</figcaption>
-                            <p>미디어 쿼리를 이용하여 모든 기기에 대응할 수 있도록 반응형 작업 하였고,
-                                사용한 모든 기능은 바닐라 자바스크립트로 구현하였습니다.</p>
+                            <p>사용자의 몰입을 위해 원페이지 스크롤 형식을 사용하여
+                                페이지의 이동없이 컨텐츠를 볼 수 있도록 작업하였습니다.
+                                한번에 원하는 페이지로 가고 싶을 때는 인디게이터로 이동 가능합니다.
+                            </p>
                         </figure>
                     </div>
                     <div class="responBox flexBox">
@@ -280,10 +291,103 @@
                         </figure>
                     </div>
                 </section>
-                <div class="viewSite"><a href="sua-no.github.io/strangerthings" target="_blank"></a></div>
+                <div class="viewSite">
+                    <a class="visit" href="https://sua-no.github.io/gsbio/" target="_blank"></a>
+                    <a class="top" href="#">top</a>
+                </div>
                 <div class="closer"><button class="close"></button></div>
             </article>
-            <!-- <article class="popup gsbio"></article> -->
+            <article class="popup gsbio">
+                <section class="popMain">
+                    <div class="copyBox">
+                        <div class="mainCopy">
+                            <span class="italic">Second Project</span>
+                            <h4>GS 바이오</h4>
+                            <p>기존 GS 바이오 사이트를 리뉴얼한 기업소개 페이지입니다.</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <p>제작기간</p>
+                                <span>2020 .04.15 - 2020.05.00
+                                    총 13 페이지
+                                    기획 및 디자인, 퍼블리싱 약 1달</span>
+                            </li>
+                            <li>
+                                <p>사용스킬</p>
+                                <span>HTML, SCSS, Javascript, Jquery</span>
+                            </li>
+                            <li>
+                                <p>특징</p>
+                                <span>웹표준, 접근성에 맞지 않는 기존 사이트를
+                                    시맨틱 태그를 사용하고 접근성을 개선하여 리뉴얼 작업하였습니다.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="popContents">
+                    <div class="visualBox"></div>
+                    <div class="problemBox flexBox">
+                        <div class="photo inlineB">
+                            <img src="img/standard_01.jpg" alt="">
+                            <img src="img/standard_02.jpg" alt="">
+                        </div>
+                        <figure class="contentText">
+                            <figcaption>기존 사이트의 문제점</figcaption>
+                            <p>플래시 사용으로 최신 브라우저에서 메인페이지 컨텐츠를 볼 수 없고,
+                                메뉴가 보이지 않아 페이지 이동이 어렵습니다.
+                                table 태그로 레이아웃이 구성되어 있고, 대부분의 페이지가 이미지로 구성되어
+                                접근성에 맞지 않습니다.
+                            </p>
+                            <a href="http://www.gsbio.co.kr/" target="_blank">기존 사이트 보러가기</a>
+                        </figure>
+                    </div>
+                    <div class="videoBox">
+                        <!-- 비디오 태그추가  absolute -->
+                        <div class="video"></div>
+                    </div>
+                    <div class="standardBox flexBox">
+                        <div class="photo inlineB">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                        </div>
+                        <figure class="contentText">
+                            <figcaption>웹표준, 접근성 개선</figcaption>
+                            <p>의미없는 태그 사용을 지양하고 시맨틱한 태그들을 사용하고,
+                                웹표준 규칙에 맞게 코딩하였습니다.
+                                다양한 사용자들에게 불편함이 없도록 적절한 대체 텍스트와 제목을 사용했습니다.
+                            </p>
+                        </figure>
+                    </div>
+                    <div class="responsiveBox flexBox">
+                        <!-- 코드펜 박스 -->
+                        <div class="codepen inlineB"></div>
+                        <figure class="contentText">
+                            <figcaption>사용자의 편의 고려</figcaption>
+                            <p>popstate 이벤트를 사용하여 사용자가 이전 페이지로 이동시
+                                원치 않는 페이지로의 이동을 방지하였습니다.
+                            </p>
+                        </figure>
+                    </div>
+                    <div class="responBox flexBox">
+                        <div class="videoBox2 inlineB">
+                            <!-- 비디오 태그 -->
+                            <div class="video"></div>
+                            <div class="video"></div>
+                        </div>
+                        <figure class="contentText">
+                            <figcaption>반응형 페이지</figcaption>
+                            <p>다양한 디바이스에서 컨텐츠를 접할 수 있도록
+                                반응형 작업하였습니다.
+                            </p>
+                        </figure>
+                    </div>
+                </section>
+                <div class="viewSite">
+                    <a class="visit" href="https://sua-no.github.io/gsbio/" target="_blank"></a>
+                    <a class="top" href="#">top</a>
+                </div>
+                <div class="closer"><button class="close"></button></div>
+            </article>
         </main>
     </div>
 
