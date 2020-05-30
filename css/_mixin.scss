@@ -1,6 +1,8 @@
 $strColor : #2a1b3d;
 $gsColor : #cfdae6;
 $gsMainColor : #031a34;
+$portMainColor : #febf00;
+$portColor : #d5d3d5;
 @mixin after($width,$height,$back){
         display: block;
         content: '';

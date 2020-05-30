@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function () {
         workIdx = 0,
         mainCheck = '',
         wheelCheck = true,
-        workWheel = true,
+        changeCheck = true,
         popHeight = $(window).innerHeight();
 
 
@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
         success: function (data) {
             jsonData = data.works;
             jsonData2 = data.lists;
+            $('.total').text('0' + (jsonData.length));
             workListData(); //workList에 JSON데이터 넣고 data-work값 변경
         }
     })
@@ -29,7 +30,8 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.main').on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
     $('.about').on('scroll', boxSize);
     $('.controlBtn button').on('click', workChange); // work페이지에서 버튼 클릭시 다음 컨텐츠 내용으로 변경
-    $('.work').on('wheel', workSlide); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
+    $('.work').on('wheel', workChange); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
+
     $('.controlList').on('click', listShow); //work 페이지에서 list 버튼 클릭시 리스트 display: block
     $('.viewBtn').on('click', popupOn); //자세히 보기 클릭시 해당 팝업창 보이기
     $('.closer').on('click', popupOff);
@@ -152,7 +154,6 @@ window.addEventListener('DOMContentLoaded', function () {
                         $('.workBox').addClass('active');
                     });
                 }, 800);
-
             });
         });
     }
@@ -241,29 +242,22 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // work 페이지 관련 함수
     function workChange(e) { //work 페이지 데이터 변경
-        if (e.target.className == 'prev') { //prev버튼 눌렀을 때 인덱스 값 변경하여 데이터 변경
-            workIdx--;
-            if (workIdx == -1) { workIdx = 2; }
-        } else { //next버튼 눌렀을 때 인덱스 변경
-            workIdx++;
-            if (workIdx == 3) { workIdx = 0; }
-        }
-        dataChange();
-    }
-    function workSlide(e) { //스크롤시 내용 변경
-        let wheelDeltaY = e.originalEvent.deltaY;
-        if (workWheel) {
-            workWheel = false;
-            if (wheelDeltaY > 0) {
-                workIdx++;
-                if (workIdx == 3) { workIdx = 0; }
-            } else {
-                workIdx--;
-                if (workIdx == -1) { workIdx = 2; }
+        if (changeCheck) {
+            changeCheck = false;
+            if (e.type == 'click') { //클릭 이벤트 발생 시 인덱스 변경
+                e.target.className == 'prev' ? workIdx-- : workIdx++;
+            } else { //마우스 휠 이벤트 발생 시 인덱스 변경
+                let wheelDeltaY = e.originalEvent.deltaY;
+                wheelDeltaY < 0 ? workIdx-- : workIdx++;
+            }
+            if (workIdx == jsonData.length) {
+                workIdx = 0;
+            } else if (workIdx < 0) {
+                workIdx = jsonData.length - 1;
             }
             dataChange();
             setTimeout(function () {
-                workWheel = true;
+                changeCheck = true;
             }, 1000);
         }
     }
@@ -320,14 +314,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 $(this).removeClass('on');
             }
         });
-        function resetStlyle() {
-            $('.up').each(function () {
-                $(this).attr('style', '');
-            });
-            $('.leftIn,.rightIn').each(function () {
-                $(this).attr('style', '');
-            });
-        }
     }
     function resetAni() {
         $('.in').each(function () {
@@ -338,7 +324,6 @@ window.addEventListener('DOMContentLoaded', function () {
         videoBoxAni();
         contentsAni();
         visitBtnAni(e);
-
     }
     function videoBoxAni() {
         $('.videoBox').each(function () {

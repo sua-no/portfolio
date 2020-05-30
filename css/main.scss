@@ -4,6 +4,7 @@
     width: 100%;
     position: relative;
 }
+// header (logo+menu)
 header{
     width: 100%;
     height: 100vh;
@@ -160,6 +161,7 @@ header{
         }
     }   
 }
+//main (common)
 main{
     width: 100%;
     height: 100vh;
@@ -222,6 +224,7 @@ main{
         }
     }
 }
+//page (+pageColor)
 .pageInner{
     &.active{
         .pageColor{
@@ -538,7 +541,6 @@ main{
             ul{
                 margin: 0 auto;
                 box-sizing: border-box;
-                border: 1ps solid #f00;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -606,6 +608,10 @@ main{
                     }
                     &:nth-of-type(3){
                         figure figcaption{
+                            background: #febf00;
+                        }
+                    }&:last-of-type{
+                        figure figcaption{
                             background: rgb(102, 102, 102);
                         }
                     }
@@ -647,6 +653,7 @@ main{
     .contact{
     }
 }
+//work page popup (common)
 .popup{
     width: 100%;
     height: 100vh;
@@ -712,6 +719,7 @@ main{
                         white-space: pre-line;
                         color: #fff;
                         line-height: 1.5em;
+                        font-weight: 100;
                     }
                 }
             }
@@ -758,6 +766,9 @@ main{
         .codepen,.photo{
             width: 880px;
             height: 510px;
+            padding: 50px 110px;
+            background: $portColor;
+            box-sizing: border-box;
         }
         .contentText{
             display: inline-block;
@@ -824,9 +835,11 @@ main{
             width: 40px;
             height: 40px;
             @include background('closer.png');
+            outline: none;
         }
     }
 }
+//stranger things
 .stranger{
     .popMain{
         background: $strColor;
@@ -912,6 +925,7 @@ main{
         }
     }
 }
+//gs bio
 .gsbio{
     .popMain{
         background: $gsMainColor;
@@ -1045,6 +1059,98 @@ main{
             background: $gsMainColor;
             &:hover{
                 background: $gsColor;
+            }
+        }
+    }
+}
+//portfolio
+.portfolio{
+    .popMain{
+        background: $portMainColor;
+        .copyBox{
+            .mainCopy>p{
+                color: #333;
+            }
+            ul li p{
+                color: rgb(196, 158, 1);
+            }
+        }
+    }
+    .popContents{
+        .visualBox{
+            @include background('portfolio_visual.jpg');
+        }
+        .videoBox{
+            background: $portColor;
+        }
+        .animateBox{
+            @include popSubBox();
+            .codepen{
+               @include inSubBox();
+            }
+            .contentText{
+                @include inTextBox();
+            }
+        }
+        .jsonBox{
+            @include popSubBox();
+            display: flex;
+            flex-direction: row-reverse;
+            .videoBox2{
+                width: 680px;
+                height: 640px;
+                padding: 90px 120px;
+                box-sizing: border-box;
+                background: $portColor;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include inSubBox();
+                .video{
+                    width: 100%;
+                    height: 100%;
+                    background: #565656;
+                }
+                
+            }
+            .contentText{
+                margin-left: 0;
+                margin-right: 80px;
+                &.in{
+                    transform: translateX(-500px);
+                            opacity: 0;
+                            animation: textIn 1.5s 1.5s forwards;
+                            @keyframes textIn{
+                                100%{
+                                    transform: translateX(0);
+                                    opacity: 1;
+                                }
+                            }
+                }
+            }
+        }
+        .eventBox{
+            @include popSubBox();
+            .photo{
+                @include inSubBox();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .contentText{
+                @include inTextBox();
+            }
+        }
+    }
+    .viewSite{
+        .visit{
+            background: $portMainColor;
+            &:hover{
+                background: $portColor;
             }
         }
     }

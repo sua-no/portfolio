@@ -524,7 +524,6 @@ main {
     .pageInner .work .workList ul {
       margin: 0 auto;
       box-sizing: border-box;
-      border: 1ps solid #f00;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -578,6 +577,8 @@ main {
         .pageInner .work .workList ul li:nth-of-type(2) figure figcaption {
           background: #206cc2; }
         .pageInner .work .workList ul li:nth-of-type(3) figure figcaption {
+          background: #febf00; }
+        .pageInner .work .workList ul li:last-of-type figure figcaption {
           background: #666666; }
         .pageInner .work .workList ul li:last-of-type .listBtn {
           display: none; }
@@ -680,7 +681,8 @@ main {
       .popup .popMain .copyBox ul li span {
         white-space: pre-line;
         color: #fff;
-        line-height: 1.5em; }
+        line-height: 1.5em;
+        font-weight: 100; }
   .popup .popContents {
     overflow: hidden; }
     .popup .popContents .flexBox {
@@ -714,7 +716,10 @@ main {
       display: inline-block; }
     .popup .popContents .codepen, .popup .popContents .photo {
       width: 880px;
-      height: 510px; }
+      height: 510px;
+      padding: 50px 110px;
+      background: #d5d3d5;
+      box-sizing: border-box; }
     .popup .popContents .contentText {
       display: inline-block; }
       .popup .popContents .contentText figcaption {
@@ -772,7 +777,8 @@ main {
     .popup .closer .close {
       width: 40px;
       height: 40px;
-      background: url("../img/closer.png") no-repeat center center; }
+      background: url("../img/closer.png") no-repeat center center;
+      outline: none; }
 
 .stranger .popMain {
   background: #2a1b3d; }
@@ -1013,5 +1019,102 @@ main {
   background: #031a34; }
   .gsbio .viewSite .visit:hover {
     background: #cfdae6; }
+
+.portfolio .popMain {
+  background: #febf00; }
+  .portfolio .popMain .copyBox .mainCopy > p {
+    color: #333; }
+  .portfolio .popMain .copyBox ul li p {
+    color: #c49e01; }
+.portfolio .popContents .visualBox {
+  background: url("../img/portfolio_visual.jpg") no-repeat center center; }
+.portfolio .popContents .videoBox {
+  background: #d5d3d5; }
+.portfolio .popContents .animateBox {
+  width: 1580px;
+  margin: 0 auto 180px; }
+  .portfolio .popContents .animateBox .codepen.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+  .portfolio .popContents .animateBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.portfolio .popContents .jsonBox {
+  width: 1580px;
+  margin: 0 auto 180px;
+  display: flex;
+  flex-direction: row-reverse; }
+  .portfolio .popContents .jsonBox .videoBox2 {
+    width: 680px;
+    height: 640px;
+    padding: 90px 120px;
+    box-sizing: border-box;
+    background: #d5d3d5;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .portfolio .popContents .jsonBox .videoBox2.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+    .portfolio .popContents .jsonBox .videoBox2 .video {
+      width: 100%;
+      height: 100%;
+      background: #565656; }
+  .portfolio .popContents .jsonBox .contentText {
+    margin-left: 0;
+    margin-right: 80px; }
+    .portfolio .popContents .jsonBox .contentText.in {
+      transform: translateX(-500px);
+      opacity: 0;
+      animation: textIn 1.5s 1.5s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.portfolio .popContents .eventBox {
+  width: 1580px;
+  margin: 0 auto 180px; }
+  .portfolio .popContents .eventBox .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .portfolio .popContents .eventBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 880px;
+    opacity: 1; } }
+    .portfolio .popContents .eventBox .photo img {
+      width: 100%;
+      height: 100%; }
+  .portfolio .popContents .eventBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.portfolio .viewSite .visit {
+  background: #febf00; }
+  .portfolio .viewSite .visit:hover {
+    background: #d5d3d5; }
 
 /*# sourceMappingURL=main.css.map */
