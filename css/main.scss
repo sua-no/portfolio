@@ -1082,6 +1082,9 @@ main{
         }
         .videoBox{
             background: $portColor;
+            video{
+                
+            }
         }
         .animateBox{
             @include popSubBox();
@@ -1109,7 +1112,10 @@ main{
                 .video{
                     width: 100%;
                     height: 100%;
-                    background: #565656;
+                    video{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
                 
             }
