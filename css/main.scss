@@ -241,16 +241,11 @@ main{
         }
     }
     &.overflowY{
-        overflow-y: scroll;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-        &::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera*/
-        }
+        @include overflowY();
     }
     .pageColor{
         width: 100%;
-        height: 100%;
+        height: calc(100vh - 110px);
         background: #080233;
         position: absolute;
         right:50%;
@@ -261,6 +256,8 @@ main{
         z-index: 200;
     }
     .main{
+        // display: none;
+
         position: relative;
         overflow: hidden;
         left: 0;
@@ -285,11 +282,11 @@ main{
                         animation: lineAni 3s 0.1s forwards;
                     }
                     .s .copyLine,.f .copyLine,.o .copyLine{stroke-width: 33;}
-                    .a .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(2){@include aniDelay(0.2);}
-                    .s .copyLine, .o .copyLine{@include aniDelay(0.6);}
-                    .l .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(3),.a .copyLine:nth-of-type(3){@include aniDelay(0.8);}
-                    .u .copyLine, .i .copyLine{@include aniDelay(1);}
-                    .o_2 .copyLine{@include aniDelay(1.2);}
+                    .a .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(2){@include aniDelay(0.2s);}
+                    .s .copyLine, .o .copyLine{@include aniDelay(0.6s);}
+                    .l .copyLine:nth-of-type(2),.f .copyLine:nth-of-type(3),.a .copyLine:nth-of-type(3){@include aniDelay(0.8s);}
+                    .u .copyLine, .i .copyLine{@include aniDelay(1s);}
+                    .o_2 .copyLine{@include aniDelay(1.2s);}
                     .dot path{fill: #fff; opacity: 0; animation: dot 1s 1.3s forwards}
                     @keyframes lineAni{
                         100%{stroke-dashoffset: 0;}
@@ -307,7 +304,7 @@ main{
             left: 10%;
             top: 50%;
             transform: translateY(-50%);
-            overflow: hidden;
+            // overflow: hidden;
             z-index: 201;
             ul{
                 width: 100%;
@@ -316,16 +313,17 @@ main{
                 transform: translateY(200%);
                 @include transition7s();
                 li{
-                    font-weight: bold;
-                    font-size: 4.5rem;
-                    color: #fff;
-                    cursor: pointer;
-                    transition: all .35s;
-                    &:hover{
-                        letter-spacing: 3px;
-                        color: transparent;
-                        -webkit-text-stroke: 2px #fff;
+                    .menuMove{
+                        font-weight: bold;
+                        font-size: 4.5rem;
+                        color: #fff;
+                        position: relative;
+                        left: 0;
+                        top: 0;
                     }
+                    cursor: pointer;
+                    position: relative;
+                   
                 }
             }
         }
@@ -340,7 +338,6 @@ main{
             z-index: 400;
             overflow: hidden;
             mix-blend-mode: difference;
-
             h2{                
                 text-align: left;
                 color: #fff;
@@ -356,31 +353,160 @@ main{
             z-index: 400;
             opacity: 0;
             transition: all 2s;
-
-        }
-    }
-    .about{
-        .subTit{
-            h2{
-            }
-        }
-        .subCopy{
-            padding: 300px 300px 0 0;
-            text-align: right;
             .italic{
-
+                @include italic(16px);
             }
             .subText{
-                p{}
+                p{
+                    white-space: pre-line;
+                    line-height: 1.4em;
+                }
+                .white{
+                    margin: 12px 0 10px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #fff;
+                }
             }
         }
     }
-    .main{
-        display: none;
+    //about page
+    .about{
+        .subCopy{
+            position: relative;
+            z-index: 400;
+            width: 100%;
+            height: calc(100vh - 110px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 40%;
+            box-sizing: border-box;
+        }
+        .skill{
+            padding: 130px 0 50px;
+            position: relative;
+            z-index: 400;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #f8f8f8;
+            .skillCopy{
+                margin-bottom: 50px;
+                text-align: center;
+                h3{
+                    margin-bottom: 14px;
+                    font-weight: bold;
+                    font-size: 24px;
+                }
+                .italic{
+                    @include italic(22px);
+                }
+            }
+            .skillIcon{
+                width: 65.7458%; //1190px
+                margin: 0 auto 60px;
+                position: relative;
+                z-index: 400;   
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                li{
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 50px;
+                    position: relative;
+                    @for $i from 1 to 10{
+                        &:nth-of-type(#{$i}){
+                            @include background('skills_0#{$i}.jpg');
+                        }
+                    }
+                    margin-right: 35px;
+                    &:last-of-type{
+                        margin-right: 0;
+                    }
+                    &:hover span{
+                        transform: translateX(-50%) translateY(0);
+                        opacity: 1;
+                    }
+                    span{
+                        padding: 3px 6px;
+                        font-size: 12px;
+                        font-weight: 100;
+                        border-radius: 2px;
+                        position: absolute;
+                        left: 50%;
+                        bottom: -23px;
+                        transform: translateX(-50%) translateY(-5px);
+                        color: #fff;
+                        background: #000;
+                        opacity: 0;
+                        transition: .35s;
+                    }
+                }
+            }
+            .skillList{
+                width: 65.7458%; //1190px
+                margin: 0 auto;
+                padding: 30px 50px;
+                position: relative;
+                z-index: 400;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                >li{
+                    width: 375px;
+                    padding: 30px 30px 50px;
+                    box-sizing: border-box;
+                    margin-bottom: 30px;
+                    background: #fff;
+                    transition: .35s;
+                    &:hover{
+                        box-shadow: 0 0 8px 5px rgba(155, 155, 155, 0.1);
+                    }
+                    figure{
+                        .skillNum{
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            border: 1px solid #333;
+                            text-align: center;
+                            line-height: 32px;
+                        }
+                        figcaption{
+                            margin: 24px 0 30px;
+                            font-weight: bold;
+                            font-size: 20px;
+                        }
+                        ul{
+                            width: 100%;
+                            li{
+                                margin-bottom: 10px;
+                                font-size: 14px;
+                                line-height: 1.5em;
+                                color: #585858;
+                                position: relative;
+                                text-indent : 18px;
+                                white-space: pre-line;
+                                &:last-of-type{
+                                    margin-bottom: 0;
+                                }
+                                &:after{
+                                    @include after(12px,12px,none);
+                                    @include background('about_check.png');
+                                    background-size: contain;
+                                    left: 0;
+                                    top: 4px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+    //work page
     .work{
-        top: 0;
-        display: block;
         .subTit{
             top: 44vh;
         }
@@ -611,6 +737,7 @@ main{
                             background: #febf00;
                         }
                     }&:last-of-type{
+                        margin-right: 0;
                         figure figcaption{
                             background: rgb(102, 102, 102);
                         }
@@ -650,6 +777,7 @@ main{
             }
         }
     }
+    //contact page
     .contact{
     }
 }
@@ -678,7 +806,6 @@ main{
                     font-family: 'Noto Serif', serif;
                     @include whiteBold(26px);
                     color: #b0b0b0;
-                    font-style: italic;
                     font-weight: lighter;
                     @include popUp();
                     @include aniDelay(0.2s)
@@ -755,9 +882,13 @@ main{
                 }
             }
             .video{
-                width: 940px;
+                width: 900px;
                 height: 480px;
                 background: #666;
+                video{
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
         .inlineB{

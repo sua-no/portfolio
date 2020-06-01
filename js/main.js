@@ -1,10 +1,12 @@
 window.addEventListener('DOMContentLoaded', function () {
-    let jsonData, jsonData2,
+    let jsonData, jsonData2, mouseEnterX, mouseEnterY,
         workIdx = 0,
         mainCheck = '',
         wheelCheck = true,
         changeCheck = true,
-        popHeight = $(window).innerHeight();
+        popHeight = $(window).innerHeight(),
+        boxMax = 80;
+
 
 
     //work JSON파일 로드
@@ -18,7 +20,9 @@ window.addEventListener('DOMContentLoaded', function () {
             $('.total').text('0' + (jsonData.length));
             workListData(); //workList에 JSON데이터 넣고 data-work값 변경
         }
-    })
+    });
+    videoPause(); //video 정지
+
 
     //이벤트 등록
     window.addEventListener('popstate', function () { //뒤로가기시 이전 페이지로 이동
@@ -27,17 +31,51 @@ window.addEventListener('DOMContentLoaded', function () {
     });
     $('.menuBtn').on('click', menuIn); //메뉴버튼 클릭시 메뉴 슬라이드
     $('.menuList').on('click', pageChange); //메뉴 클릭시 서브 페이지로 전환
+    $('.mainMenu ul li').on('mousemove', float);
+
     $('.main').on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
-    $('.about').on('scroll', boxSize);
     $('.controlBtn button').on('click', workChange); // work페이지에서 버튼 클릭시 다음 컨텐츠 내용으로 변경
     $('.work').on('wheel', workChange); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
-
     $('.controlList').on('click', listShow); //work 페이지에서 list 버튼 클릭시 리스트 display: block
     $('.viewBtn').on('click', popupOn); //자세히 보기 클릭시 해당 팝업창 보이기
     $('.closer').on('click', popupOff);
     $('.popup').on('scroll', scrollAni);
     $('.top').on('click', goTop);
 
+
+    function float(e) {
+
+        // let pageWidth = $(this).parent().innerWidth();
+        // let pageHeight = $(this).parent().innerheight();
+        mouseEnterX = e.pageX;
+        mouseEnterY = e.pageY;
+
+
+        let aa = $(this).find('.menuMove').offset().left;
+        let bb = $(this).find('.menuMove').offset().top;
+
+        // console.log("a:::" + a);
+        // console.log("b:::" + b);
+
+
+        console.log((mouseEnterX - aa));
+
+        // console.log(mouseEnter);
+        // console.log(mousePosition);
+        // let a = mousePositionX - mouseEnterX,
+        //     b = mousePositionY - mouseEnterY;
+        // console.log(a);
+
+        $(this).find('.menuMove').css({
+            // position: 'absolute',
+            left: (mouseEnterX - aa) + 100,
+            top: (mouseEnterY - bb) + 100,
+            // zIndex: 1000
+
+        });
+
+
+    }
 
     //페이지 전환 함수
     function pageChange(clickPage) {
@@ -64,14 +102,14 @@ window.addEventListener('DOMContentLoaded', function () {
         history.pushState({ page: clickPage }, 'title', '?' + clickPage);
     }
     function scrollYAdd(clickPage) {
-        $('.pageInner').scrollTop(0);
-        if (clickPage === 'about') { //about페이지에서 스크롤 생성 (scroll없앴음!!!!!!!!!!!!! -나중수정)
+        if (clickPage === 'about') { //about페이지에서 스크롤 생성
             $('.pageInner').addClass('overflowY');
+            $('.pageInner').scrollTop(0);
+            $('.pageInner').on('scroll', boxSize);
         } else { //스크롤 없는 페이지로 이동시 스크롤 제거
             $('.pageInner').removeClass('overflowY');
         }
     }
-    workAni(); //work페이지 작업중!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //컬러박스 변경 함수
     function colorManger(clickPage) {
@@ -97,8 +135,8 @@ window.addEventListener('DOMContentLoaded', function () {
         transition('.pageColor', '0s');
         $('.pageColor').stop().animate({
             width: '100%',
-            height: '100%',
-            right: 0,
+            height: 'calc(100vh - 110px)',
+            right: 0
         }, 800, function () {
             $('.pageColor').animate({
                 width: '0%',
@@ -112,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () {
                     $('.pageColor').animate({
                         width: '80%',
-                        height: '100%',
+                        height: 'calc(100vh - 110px)'
                     }, 1000, function () {
                         transition('.pageColor', '1s');
                     });
@@ -237,7 +275,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //about 페이지 박스 사이즈 변경
     function boxSize() {
-
+        let aboutScroll = $(this).scrollTop(),
+            boxWidth = boxMax - (aboutScroll * 0.2);
+        if (boxWidth <= 0) {
+            boxWidth = 0;
+        }
+        $('.pageColor').css({
+            width: boxWidth + '%'
+        }, 1);
     }
 
     // work 페이지 관련 함수
@@ -331,6 +376,20 @@ window.addEventListener('DOMContentLoaded', function () {
                 $(this).addClass('in');
             }
         });
+        videoStart();
+    }
+    function videoPause() {
+        $('video').each(function () {
+            $(this).trigger('pause');
+        });
+    }
+    function videoStart() {
+        $('video').each(function (i) {
+            if ($('video').eq(i).parent().parent().hasClass('in')) {
+                $(this).trigger('play');
+            }
+        });
+
     }
     function contentsAni() {
         $('.inlineB').each(function () {

@@ -277,7 +277,7 @@ main {
     /* Chrome, Safari, Opera*/ }
 .pageInner .pageColor {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 110px);
   background: #080233;
   position: absolute;
   right: 50%;
@@ -310,15 +310,15 @@ main {
     .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .f .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
       stroke-width: 33; }
     .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(2) {
-      animation-delay: 0.2; }
+      animation-delay: 0.2s; }
     .pageInner .main .mainCopy svg .suafolio .s .copyLine, .pageInner .main .mainCopy svg .suafolio .o .copyLine {
-      animation-delay: 0.6; }
+      animation-delay: 0.6s; }
     .pageInner .main .mainCopy svg .suafolio .l .copyLine:nth-of-type(2), .pageInner .main .mainCopy svg .suafolio .f .copyLine:nth-of-type(3), .pageInner .main .mainCopy svg .suafolio .a .copyLine:nth-of-type(3) {
-      animation-delay: 0.8; }
+      animation-delay: 0.8s; }
     .pageInner .main .mainCopy svg .suafolio .u .copyLine, .pageInner .main .mainCopy svg .suafolio .i .copyLine {
-      animation-delay: 1; }
+      animation-delay: 1s; }
     .pageInner .main .mainCopy svg .suafolio .o_2 .copyLine {
-      animation-delay: 1.2; }
+      animation-delay: 1.2s; }
     .pageInner .main .mainCopy svg .suafolio .dot path {
       fill: #fff;
       opacity: 0;
@@ -337,7 +337,6 @@ main {
     left: 10%;
     top: 50%;
     transform: translateY(-50%);
-    overflow: hidden;
     z-index: 201; }
     .pageInner .main .mainMenu ul {
       width: 100%;
@@ -346,15 +345,15 @@ main {
       transform: translateY(200%);
       transition: all .7s; }
       .pageInner .main .mainMenu ul li {
-        font-weight: bold;
-        font-size: 4.5rem;
-        color: #fff;
         cursor: pointer;
-        transition: all .35s; }
-        .pageInner .main .mainMenu ul li:hover {
-          letter-spacing: 3px;
-          color: transparent;
-          -webkit-text-stroke: 2px #fff; }
+        position: relative; }
+        .pageInner .main .mainMenu ul li .menuMove {
+          font-weight: bold;
+          font-size: 4.5rem;
+          color: #fff;
+          position: relative;
+          left: 0;
+          top: 0; }
 .pageInner .sub {
   display: none; }
   .pageInner .sub .subTit {
@@ -377,232 +376,371 @@ main {
     z-index: 400;
     opacity: 0;
     transition: all 2s; }
+    .pageInner .sub .subCopy .italic {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 16px; }
+    .pageInner .sub .subCopy .subText p {
+      white-space: pre-line;
+      line-height: 1.4em; }
+    .pageInner .sub .subCopy .subText .white {
+      margin: 12px 0 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff; }
 .pageInner .about .subCopy {
-  padding: 300px 300px 0 0;
-  text-align: right; }
-.pageInner .main {
-  display: none; }
-.pageInner .work {
-  top: 0;
-  display: block; }
-  .pageInner .work .subTit {
-    top: 44vh; }
-  .pageInner .work .workBox {
-    margin-right: 22%;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-40%);
-    z-index: 351;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: all .7s; }
-    .pageInner .work .workBox.active {
-      opacity: 1;
-      transform: translateY(-50%); }
-    .pageInner .work .workBox .workTit {
-      font-size: 50px;
+  position: relative;
+  z-index: 400;
+  width: 100%;
+  height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40%;
+  box-sizing: border-box; }
+.pageInner .about .skill {
+  padding: 130px 0 50px;
+  position: relative;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f8f8f8; }
+  .pageInner .about .skill .skillCopy {
+    margin-bottom: 50px;
+    text-align: center; }
+    .pageInner .about .skill .skillCopy h3 {
+      margin-bottom: 14px;
       font-weight: bold;
-      line-height: 1.2em;
-      color: #333;
-      text-align: right;
-      position: absolute;
-      right: -240px;
-      top: 130px; }
-    .pageInner .work .workBox .workImg {
-      width: 720px;
-      height: 405px; }
-      .pageInner .work .workBox .workImg img {
-        width: 100%;
-        height: 100%; }
-    .pageInner .work .workBox .workSkill {
-      margin-top: 35px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center; }
-    .pageInner .work .workBox .workText {
-      margin: 20px 0 30px;
-      color: #bbb;
-      font-size: 14px;
-      font-weight: 100;
-      text-align: center;
-      line-height: 1.5em; }
-    .pageInner .work .workBox .viewBtn {
-      padding: 7px 40px;
-      color: #bbb;
-      border: 1px solid #bbb;
-      line-height: 24px;
-      transition: all .7s; }
-      .pageInner .work .workBox .viewBtn:hover {
-        background: #bbb;
-        color: #000;
-        font-weight: 700; }
-  .pageInner .work .control {
-    height: calc(50vh - 110px);
-    padding: 24px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+      font-size: 24px; }
+    .pageInner .about .skill .skillCopy .italic {
+      font-family: 'Noto Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px; }
+  .pageInner .about .skill .skillIcon {
+    width: 65.7458%;
+    margin: 0 auto 60px;
+    position: relative;
+    z-index: 400;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0;
-    transition: all 1s; }
-    .pageInner .work .control .controlBtn {
+    flex-wrap: wrap;
+    justify-content: center; }
+    .pageInner .about .skill .skillIcon li {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 50px;
       position: relative;
-      z-index: 351; }
-      .pageInner .work .control .controlBtn button {
+      margin-right: 35px; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(1) {
+        background: url("../img/skills_01.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(2) {
+        background: url("../img/skills_02.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(3) {
+        background: url("../img/skills_03.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(4) {
+        background: url("../img/skills_04.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(5) {
+        background: url("../img/skills_05.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(6) {
+        background: url("../img/skills_06.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(7) {
+        background: url("../img/skills_07.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(8) {
+        background: url("../img/skills_08.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:nth-of-type(9) {
+        background: url("../img/skills_09.jpg") no-repeat center center; }
+      .pageInner .about .skill .skillIcon li:last-of-type {
+        margin-right: 0; }
+      .pageInner .about .skill .skillIcon li:hover span {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1; }
+      .pageInner .about .skill .skillIcon li span {
+        padding: 3px 6px;
+        font-size: 12px;
+        font-weight: 100;
+        border-radius: 2px;
+        position: absolute;
+        left: 50%;
+        bottom: -23px;
+        transform: translateX(-50%) translateY(-5px);
+        color: #fff;
+        background: #000;
+        opacity: 0;
+        transition: .35s; }
+  .pageInner .about .skill .skillList {
+    width: 65.7458%;
+    margin: 0 auto;
+    padding: 30px 50px;
+    position: relative;
+    z-index: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .pageInner .about .skill .skillList > li {
+      width: 375px;
+      padding: 30px 30px 50px;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+      background: #fff;
+      transition: .35s; }
+      .pageInner .about .skill .skillList > li:hover {
+        box-shadow: 0 0 8px 5px rgba(155, 155, 155, 0.1); }
+      .pageInner .about .skill .skillList > li figure .skillNum {
         width: 32px;
         height: 32px;
-        border: 1px solid #565656;
-        box-sizing: border-box;
-        display: block; }
-      .pageInner .work .control .controlBtn .prev {
-        background: url("../img/control_prev.png") no-repeat center center; }
-      .pageInner .work .control .controlBtn .next {
-        background: url("../img/control_next.png") no-repeat center center; }
-    .pageInner .work .control .workNum {
-      position: relative;
-      z-index: 351; }
-      .pageInner .work .control .workNum span {
-        display: block;
-        font-size: 14px;
-        font-weight: bold; }
-      .pageInner .work .control .workNum .listNum {
-        margin-bottom: 20px;
-        color: #fff;
-        position: relative; }
-        .pageInner .work .control .workNum .listNum:after {
-          display: block;
-          content: '';
-          width: 24px;
-          height: 1px;
-          position: absolute;
-          background: #585858;
-          bottom: -10px;
-          right: -5px; }
-      .pageInner .work .control .workNum .total {
-        color: #585858; }
-    .pageInner .work .control .controlList {
-      width: 28px;
-      height: 28px;
-      padding: 1px;
-      background: url("../img/control_list.png") no-repeat center center;
-      outline: none;
-      position: relative;
-      z-index: 1000; }
-  .pageInner .work .workList {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+        border-radius: 50%;
+        border: 1px solid #333;
+        text-align: center;
+        line-height: 32px; }
+      .pageInner .about .skill .skillList > li figure figcaption {
+        margin: 24px 0 30px;
+        font-weight: bold;
+        font-size: 20px; }
+      .pageInner .about .skill .skillList > li figure ul {
+        width: 100%; }
+        .pageInner .about .skill .skillList > li figure ul li {
+          margin-bottom: 10px;
+          font-size: 14px;
+          line-height: 1.5em;
+          color: #585858;
+          position: relative;
+          text-indent: 18px;
+          white-space: pre-line; }
+          .pageInner .about .skill .skillList > li figure ul li:last-of-type {
+            margin-bottom: 0; }
+          .pageInner .about .skill .skillList > li figure ul li:after {
+            display: block;
+            content: '';
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            background: none;
+            background: url("../img/about_check.png") no-repeat center center;
+            background-size: contain;
+            left: 0;
+            top: 4px; }
+.pageInner .work .subTit {
+  top: 44vh; }
+.pageInner .work .workBox {
+  margin-right: 22%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-40%);
+  z-index: 351;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all .7s; }
+  .pageInner .work .workBox.active {
+    opacity: 1;
+    transform: translateY(-50%); }
+  .pageInner .work .workBox .workTit {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.2em;
+    color: #333;
+    text-align: right;
     position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 600;
-    display: none;
-    opacity: 0;
-    transition: 3s; }
-    .pageInner .work .workList.listBlock {
+    right: -240px;
+    top: 130px; }
+  .pageInner .work .workBox .workImg {
+    width: 720px;
+    height: 405px; }
+    .pageInner .work .workBox .workImg img {
+      width: 100%;
+      height: 100%; }
+  .pageInner .work .workBox .workSkill {
+    margin-top: 35px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center; }
+  .pageInner .work .workBox .workText {
+    margin: 20px 0 30px;
+    color: #bbb;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+    line-height: 1.5em; }
+  .pageInner .work .workBox .viewBtn {
+    padding: 7px 40px;
+    color: #bbb;
+    border: 1px solid #bbb;
+    line-height: 24px;
+    transition: all .7s; }
+    .pageInner .work .workBox .viewBtn:hover {
+      background: #bbb;
+      color: #000;
+      font-weight: 700; }
+.pageInner .work .control {
+  height: calc(50vh - 110px);
+  padding: 24px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: all 1s; }
+  .pageInner .work .control .controlBtn {
+    position: relative;
+    z-index: 351; }
+    .pageInner .work .control .controlBtn button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #565656;
+      box-sizing: border-box;
+      display: block; }
+    .pageInner .work .control .controlBtn .prev {
+      background: url("../img/control_prev.png") no-repeat center center; }
+    .pageInner .work .control .controlBtn .next {
+      background: url("../img/control_next.png") no-repeat center center; }
+  .pageInner .work .control .workNum {
+    position: relative;
+    z-index: 351; }
+    .pageInner .work .control .workNum span {
       display: block;
-      animation: block 1.2s forwards; }
+      font-size: 14px;
+      font-weight: bold; }
+    .pageInner .work .control .workNum .listNum {
+      margin-bottom: 20px;
+      color: #fff;
+      position: relative; }
+      .pageInner .work .control .workNum .listNum:after {
+        display: block;
+        content: '';
+        width: 24px;
+        height: 1px;
+        position: absolute;
+        background: #585858;
+        bottom: -10px;
+        right: -5px; }
+    .pageInner .work .control .workNum .total {
+      color: #585858; }
+  .pageInner .work .control .controlList {
+    width: 28px;
+    height: 28px;
+    padding: 1px;
+    background: url("../img/control_list.png") no-repeat center center;
+    outline: none;
+    position: relative;
+    z-index: 1000; }
+.pageInner .work .workList {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 600;
+  display: none;
+  opacity: 0;
+  transition: 3s; }
+  .pageInner .work .workList.listBlock {
+    display: block;
+    animation: block 1.2s forwards; }
 @keyframes block {
   10% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-    .pageInner .work .workList h3 {
-      padding: 100px 0 90px;
-      text-align: center;
-      color: #fff;
-      font-weight: bold;
-      font-size: 50px; }
-    .pageInner .work .workList ul {
-      margin: 0 auto;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+  .pageInner .work .workList h3 {
+    padding: 100px 0 90px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 50px; }
+  .pageInner .work .workList ul {
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden; }
+    .pageInner .work .workList ul li {
+      position: relative;
+      min-width: 350px;
+      height: 350px;
+      margin-right: 40px;
+      margin: 0 40px 40px 0;
       overflow: hidden; }
-      .pageInner .work .workList ul li {
-        position: relative;
-        min-width: 350px;
-        height: 350px;
-        margin-right: 40px;
-        margin: 0 40px 40px 0;
-        overflow: hidden; }
-        .pageInner .work .workList ul li figure {
+      .pageInner .work .workList ul li figure {
+        width: 100%;
+        height: 100%;
+        position: relative; }
+        .pageInner .work .workList ul li figure p {
           width: 100%;
           height: 100%;
-          position: relative; }
-          .pageInner .work .workList ul li figure p {
+          position: absolute;
+          left: 0;
+          top: 0; }
+          .pageInner .work .workList ul li figure p img {
             width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0; }
-            .pageInner .work .workList ul li figure p img {
-              width: 100%;
-              height: 100%; }
-          .pageInner .work .workList ul li figure figcaption {
-            width: 100%;
-            height: 100%;
-            padding-left: 40px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transform: translateY(0%);
-            transition: all .7s; }
-            .pageInner .work .workList ul li figure figcaption span {
-              font-size: 32px;
-              color: #fff;
-              font-weight: bold;
-              line-height: 1.2em; }
-            .pageInner .work .workList ul li figure figcaption .hashtag {
-              display: block;
-              margin-top: 50px;
-              font-size: 16px; }
-        .pageInner .work .workList ul li:nth-of-type(1) figure figcaption {
-          background: #9c33ff; }
-        .pageInner .work .workList ul li:nth-of-type(2) figure figcaption {
-          background: #206cc2; }
-        .pageInner .work .workList ul li:nth-of-type(3) figure figcaption {
-          background: #febf00; }
+            height: 100%; }
+        .pageInner .work .workList ul li figure figcaption {
+          width: 100%;
+          height: 100%;
+          padding-left: 40px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translateY(0%);
+          transition: all .7s; }
+          .pageInner .work .workList ul li figure figcaption span {
+            font-size: 32px;
+            color: #fff;
+            font-weight: bold;
+            line-height: 1.2em; }
+          .pageInner .work .workList ul li figure figcaption .hashtag {
+            display: block;
+            margin-top: 50px;
+            font-size: 16px; }
+      .pageInner .work .workList ul li:nth-of-type(1) figure figcaption {
+        background: #9c33ff; }
+      .pageInner .work .workList ul li:nth-of-type(2) figure figcaption {
+        background: #206cc2; }
+      .pageInner .work .workList ul li:nth-of-type(3) figure figcaption {
+        background: #febf00; }
+      .pageInner .work .workList ul li:last-of-type {
+        margin-right: 0; }
         .pageInner .work .workList ul li:last-of-type figure figcaption {
           background: #666666; }
-        .pageInner .work .workList ul li:last-of-type .listBtn {
-          display: none; }
-        .pageInner .work .workList ul li:hover figure figcaption {
-          transform: translateY(100%); }
-        .pageInner .work .workList ul li:hover:last-of-type figure figcaption {
-          transform: translateY(0%); }
-        .pageInner .work .workList ul li:hover .listBtn {
-          opacity: 1;
-          transition-delay: .2s; }
-        .pageInner .work .workList ul li .listBtn {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          padding: 7px 40px;
-          color: #fff;
-          border: 1px solid #fff;
-          line-height: 24px;
-          opacity: 0;
-          transition: all .7s;
-          outline: none; }
-          .pageInner .work .workList ul li .listBtn:hover {
-            background: rgba(255, 255, 255, 0.1); }
+      .pageInner .work .workList ul li:last-of-type .listBtn {
+        display: none; }
+      .pageInner .work .workList ul li:hover figure figcaption {
+        transform: translateY(100%); }
+      .pageInner .work .workList ul li:hover:last-of-type figure figcaption {
+        transform: translateY(0%); }
+      .pageInner .work .workList ul li:hover .listBtn {
+        opacity: 1;
+        transition-delay: .2s; }
+      .pageInner .work .workList ul li .listBtn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 7px 40px;
+        color: #fff;
+        border: 1px solid #fff;
+        line-height: 24px;
+        opacity: 0;
+        transition: all .7s;
+        outline: none; }
+        .pageInner .work .workList ul li .listBtn:hover {
+          background: rgba(255, 255, 255, 0.1); }
 
 .popup {
   width: 100%;
@@ -627,7 +765,6 @@ main {
       font-weight: bold;
       font-size: 26px;
       color: #b0b0b0;
-      font-style: italic;
       font-weight: lighter;
       transform: translateY(50px);
       opacity: 0;
@@ -709,9 +846,12 @@ main {
     width: 1580px;
     opacity: 1; } }
       .popup .popContents .videoBox .video {
-        width: 940px;
+        width: 900px;
         height: 480px;
         background: #666; }
+        .popup .popContents .videoBox .video video {
+          width: 100%;
+          height: 100%; }
     .popup .popContents .inlineB {
       display: inline-block; }
     .popup .popContents .codepen, .popup .popContents .photo {

@@ -14,6 +14,12 @@ $portColor : #d5d3d5;
 @mixin background($url){
     background: url("../img/"+$url)no-repeat center center;
 }
+@mixin italic($s){
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: $s;
+}
 @mixin transition7s(){
     transition: all .7s;
 }
@@ -81,4 +87,12 @@ $portColor : #d5d3d5;
 @mixin workPhoto(){
     @include inSubBox();
     background: $gsColor;
+}
+@mixin overflowY(){
+    overflow-y: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+        }
 }
