@@ -1,12 +1,11 @@
 window.addEventListener('DOMContentLoaded', function () {
-    let jsonData, jsonData2, mouseEnterX, mouseEnterY,
+    let jsonData, jsonData2, jsonData3,
         workIdx = 0,
         mainCheck = '',
         wheelCheck = true,
         changeCheck = true,
         popHeight = $(window).innerHeight(),
         boxMax = 80;
-
 
 
     //work JSON파일 로드
@@ -17,11 +16,11 @@ window.addEventListener('DOMContentLoaded', function () {
         success: function (data) {
             jsonData = data.works;
             jsonData2 = data.lists;
+            jsonData3 = data.videos;
             $('.total').text('0' + (jsonData.length));
             workListData(); //workList에 JSON데이터 넣고 data-work값 변경
         }
     });
-    videoPause(); //video 정지
 
 
     //이벤트 등록
@@ -31,9 +30,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
     $('.menuBtn').on('click', menuIn); //메뉴버튼 클릭시 메뉴 슬라이드
     $('.menuList').on('click', pageChange); //메뉴 클릭시 서브 페이지로 전환
-    $('.mainMenu ul li').on('mousemove', float);
-
-    $('.main').on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
+    $('.pageInner').on('wheel', menuSlide); //메인 스크롤 시 메뉴화면으로 슬라이드
     $('.controlBtn button').on('click', workChange); // work페이지에서 버튼 클릭시 다음 컨텐츠 내용으로 변경
     $('.work').on('wheel', workChange); // work페이지에서 스크롤시 다음 컨텐츠 내용으로 변경
     $('.controlList').on('click', listShow); //work 페이지에서 list 버튼 클릭시 리스트 display: block
@@ -43,39 +40,6 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.top').on('click', goTop);
 
 
-    function float(e) {
-
-        // let pageWidth = $(this).parent().innerWidth();
-        // let pageHeight = $(this).parent().innerheight();
-        mouseEnterX = e.pageX;
-        mouseEnterY = e.pageY;
-
-
-        let aa = $(this).find('.menuMove').offset().left;
-        let bb = $(this).find('.menuMove').offset().top;
-
-        // console.log("a:::" + a);
-        // console.log("b:::" + b);
-
-
-        console.log((mouseEnterX - aa));
-
-        // console.log(mouseEnter);
-        // console.log(mousePosition);
-        // let a = mousePositionX - mouseEnterX,
-        //     b = mousePositionY - mouseEnterY;
-        // console.log(a);
-
-        $(this).find('.menuMove').css({
-            // position: 'absolute',
-            left: (mouseEnterX - aa) + 100,
-            top: (mouseEnterY - bb) + 100,
-            // zIndex: 1000
-
-        });
-
-
-    }
 
     //페이지 전환 함수
     function pageChange(clickPage) {
@@ -128,6 +92,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 break;
         }
     }
+
     //컬러박스 애니메이션
     function aboutAni() { //about페이지 애니메이션
         $('.main').css({ display: 'none' });
@@ -157,6 +122,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     $('.sub.about .subCopy').css({
                         opacity: 1
                     });
+                    $('.down').addClass('set');
+                    $('.down').css({opacity:1});
                 }, 800);
 
             });
@@ -169,7 +136,7 @@ window.addEventListener('DOMContentLoaded', function () {
         $('.pageColor').stop().animate({
             width: '100%',
             height: '100%',
-            right: 0,
+            right: 0
         }, 800, function () {
             $('.pageColor').animate({
                 height: '0%',
@@ -183,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () {
                     $('.pageColor').animate({
                         width: '100%',
-                        height: '50%',
+                        height: '50%'
                     }, 1000, function () {
                         transition('.pageColor', '1s');
                         $('.control').css({
@@ -202,7 +169,7 @@ window.addEventListener('DOMContentLoaded', function () {
         $('.pageColor').stop().animate({
             width: '100%',
             height: '100%',
-            right: 0,
+            right: 0
         }, 800, function () {
             $('.pageColor').stop().animate({
                 width: 0
@@ -213,7 +180,12 @@ window.addEventListener('DOMContentLoaded', function () {
                     $('.sub.contact .subTit h2').css({
                         transform: 'translateY(0%)'
                     });
-                });
+                    setTimeout(function () {
+                        $('.info').css({
+                            opacity: 1
+                        });
+                    }, 1000);
+                }, 100);
             });
         });
     }
@@ -229,7 +201,7 @@ window.addEventListener('DOMContentLoaded', function () {
             right: 0
         }, 800, function () {
             $('.pageColor').animate({
-                width: '0%',
+                width: '0%'
             }, 1000, function () {
                 $('.pageColor').css({
                     background: '#080233'
@@ -277,6 +249,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function boxSize() {
         let aboutScroll = $(this).scrollTop(),
             boxWidth = boxMax - (aboutScroll * 0.2);
+        aboutScroll != 0 ? $('.down').css({opacity:0}) : $('.down').css({opacity:1});
         if (boxWidth <= 0) {
             boxWidth = 0;
         }
@@ -348,6 +321,12 @@ window.addEventListener('DOMContentLoaded', function () {
             $('.popup').each(function () {
                 if ($(this).hasClass(workName)) {
                     $(this).addClass('on');
+                    let popNum = $(this).index() - 2;
+                    $(this).find('.video video').each(function (i) {
+                        let srcNum = "src" + String(i);
+                        $(this).attr('src', jsonData3[popNum][srcNum]);
+                        $(this).trigger('pause');
+                    });
                 }
             });
         }
@@ -369,35 +348,23 @@ window.addEventListener('DOMContentLoaded', function () {
         videoBoxAni();
         contentsAni();
         visitBtnAni(e);
-    }
-    function videoBoxAni() {
-        $('.videoBox').each(function () {
-            if ($(this).offset().top <= popHeight) {
-                $(this).addClass('in');
-            }
-        });
         videoStart();
     }
-    function videoPause() {
-        $('video').each(function () {
-            $(this).trigger('pause');
-        });
-    }
-    function videoStart() {
-        $('video').each(function (i) {
-            if ($('video').eq(i).parent().parent().hasClass('in')) {
-                $(this).trigger('play');
+    function videoBoxAni() {
+        if (!$('.on').hasClass('portfolio')) {
+            if ($('.on').find('.videoBox').offset().top <= popHeight) {
+                $('.on').find('.videoBox').addClass('in');
             }
-        });
-
+        }
     }
     function contentsAni() {
-        $('.inlineB').each(function () {
+        $('.on').find('.inlineB').each(function () {
             if ($(this).offset().top <= popHeight) {
                 $(this).addClass('in');
                 $(this).parent().find('.contentText').addClass('in');
             }
         });
+
     }
     function visitBtnAni(e) {
         let scrTop = e.target.scrollTop;
@@ -420,6 +387,14 @@ window.addEventListener('DOMContentLoaded', function () {
         } else {
             $('.scrollPop').removeClass('opacity');
         }
+    }
+    function videoStart() {
+        $('video').each(function () {
+            if ($(this).parent().parent().hasClass('in')) {
+                $(this).trigger('play');
+            }
+        });
+
     }
     function goTop() {
         $('.popup').animate({

@@ -223,6 +223,9 @@ main{
             font-weight: 100;
         }
     }
+    .down{
+        display: none;
+    }
 }
 //page (+pageColor)
 .pageInner{
@@ -256,8 +259,7 @@ main{
         z-index: 200;
     }
     .main{
-        // display: none;
-
+        //display: none;
         position: relative;
         overflow: hidden;
         left: 0;
@@ -299,12 +301,12 @@ main{
             }
         }
         .mainMenu{
-            width: 60%;
+            width: 55%;
             position: absolute;
             left: 10%;
             top: 50%;
             transform: translateY(-50%);
-            // overflow: hidden;
+            overflow: hidden;
             z-index: 201;
             ul{
                 width: 100%;
@@ -313,17 +315,17 @@ main{
                 transform: translateY(200%);
                 @include transition7s();
                 li{
-                    .menuMove{
-                        font-weight: bold;
-                        font-size: 4.5rem;
-                        color: #fff;
-                        position: relative;
-                        left: 0;
-                        top: 0;
-                    }
                     cursor: pointer;
-                    position: relative;
-                   
+                    font-family: 'Noto Serif', serif;
+                    font-size: 3.5vw;
+                    color: #fff;
+                    opacity: .6;
+                    transform: translateY(0);
+                    transition: all .3s;
+                    &:hover{
+                        transform: translateY(-5px);
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -355,6 +357,7 @@ main{
             transition: all 2s;
             .italic{
                 @include italic(16px);
+                font-weight: bold;
             }
             .subText{
                 p{
@@ -779,6 +782,31 @@ main{
     }
     //contact page
     .contact{
+        .info{
+            width: 40%;
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition:all .5s;
+            ul{
+                margin-bottom: 50px;
+                li{
+                    margin-bottom: 20px;
+                    .tit{
+                        font-size: 18px;
+                        width: 85px;
+                        margin-right: 30px;
+                        font-weight: bold;
+                    }
+                }
+            }
+            p{
+                line-height: 1.5em;
+                margin-bottom: 10px;
+            }
+        }
     }
 }
 //work page popup (common)
@@ -891,6 +919,14 @@ main{
                 }
             }
         }
+        .videoBox2{
+            .video{
+                video{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
         .inlineB{
             display: inline-block;
         }
@@ -951,11 +987,13 @@ main{
         .top{
             width: 100%;
             height: 60px;
-            background: #eee url(../img/top.png) no-repeat center center;
+            background: #eee url('../img/top.png') no-repeat center center;
             text-indent: -9999px;
             transition: .3s;
+            outline: none;
             &:hover{
-                background: #999 url(../img/top.png) no-repeat center center;            }
+                background: #999 url('../img/top.png') no-repeat center center;
+            }
         }
     }
     .closer{
@@ -1211,23 +1249,9 @@ main{
         .visualBox{
             @include background('portfolio_visual.jpg');
         }
-        .videoBox{
-            background: $portColor;
-            video{
-                
-            }
-        }
-        .animateBox{
-            @include popSubBox();
-            .codepen{
-               @include inSubBox();
-            }
-            .contentText{
-                @include inTextBox();
-            }
-        }
         .jsonBox{
             @include popSubBox();
+            margin: 180px auto 180px;
             display: flex;
             flex-direction: row-reverse;
             .videoBox2{
@@ -1289,6 +1313,126 @@ main{
             &:hover{
                 background: $portColor;
             }
+        }
+    }
+}
+@media all and (max-width:1024px){
+    .scrollDown{
+        display: none;
+    }
+    .about .down{
+        width: 24px;
+        height: 28px;
+        display: block;
+        position: absolute;
+        left: calc(50% - 12px);
+        bottom: 20px;
+        z-index: 400;
+        @include background('down.png');
+        opacity: 0;
+        &.set{
+            animation: move 1s infinite alternate-reverse;
+            @keyframes move{
+                100%{
+                    bottom: 40px;
+                }
+            }
+        }
+        
+    }
+    .pageInner .about .skill {
+        .skillIcon{
+            width: 80%;
+            li{
+                &:nth-of-type(5){
+                    margin-right: 0;
+                }
+            }
+        } 
+        .skillList{
+            width: 80%;
+            padding: 0;
+            >li{
+                width: 48%;
+                figure ul li{
+                    white-space: unset;
+                }
+            }
+        }
+    }
+    .pageInner .contact {
+        .subTit{
+            left: 50%;
+            top: 20%;
+            transform: translateX(-50%);
+        }
+        .info{
+            width: 80%;
+            right: 50%;
+            top: 47%;
+            transform: translateX(50%);
+            ul{
+                width: 58%;
+                margin: 0 auto 50px;
+                li{
+                    margin-bottom: 20px;
+                    span{
+                        width: 60%;
+                        text-align: center;
+                    }
+                    .tit{
+                        width: 40%;
+                        margin-right: 0;
+                    }
+                }
+            } 
+            p{
+                text-align: center;
+            }
+        }
+    }
+    .pageInner .work {
+        .subTit{
+            width: 100%;
+            left: 0%;
+            top: 20%;
+            h2{text-align: center;}
+        }
+        .workBox{
+            margin-right: 0;
+            left: 0%;
+            top: 53%;
+            .workTit{
+                display: none;
+            }
+        }
+        .workList ul li{
+            &:nth-of-type(2n){
+                margin-right: 0;
+            }
+        }
+    }
+    .popup{
+        .popMain{
+            height: 76vh;
+            padding: 20vh 10vw;
+            .copyBox ul{
+                margin-top: 80px;
+                li{
+                    &:nth-of-type(1){
+                        width: 26%;
+                    }
+                    &:nth-of-type(2){
+                        width: 23%;
+                    }
+                    &:nth-of-type(3){
+                        width: 48%;
+                    }
+                }
+            }
+        }
+        .popContents{
+            height: 24vh;
         }
     }
 }

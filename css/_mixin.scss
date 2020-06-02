@@ -35,12 +35,12 @@ $portColor : #d5d3d5;
     font-size: $size;
 }
 @mixin popBox(){
-    width: 1580px;
+    width: 80%;
     height: 700px;
     margin: 180px auto;
 }
 @mixin popSubBox(){
-    width: 1580px;
+    width: 80%;
     margin: 0 auto 180px;
 }
 @mixin popUp(){
