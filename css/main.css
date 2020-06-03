@@ -342,7 +342,7 @@ main {
     overflow: hidden;
     z-index: 201; }
     .pageInner .main .mainMenu ul {
-      width: 100%;
+      width: 80%;
       display: flex;
       justify-content: space-between;
       transform: translateY(200%);
@@ -351,6 +351,7 @@ main {
         cursor: pointer;
         font-family: 'Noto Serif', serif;
         font-size: 3.5vw;
+        font-style: italic;
         color: #fff;
         opacity: .6;
         transform: translateY(0);
