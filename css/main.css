@@ -672,8 +672,8 @@ main {
     overflow: hidden; }
     .pageInner .work .workList ul li {
       position: relative;
-      min-width: 350px;
-      height: 350px;
+      min-width: 18vw;
+      height: 18vw;
       margin-right: 40px;
       margin: 0 40px 40px 0;
       overflow: hidden; }
@@ -705,14 +705,14 @@ main {
           transform: translateY(0%);
           transition: all .7s; }
           .pageInner .work .workList ul li figure figcaption span {
-            font-size: 32px;
+            font-size: 1.6vw;
             color: #fff;
             font-weight: bold;
             line-height: 1.2em; }
           .pageInner .work .workList ul li figure figcaption .hashtag {
             display: block;
             margin-top: 50px;
-            font-size: 16px; }
+            font-size: 1vw; }
       .pageInner .work .workList ul li:nth-of-type(1) figure figcaption {
         background: #9c33ff; }
       .pageInner .work .workList ul li:nth-of-type(2) figure figcaption {
@@ -856,7 +856,6 @@ main {
       width: 100%;
       height: 530px; }
     .popup .popContents .videoBox {
-      width: 80%;
       height: 700px;
       margin: 180px auto;
       display: flex;
@@ -868,11 +867,11 @@ main {
         animation: in 1s 0.5s forwards; }
 @keyframes in {
   100% {
-    width: 1580px;
+    width: 80%;
     opacity: 1; } }
       .popup .popContents .videoBox .video {
-        width: 900px;
-        height: 480px;
+        width: 50%;
+        height: 50%;
         background: #666; }
         .popup .popContents .videoBox .video video {
           width: 100%;
@@ -968,7 +967,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
   .stranger .popContents .onepageBox .contentText.in {
     transform: translateX(500px);
@@ -998,7 +997,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
     .stranger .popContents .responBox .videoBox2 .video:nth-of-type(1) {
       width: 175px;
@@ -1030,7 +1029,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
   .stranger .popContents .resjsBox .contentText.in {
     transform: translateX(500px);
@@ -1067,7 +1066,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
     .gsbio .popContents .problemBox .photo img {
       display: inline-block;
@@ -1109,7 +1108,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
   .gsbio .popContents .standardBox .contentText {
     margin-left: 0;
@@ -1133,7 +1132,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
   .gsbio .popContents .responsiveBox .contentText.in {
     transform: translateX(500px);
@@ -1163,7 +1162,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
     .gsbio .popContents .responBox .videoBox2 .video:nth-of-type(1) {
       width: 175px;
@@ -1218,7 +1217,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
     .portfolio .popContents .jsonBox .videoBox2 .video {
       width: 100%;
@@ -1250,7 +1249,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 880px;
+    width: 80%;
     opacity: 1; } }
     .portfolio .popContents .eventBox .photo img {
       width: 100%;
@@ -1268,6 +1267,31 @@ main {
   .portfolio .viewSite .visit:hover {
     background: #d5d3d5; }
 
+@media all and (max-width: 1340px) {
+  .pageInner .work .subTit {
+    width: 100%;
+    left: 0%;
+    top: 20%; }
+    .pageInner .work .subTit h2 {
+      text-align: center; }
+  .pageInner .work .workBox {
+    margin-right: 0;
+    left: 0%;
+    top: 53%; }
+    .pageInner .work .workBox .workTit {
+      display: none; }
+    .pageInner .work .workBox .workImg {
+      width: 600px;
+      height: 337px; }
+  .pageInner .work .workList ul li {
+    min-width: 29vw;
+    height: 29vw; }
+    .pageInner .work .workList ul li:nth-of-type(2n) {
+      margin-right: 0; }
+    .pageInner .work .workList ul li figure figcaption span {
+      font-size: 2.4vw; }
+    .pageInner .work .workList ul li figure figcaption .hashtag {
+      font-size: 1.5vw; } }
 @media all and (max-width: 1024px) {
   .scrollDown {
     display: none; }
@@ -1322,18 +1346,6 @@ main {
     .pageInner .contact .info p {
       text-align: center; }
 
-  .pageInner .work .subTit {
-    width: 100%;
-    left: 0%;
-    top: 20%; }
-    .pageInner .work .subTit h2 {
-      text-align: center; }
-  .pageInner .work .workBox {
-    margin-right: 0;
-    left: 0%;
-    top: 53%; }
-    .pageInner .work .workBox .workTit {
-      display: none; }
   .pageInner .work .workList ul li:nth-of-type(2n) {
     margin-right: 0; }
 
@@ -1348,7 +1360,119 @@ main {
         width: 23%; }
       .popup .popMain .copyBox ul li:nth-of-type(3) {
         width: 48%; }
-  .popup .popContents {
-    height: 24vh; } }
+  .popup .popContents .visualBox {
+    height: 24vh; }
+  .popup .popContents .flexBox {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto 140px; }
+    .popup .popContents .flexBox .contentText {
+      margin: 50px 0 0 0; }
+      .popup .popContents .flexBox .contentText figcaption, .popup .popContents .flexBox .contentText p {
+        text-align: center; }
+  .popup .popContents .videoBox {
+    height: 600px;
+    margin: 140px auto; }
+    .popup .popContents .videoBox.in {
+      width: 0;
+      opacity: 0;
+      animation: in 1s 0.5s forwards; }
+  @keyframes in {
+    100% {
+      width: 90%;
+      opacity: 1; } }
+    .popup .popContents .videoBox .video {
+      width: 86%;
+      height: 65%; }
+
+  .stranger .popContents .visualBox {
+    background: url("../img/stranger_visual_1024.jpg") no-repeat center center; }
+  .stranger .popContents .onepageBox .codepen.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .stranger .popContents .responBox .videoBox2.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .stranger .popContents .resjsBox .codepen.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .gsbio .popContents .visualBox {
+    background: url("../img/gsbio_visual_1024.jpg") no-repeat center center; }
+  .gsbio .popContents .problemBox .photo {
+    margin-top: 140px; }
+    .gsbio .popContents .problemBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .gsbio .popContents .problemBox .contentText {
+    margin: 50px 0 0 0; }
+    .gsbio .popContents .problemBox .contentText figcaption, .gsbio .popContents .problemBox .contentText p {
+      text-align: center; }
+    .gsbio .popContents .problemBox .contentText a {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%); }
+  .gsbio .popContents .standardBox .photo.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .gsbio .popContents .responsiveBox .codepen.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .portfolio .popContents .visualBox {
+    background: url("../img/portfolio_visual_1024.jpg") no-repeat center center; }
+  .portfolio .popContents .jsonBox {
+    margin-top: 140px; }
+    .portfolio .popContents .jsonBox .videoBox2.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .portfolio .popContents .eventBox .photo.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } } }
+@media all and (max-width: 909px) {
+  .pageInner .about .skill .skillIcon {
+    width: 80%; }
+    .pageInner .about .skill .skillIcon li:nth-of-type(4) {
+      margin-right: 35px; }
+    .pageInner .about .skill .skillIcon li:nth-of-type(5) {
+      margin-right: 35px; } }
 
 /*# sourceMappingURL=main.css.map */

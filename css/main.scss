@@ -677,8 +677,8 @@ main{
                 overflow: hidden;
                 li{
                     position: relative;
-                    min-width: 350px;
-                    height: 350px;
+                    min-width: 18vw;
+                    height: 18vw;
                     margin-right: 40px;
                     margin: 0 40px 40px 0;
                     overflow: hidden;
@@ -712,7 +712,7 @@ main{
                             transform: translateY(0%);
                             @include transition7s();
                             span{
-                                font-size: 32px;
+                                font-size: 1.6vw; //32px
                                 color: #fff;
                                 font-weight: bold;
                                 line-height: 1.2em;
@@ -720,7 +720,7 @@ main{
                             .hashtag{
                                 display: block;
                                 margin-top: 50px;
-                                font-size: 16px;
+                                font-size: 1vw; //16px
                             }
                         }
 
@@ -898,20 +898,9 @@ main{
             display: flex;
             justify-content: center;
             align-items: center;
-            &.in{
-                width: 0;
-                opacity: 0;
-                animation: in 1s 0.5s forwards;
-                @keyframes in{
-                    100%{
-                        width: 1580px;
-                        opacity: 1;
-                    }
-                }
-            }
             .video{
-                width: 900px;
-                height: 480px;
+                width: 50%; //900px
+                height: 50%; //480px
                 background: #666;
                 video{
                     width: 100%;
@@ -1316,6 +1305,44 @@ main{
         }
     }
 }
+@media all and (max-width:1340px){
+    .pageInner .work {
+        .subTit{
+            width: 100%;
+            left: 0%;
+            top: 20%;
+            h2{text-align: center;}
+        }
+        .workBox{
+            margin-right: 0;
+            left: 0%;
+            top: 53%;
+            .workTit{
+                display: none;
+            }
+            .workImg{
+                width: 600px;
+                height: 337px;
+            }
+        }
+        .workList ul li{
+            min-width: 29vw;
+            height: 29vw;
+            &:nth-of-type(2n){
+                margin-right: 0;
+            }
+            figure figcaption{
+                span{
+                    font-size: 2.4vw;
+                }
+                .hashtag{
+                    font-size: 1.5vw;
+                }
+            }
+        }
+    }
+
+}
 @media all and (max-width:1024px){
     .scrollDown{
         display: none;
@@ -1392,20 +1419,6 @@ main{
         }
     }
     .pageInner .work {
-        .subTit{
-            width: 100%;
-            left: 0%;
-            top: 20%;
-            h2{text-align: center;}
-        }
-        .workBox{
-            margin-right: 0;
-            left: 0%;
-            top: 53%;
-            .workTit{
-                display: none;
-            }
-        }
         .workList ul li{
             &:nth-of-type(2n){
                 margin-right: 0;
@@ -1432,7 +1445,115 @@ main{
             }
         }
         .popContents{
-            height: 24vh;
+            .visualBox{
+                height: 24vh;
+            }
+            .flexBox{
+                flex-direction: column;
+                width: 90%;
+                margin: 0 auto 140px;
+                .contentText{
+                    margin: 50px 0 0 0;
+                    figcaption,p{
+                        text-align: center;
+                    }
+                }
+            }
+            .videoBox{
+                @include popBox1024();
+                .video{
+                    width: 86%;
+                    height: 65%;
+                }
+            }
         }
     }
+    .stranger .popContents{
+        .visualBox{
+            @include background('stranger_visual_1024.jpg');
+        }
+        .onepageBox{
+            .codepen{
+                @include inSubBox1024();
+            }
+        }
+        .responBox{
+            .videoBox2{                    
+                @include inSubBox1024();
+            }
+        }
+        .resjsBox{
+            .codepen{
+                @include inSubBox1024();
+            }
+            
+        }
+    }
+    .gsbio .popContents{
+        .visualBox{
+            @include background('gsbio_visual_1024.jpg');
+        }
+        .problemBox{
+            .photo{
+                @include inSubBox1024();
+                margin-top: 140px;
+            }
+            .contentText{
+                margin: 50px 0 0 0;
+                figcaption,p{
+                    text-align: center;
+                }
+                a{
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+        .standardBox{
+            .photo{                    
+                @include inSubBox1024();
+            }
+        }
+        .responsiveBox{
+            .codepen{
+                @include inSubBox1024();
+            }
+            
+        }
+    }
+    .portfolio .popContents{
+        .visualBox{
+            @include background('portfolio_visual_1024.jpg');
+        }
+        .jsonBox{
+            margin-top: 140px;
+            .videoBox2{
+                @include inSubBox1024();
+            }
+        }
+        .eventBox{
+            .photo{                    
+                @include inSubBox1024();
+            }
+        }
+    }
+}
+@media all and (max-width:909px){
+    .pageInner .about .skill {
+        .skillIcon{
+            width: 80%;
+            li{
+                &:nth-of-type(4){
+                    margin-right: 35px;
+                }
+                &:nth-of-type(5){
+                    margin-right: 35px;
+                }
+            }
+        } 
+    }
+}
+@media all and (max-width:786px){
+
 }

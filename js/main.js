@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', function () {
         changeCheck = true,
         popHeight = $(window).innerHeight(),
         boxMax = 80;
+    const mediaQuery = window.matchMedia('screen and (max-width:1024px)');
+
 
 
     //work JSON파일 로드
@@ -100,7 +102,7 @@ window.addEventListener('DOMContentLoaded', function () {
         transition('.pageColor', '0s');
         $('.pageColor').stop().animate({
             width: '100%',
-            height: 'calc(100vh - 110px)',
+            height: '100%',
             right: 0
         }, 800, function () {
             $('.pageColor').animate({
@@ -123,7 +125,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         opacity: 1
                     });
                     $('.down').addClass('set');
-                    $('.down').css({opacity:1});
+                    $('.down').css({ opacity: 1 });
                 }, 800);
 
             });
@@ -249,7 +251,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function boxSize() {
         let aboutScroll = $(this).scrollTop(),
             boxWidth = boxMax - (aboutScroll * 0.2);
-        aboutScroll != 0 ? $('.down').css({opacity:0}) : $('.down').css({opacity:1});
+        aboutScroll != 0 ? $('.down').css({ opacity: 0 }) : $('.down').css({ opacity: 1 });
         if (boxWidth <= 0) {
             boxWidth = 0;
         }
@@ -312,9 +314,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //work popup페이지 관련 함수
     function popupOn() {
+        let workName = $(this).attr('data-work');
+
         resetAni(); //애니메이션 초기화
         $('.scrollDown').addClass('scrollPop');
-        let workName = $(this).attr('data-work');
+        if (mediaQuery.matches){
+            $('.scrollDown').show().css({bottom:'24vh'});
+        }
         if (workName == 'new') {
             alert("페이지 준비중입니다.");
         } else {
@@ -332,6 +338,9 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function popupOff() {
+        if (mediaQuery.matches){
+            $('.scrollDown').hide();
+        }
         $('.scrollDown').removeClass('scrollPop');
         $('.popup').each(function () {
             if ($(this).hasClass('on')) {

@@ -35,14 +35,40 @@ $portColor : #d5d3d5;
     font-size: $size;
 }
 @mixin popBox(){
-    width: 80%;
     height: 700px;
     margin: 180px auto;
+    &.in{
+        width: 0;
+        opacity: 0;
+        animation: in 1s 0.5s forwards;
+        @keyframes in{
+            100%{
+                width: 80%;
+                opacity: 1;
+            }
+        }
+    }
 }
 @mixin popSubBox(){
     width: 80%;
     margin: 0 auto 180px;
 }
+@mixin popBox1024(){
+    height: 600px;
+    margin: 140px auto;
+    &.in{
+        width: 0;
+        opacity: 0;
+        animation: in 1s 0.5s forwards;
+        @keyframes in{
+            100%{
+                width: 90%;
+                opacity: 1;
+            }
+        }
+    }
+}
+
 @mixin popUp(){
     transform: translateY(50px);
     opacity: 0;
@@ -64,12 +90,24 @@ $portColor : #d5d3d5;
         animation: subIn 0.7s 0.3s forwards;
         @keyframes subIn{
             100%{
-                width: 880px;
+                width: 80%;
                 opacity: 1;
             }
         }
     }
-    
+}
+@mixin inSubBox1024(){
+    &.in{
+        width: 0;
+        opacity: 0;
+        animation: subIn 0.7s 0.3s forwards;
+        @keyframes subIn{
+            100%{
+                width: 100%;
+                opacity: 1;
+            }
+        }
+    }
 }
 @mixin inTextBox(){
     &.in{
