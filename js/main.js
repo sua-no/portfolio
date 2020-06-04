@@ -42,7 +42,6 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.top').on('click', goTop);
 
 
-
     //페이지 전환 함수
     function pageChange(clickPage) {
         if (event.target != window) { //클릭한 페이지로  전환
@@ -318,8 +317,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
         resetAni(); //애니메이션 초기화
         $('.scrollDown').addClass('scrollPop');
-        if (mediaQuery.matches){
-            $('.scrollDown').show().css({bottom:'24vh'});
+        if (mediaQuery.matches) {
+            $('.scrollDown').show().css({ bottom: '24vh' });
         }
         if (workName == 'new') {
             alert("페이지 준비중입니다.");
@@ -338,7 +337,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function popupOff() {
-        if (mediaQuery.matches){
+        if (mediaQuery.matches) {
             $('.scrollDown').hide();
         }
         $('.scrollDown').removeClass('scrollPop');
@@ -354,6 +353,7 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
     function scrollAni(e) { //스크롤 시 컨텐츠 내용 보이는 애니메이션
+
         videoBoxAni();
         contentsAni();
         visitBtnAni(e);
@@ -373,7 +373,9 @@ window.addEventListener('DOMContentLoaded', function () {
                 $(this).parent().find('.contentText').addClass('in');
             }
         });
+        // $('.stranger .codepen p').eq(0).on('mouseenter', function (e) {
 
+        // });
     }
     function visitBtnAni(e) {
         let scrTop = e.target.scrollTop;
@@ -404,6 +406,10 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+    }
+    function popupStop() {
+        console.log($(this));
+        console.log($(this).parent().find('.popup'));
     }
     function goTop() {
         $('.popup').animate({
