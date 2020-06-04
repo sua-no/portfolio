@@ -900,8 +900,8 @@ main{
             justify-content: center;
             align-items: center;
             .video{
-                width: 50%; //900px
-                height: 50%; //480px
+                width: 61%; //900px
+                height: 65%; //480px
                 background: #666;
                 video{
                     width: 100%;
@@ -1038,13 +1038,13 @@ main{
                 align-items: center;
                 @include inSubBox();
                 .video:nth-of-type(1){
-                    width: 175px;
-                    height: 300px;
+                    width: 180px;
+                    height: 310px;
                     background: #565656;
                 }
                 .video:nth-of-type(2){
-                    width: 280px;
-                    height: 410px;
+                    width: 270px;
+                    height: 370px;
                     background: #565656;
                 }
             }
@@ -1175,7 +1175,7 @@ main{
             flex-direction: row-reverse;
             .videoBox2{
                 width: 680px;
-                height: 640px;
+                height: 510px;
                 padding: 0 50px;
                 box-sizing: border-box;
                 background: $gsColor;
@@ -1183,15 +1183,14 @@ main{
                 justify-content: space-around;
                 align-items: center;
                 @include inSubBox();
-
                 .video:nth-of-type(1){
-                    width: 175px;
-                    height: 300px;
+                    width: 180px;
+                    height: 310px;
                     background: #565656;
                 }
                 .video:nth-of-type(2){
-                    width: 280px;
-                    height: 410px;
+                    width: 270px;
+                    height: 370px;
                     background: #565656;
                 }
             }
@@ -1269,14 +1268,14 @@ main{
                 margin-right: 80px;
                 &.in{
                     transform: translateX(-500px);
-                            opacity: 0;
-                            animation: textIn 1.5s 1.5s forwards;
-                            @keyframes textIn{
-                                100%{
-                                    transform: translateX(0);
-                                    opacity: 1;
-                                }
-                            }
+                    opacity: 0;
+                    animation: textIn 1.5s 1.5s forwards;
+                    @keyframes textIn{
+                        100%{
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
@@ -1554,7 +1553,4 @@ main{
             }
         } 
     }
-}
-@media all and (max-width:786px){
-
 }

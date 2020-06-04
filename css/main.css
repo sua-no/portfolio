@@ -871,8 +871,8 @@ main {
     width: 80%;
     opacity: 1; } }
       .popup .popContents .videoBox .video {
-        width: 50%;
-        height: 50%;
+        width: 61%;
+        height: 65%;
         background: #666; }
         .popup .popContents .videoBox .video video {
           width: 100%;
@@ -968,7 +968,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
   .stranger .popContents .onepageBox .contentText.in {
     transform: translateX(500px);
@@ -998,15 +998,15 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
     .stranger .popContents .responBox .videoBox2 .video:nth-of-type(1) {
-      width: 175px;
-      height: 300px;
+      width: 180px;
+      height: 310px;
       background: #565656; }
     .stranger .popContents .responBox .videoBox2 .video:nth-of-type(2) {
-      width: 280px;
-      height: 410px;
+      width: 270px;
+      height: 370px;
       background: #565656; }
   .stranger .popContents .responBox .contentText {
     margin-left: 0;
@@ -1030,7 +1030,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
   .stranger .popContents .resjsBox .contentText.in {
     transform: translateX(500px);
@@ -1067,7 +1067,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
     .gsbio .popContents .problemBox .photo img {
       display: inline-block;
@@ -1109,7 +1109,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
   .gsbio .popContents .standardBox .contentText {
     margin-left: 0;
@@ -1133,7 +1133,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
   .gsbio .popContents .responsiveBox .contentText.in {
     transform: translateX(500px);
@@ -1150,7 +1150,7 @@ main {
   flex-direction: row-reverse; }
   .gsbio .popContents .responBox .videoBox2 {
     width: 680px;
-    height: 640px;
+    height: 510px;
     padding: 0 50px;
     box-sizing: border-box;
     background: #cfdae6;
@@ -1163,15 +1163,15 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
     .gsbio .popContents .responBox .videoBox2 .video:nth-of-type(1) {
-      width: 175px;
-      height: 300px;
+      width: 180px;
+      height: 310px;
       background: #565656; }
     .gsbio .popContents .responBox .videoBox2 .video:nth-of-type(2) {
-      width: 280px;
-      height: 410px;
+      width: 270px;
+      height: 370px;
       background: #565656; }
   .gsbio .popContents .responBox .contentText {
     margin-left: 0;
@@ -1218,7 +1218,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
     .portfolio .popContents .jsonBox .videoBox2 .video {
       width: 100%;
@@ -1250,7 +1250,7 @@ main {
       animation: subIn 0.7s 0.3s forwards; }
 @keyframes subIn {
   100% {
-    width: 80%;
+    width: 60%;
     opacity: 1; } }
     .portfolio .popContents .eventBox .photo img {
       width: 100%;
