@@ -371,11 +371,29 @@ window.addEventListener('DOMContentLoaded', function () {
             if ($(this).offset().top <= popHeight) {
                 $(this).addClass('in');
                 $(this).parent().find('.contentText').addClass('in');
+                if ($(this)[0].className == 'codepen inlineB scrollHidden in') {
+                    $('.codepen').on('mouseenter', function (e) { //stranger codepen에서 스크롤 제거
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $('.popup.stranger').css({
+                            overflow: 'hidden', width: '99.1%'
+                        });
+                        $('.popup.stranger').find('.popMain').css({
+                            visibility: 'hidden'
+                        })
+                    });
+                
+                    $('.codepen').on('mouseleave', function (e) {
+                        $('.popup.stranger').css({
+                            overflow: 'auto', width: '100%'
+                        });
+                        $('.popup.stranger').find('.popMain').css({
+                            visibility: 'visible'
+                        });
+                    });
+                }
             }
         });
-        // $('.stranger .codepen p').eq(0).on('mouseenter', function (e) {
-
-        // });
     }
     function visitBtnAni(e) {
         let scrTop = e.target.scrollTop;
