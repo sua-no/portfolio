@@ -1132,7 +1132,10 @@ main{
             @include popSubBox();
             .photo{
                @include workPhoto();
-               img{}
+               img{
+                   width: 100%;
+                   height: 100%;
+               }
             }
             .contentText{
                 margin-left: 0;
@@ -1150,11 +1153,22 @@ main{
                 }
             }
         }
-        .responsiveBox{
+        .popstateBox{
             @include popSubBox();
-            .codepen{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .videoBox2{
                 background: $gsColor;
                 @include inSubBox();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 50px;
+                box-sizing: border-box;
+                .video{
+                    width: 80%;
+                }
             }
             .contentText{
                 @include inTextBox();
@@ -1498,8 +1512,8 @@ main{
                 @include inSubBox1024();
             }
         }
-        .responsiveBox{
-            .codepen{
+        .popstateBox{
+            .video{
                 @include inSubBox1024();
             }
             

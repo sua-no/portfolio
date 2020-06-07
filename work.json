@@ -59,11 +59,12 @@
         },
         {
             "src0": "img/work_video/gsbio_01.mp4",
-            "src1": "img/work_video/gsbio_02.mp4",
-            "src2": "img/work_video/gsbio_03.mp4"
+            "src1": "img/work_video/popstate.mp4",
+            "src2": "img/work_video/gsbio_02.mp4",
+            "src3": "img/work_video/gsbio_03.mp4"
         },
         {
-            "src0": "img/work_video/portfolio_01.mp4"
+            "src0": "img/work_video/portfolio_json.mp4"
         }
     ]
 }
