@@ -19,9 +19,15 @@
             "text": "저의 작업물을 소개하는 포트폴리오 사이트 입니다."
         },
         {
+            "title": "네이버 로그인, 회원가입",
+            "img": "img/work_04.jpg",
+            "skill": "HTML/SCSS/JS/JSON/PHP/MYSQL",
+            "text": "네이버의 로그인, 회원가입을 클론 코딩하였습니다."
+        },
+        {
             "title": "새로운 프로젝트",
             "img": "img/work_new.jpg",
-            "skill": "HTML/SCSS/JS/Jquery/JSON/PHP",
+            "skill": "",
             "text": "작업중입니다."
         }
     ],
@@ -40,13 +46,19 @@
         },
         {
             "title": "포트폴리오 사이트",
-            "hash": "#세번째 프로젝트<br>#작업중입니다",
+            "hash": "#세번째 프로젝트<br>#랜딩페이지",
             "img": "img/work_list_03.jpg",
             "work": "portfolio"
         },
         {
+            "title": "네이버<br>로그인, 회원가입",
+            "hash": "#네번째 프로젝트<br>#데이터베이스",
+            "img": "img/work_list_04.jpg",
+            "work": "naver"
+        },
+        {
             "title": "새로운 프로젝트",
-            "hash": "#네번째 프로젝트<br>#작업중입니다",
+            "hash": "#다섯번째 프로젝트<br>#작업중입니다",
             "img": "img/work_list_new.jpg",
             "work": "new"
         }

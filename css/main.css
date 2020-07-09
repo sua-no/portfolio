@@ -648,7 +648,11 @@ main {
   z-index: 600;
   display: none;
   opacity: 0;
-  transition: 3s; }
+  transition: 3s;
+  overflow-y: scroll;
+  -ms-overflow-style: none; }
+  .pageInner .work .workList::-webkit-scrollbar {
+    display: none; }
   .pageInner .work .workList.listBlock {
     display: block;
     animation: block 1.2s forwards; }
@@ -673,8 +677,8 @@ main {
     overflow: hidden; }
     .pageInner .work .workList ul li {
       position: relative;
-      min-width: 18vw;
-      height: 18vw;
+      min-width: 22vw;
+      height: 22vw;
       margin-right: 40px;
       margin: 0 40px 40px 0;
       overflow: hidden; }
@@ -720,6 +724,8 @@ main {
         background: #206cc2; }
       .pageInner .work .workList ul li:nth-of-type(3) figure figcaption {
         background: #febf00; }
+      .pageInner .work .workList ul li:nth-of-type(4) figure figcaption {
+        background: #03c75a; }
       .pageInner .work .workList ul li:last-of-type {
         margin-right: 0; }
         .pageInner .work .workList ul li:last-of-type figure figcaption {
@@ -1258,6 +1264,74 @@ main {
   .portfolio .viewSite .visit:hover {
     background: #d5d3d5; }
 
+.naver .popMain {
+  background: #03c75a; }
+  .naver .popMain .copyBox .mainCopy > p {
+    color: #333; }
+.naver .popContents .visualBox {
+  background: url("../img/naver_visual.jpg") no-repeat center center; }
+.naver .popContents .regexpBox {
+  width: 80%;
+  margin: 0 auto 180px;
+  margin-top: 180px; }
+  .naver .popContents .regexpBox .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .naver .popContents .regexpBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 60%;
+    opacity: 1; } }
+    .naver .popContents .regexpBox .photo img {
+      width: 100%; }
+  .naver .popContents .regexpBox .contentText.in {
+    transform: translateX(500px);
+    opacity: 0;
+    animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.naver .popContents .phpBox {
+  width: 80%;
+  margin: 0 auto 180px;
+  margin-top: 180px;
+  display: flex;
+  flex-direction: row-reverse; }
+  .naver .popContents .phpBox .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .naver .popContents .phpBox .photo.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+@keyframes subIn {
+  100% {
+    width: 60%;
+    opacity: 1; } }
+    .naver .popContents .phpBox .photo img {
+      width: 100%; }
+  .naver .popContents .phpBox .contentText {
+    margin-left: 0;
+    margin-right: 80px; }
+    .naver .popContents .phpBox .contentText.in {
+      transform: translateX(500px);
+      opacity: 0;
+      animation: textIn 0.7s 1s forwards; }
+@keyframes textIn {
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+.naver .viewSite .visit {
+  background: #03c75a; }
+  .naver .viewSite .visit:hover {
+    background: #75f5ae; }
+
 @media all and (max-width: 1340px) {
   .pageInner .work .subTit {
     width: 100%;
@@ -1443,6 +1517,26 @@ main {
       width: 100%;
       opacity: 1; } }
   .portfolio .popContents .eventBox .photo.in {
+    width: 0;
+    opacity: 0;
+    animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .naver .popContents .visualBox {
+    background: url("../img/naver_visual_1024.jpg") no-repeat center center; }
+  .naver .popContents .regexpBox {
+    margin-top: 140px; }
+    .naver .popContents .regexpBox .videoBox2.in {
+      width: 0;
+      opacity: 0;
+      animation: subIn 0.7s 0.3s forwards; }
+  @keyframes subIn {
+    100% {
+      width: 100%;
+      opacity: 1; } }
+  .naver .popContents .phpBox .photo.in {
     width: 0;
     opacity: 0;
     animation: subIn 0.7s 0.3s forwards; }

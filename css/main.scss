@@ -649,6 +649,11 @@ main{
             display: none;
             opacity: 0;
             transition: 3s;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            &::-webkit-scrollbar {
+                display:none;
+            }
             &.listBlock{
                 display: block;
                 animation: block 1.2s forwards;
@@ -678,8 +683,8 @@ main{
                 overflow: hidden;
                 li{
                     position: relative;
-                    min-width: 18vw;
-                    height: 18vw;
+                    min-width: 22vw;
+                    height: 22vw;
                     margin-right: 40px;
                     margin: 0 40px 40px 0;
                     overflow: hidden;
@@ -740,7 +745,13 @@ main{
                         figure figcaption{
                             background: #febf00;
                         }
-                    }&:last-of-type{
+                    }
+                    &:nth-of-type(4){
+                        figure figcaption{
+                            background: #03c75a;
+                        }
+                    }
+                    &:last-of-type{
                         margin-right: 0;
                         figure figcaption{
                             background: rgb(102, 102, 102);
@@ -1308,6 +1319,66 @@ main{
         }
     }
 }
+//naver
+.naver{
+    .popMain{
+        background: $naverMainColor;
+        .copyBox{
+            .mainCopy>p{
+                color: #333;
+            }
+        }
+    }
+    .popContents{
+        .visualBox{
+            @include background('naver_visual.jpg');
+        }
+        .regexpBox{
+            @include popSubBox();
+            margin-top: 180px;
+            .photo{
+                @include inSubBox();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                }
+            }
+            .contentText{
+                @include inTextBox();
+            }
+        }
+        .phpBox{
+            @include popSubBox();
+            margin-top: 180px;
+            display: flex;
+            flex-direction: row-reverse;
+            .photo{
+                @include inSubBox();
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                }
+            }
+            .contentText{
+                @include inTextBox();
+                margin-left: 0;
+                margin-right: 80px;
+            }
+        }
+    }
+    .viewSite{
+        .visit{
+            background: $naverMainColor;
+            &:hover{
+                background: $naverColor;
+            }
+        }
+    }
+}
 @media all and (max-width:1340px){
     .pageInner .work {
         .subTit{
@@ -1530,6 +1601,22 @@ main{
             }
         }
         .eventBox{
+            .photo{                    
+                @include inSubBox1024();
+            }
+        }
+    }
+    .naver .popContents{
+        .visualBox{
+            @include background('naver_visual_1024.jpg');
+        }
+        .regexpBox{
+            margin-top: 140px;
+            .videoBox2{
+                @include inSubBox1024();
+            }
+        }
+        .phpBox{
             .photo{                    
                 @include inSubBox1024();
             }

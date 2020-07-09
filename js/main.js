@@ -353,18 +353,19 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
     function scrollAni(e) { //스크롤 시 컨텐츠 내용 보이는 애니메이션
-
         videoBoxAni();
         contentsAni();
         visitBtnAni(e);
         videoStart();
     }
     function videoBoxAni() {
-        if (!$('.on').hasClass('portfolio')) {
-            if ($('.on').find('.videoBox').offset().top <= popHeight) {
-                $('.on').find('.videoBox').addClass('in');
+        try{
+            if (!$('.on').hasClass('portfolio')) {
+                if ($('.on').find('.videoBox').offset().top <= popHeight) {
+                    $('.on').find('.videoBox').addClass('in');
+                }
             }
-        }
+        }catch{}
     }
     function contentsAni() {
         $('.on').find('.inlineB').each(function () {
@@ -424,10 +425,6 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-    }
-    function popupStop() {
-        console.log($(this));
-        console.log($(this).parent().find('.popup'));
     }
     function goTop() {
         $('.popup').animate({
