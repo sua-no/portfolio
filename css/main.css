@@ -726,6 +726,8 @@ main {
         background: #febf00; }
       .pageInner .work .workList ul li:nth-of-type(4) figure figcaption {
         background: #03c75a; }
+      .pageInner .work .workList ul li:nth-of-type(5) figure figcaption {
+        background: #060f2c; }
       .pageInner .work .workList ul li:last-of-type {
         margin-right: 0; }
         .pageInner .work .workList ul li:last-of-type figure figcaption {
@@ -1332,6 +1334,19 @@ main {
   .naver .viewSite .visit:hover {
     background: #75f5ae; }
 
+.bluehouse .popMain {
+  background: #060f2c; }
+  .bluehouse .popMain .copyBox .mainCopy > p {
+    color: #fff; }
+.bluehouse .popContents .visualBox {
+  background: url("../img/bluehouse_visual.jpg") no-repeat center center; }
+.bluehouse .popContents .videoBox {
+  background: #060f2c; }
+.bluehouse .viewSite .visit {
+  background: #007ab9; }
+  .bluehouse .viewSite .visit:hover {
+    background: #060f2c; }
+
 @media all and (max-width: 1340px) {
   .pageInner .work .subTit {
     width: 100%;
@@ -1543,7 +1558,9 @@ main {
   @keyframes subIn {
     100% {
       width: 100%;
-      opacity: 1; } } }
+      opacity: 1; } }
+  .bluehouse .popContents .visualBox {
+    background: url("../img/bluehouse_visual_1024.jpg") no-repeat center center; } }
 @media all and (max-width: 909px) {
   .pageInner .about .skill .skillIcon {
     width: 80%; }

@@ -329,6 +329,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     let popNum = $(this).index() - 2;
                     $(this).find('.video video').each(function (i) {
                         let srcNum = "src" + String(i);
+                        if(popNum == 4){popNum = 3}
                         $(this).attr('src', jsonData3[popNum][srcNum]);
                         $(this).trigger('pause');
                     });

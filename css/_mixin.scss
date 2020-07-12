@@ -5,6 +5,9 @@ $portMainColor : #febf00;
 $portColor : #d5d3d5;
 $naverMainColor : #03c75a;
 $naverColor : #75f5ae;
+$bluehouseMainColor : #060f2c;
+$bluehouseColor : #007ab9;
+
 @mixin after($width,$height,$back){
         display: block;
         content: '';

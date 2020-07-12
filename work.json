@@ -25,6 +25,12 @@
             "text": "네이버의 로그인, 회원가입을 클론 코딩하였습니다."
         },
         {
+            "title": "대한민국<br>청와대 사이트",
+            "img": "img/work_05.jpg",
+            "skill": "HTML/SCSS/JS/Jquery/JSON",
+            "text": "대한민국 청와대 웹사이트를 클론 코딩하였습니다."
+        },
+        {
             "title": "새로운 프로젝트",
             "img": "img/work_new.jpg",
             "skill": "",
@@ -57,8 +63,14 @@
             "work": "naver"
         },
         {
+            "title": "대한민국<br>청와대 사이트",
+            "hash": "#다섯번째 프로젝트<br>#관공서 사이트",
+            "img": "img/work_list_05.jpg",
+            "work": "bluehouse"
+        },
+        {
             "title": "새로운 프로젝트",
-            "hash": "#다섯번째 프로젝트<br>#작업중입니다",
+            "hash": "#여섯번째 프로젝트<br>#작업중입니다",
             "img": "img/work_list_new.jpg",
             "work": "new"
         }
@@ -77,6 +89,9 @@
         },
         {
             "src0": "img/work_video/portfolio_json.mp4"
+        },
+        {
+            "src0": "img/work_video/bluehouse.mp4"
         }
     ]
 }

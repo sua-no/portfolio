@@ -751,6 +751,11 @@ main{
                             background: #03c75a;
                         }
                     }
+                    &:nth-of-type(5){
+                        figure figcaption{
+                            background: #060f2c;
+                        }
+                    }
                     &:last-of-type{
                         margin-right: 0;
                         figure figcaption{
@@ -1379,6 +1384,33 @@ main{
         }
     }
 }
+//bluehouse
+.bluehouse{
+    .popMain{
+        background: $bluehouseMainColor;
+        .copyBox .mainCopy>p{
+            color: #fff;
+        }
+    }
+    .popContents{
+        .visualBox{
+            @include background('bluehouse_visual.jpg');
+        }
+        .videoBox{
+            background: $bluehouseMainColor;
+        }        
+    }
+    .viewSite{
+        .visit{
+            background: $bluehouseColor;
+            &:hover{
+                background: $bluehouseMainColor;
+            }
+        }
+    }
+}
+
+//media query
 @media all and (max-width:1340px){
     .pageInner .work {
         .subTit{
@@ -1620,6 +1652,11 @@ main{
             .photo{                    
                 @include inSubBox1024();
             }
+        }
+    }
+    .bluehouse .popContents{
+        .visualBox{
+            @include background('bluehouse_visual_1024.jpg');
         }
     }
 }
